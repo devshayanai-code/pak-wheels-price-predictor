@@ -481,7 +481,9 @@ async function onSubmit(event) {
   }
 }
 
-function fillExample(car) {
+async function fillExample(car) {
+  await optionsReady;  // on slow internet a tile can be clicked before the dropdowns are filled
+  if (!options) return;
   $("make").value = car.make;
   showModels(car.model);
   for (const field of ["year", "mileage", "engine_cc", "fuel", "transmission", "city"]) $(field).value = car[field];
@@ -505,7 +507,8 @@ $("nav-links").addEventListener("click", (e) => {
 });
 window.addEventListener("scroll", () => $("nav").classList.toggle("solid", window.scrollY > 40), { passive: true });
 
-loadOptions().catch(() => renderError({ connection: "Car options could not be loaded. Refresh the page to try again." }));
+const optionsReady = loadOptions().catch(() =>
+  renderError({ connection: "Car options could not be loaded. Refresh the page to try again." }));
 </script>
 </body>
 </html>
