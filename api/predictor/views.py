@@ -15,8 +15,10 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         metrics = services.get_metrics()
+        listings = services.get_listings()
         context.update(
-            n_listings=f"{len(services.get_listings()):,}",
+            n_listings=f"{len(listings):,}",
+            n_cities=listings.loc[listings["city"] != "Other", "city"].nunique(),
             error_percent=round(metrics["test"]["test_mape_%"]),
             model_name=metrics["best_model"].replace("_", " ").title(),
         )
