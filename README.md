@@ -22,7 +22,9 @@ tests/           automated tests
 ```powershell
 python -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
+
+`requirements.txt` holds only what the live app needs; `requirements-dev.txt` adds charting and testing tools.
 
 Author: Shayan Ali Shah

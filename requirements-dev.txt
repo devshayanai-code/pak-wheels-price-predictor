@@ -1,0 +1,5 @@
+# Extra tools for development only (charts and tests) - not needed on the server
+-r requirements.txt
+matplotlib==3.11.0
+seaborn==0.13.2
+pytest

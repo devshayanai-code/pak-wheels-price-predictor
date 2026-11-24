@@ -1,10 +1,6 @@
-pandas
-numpy
-scikit-learn
-xgboost
-shap
-joblib
-matplotlib
-seaborn
-jupyter
-pytest
+# Needed to run the model in production (Render installs these)
+# Versions are pinned so the saved model loads exactly as it was trained
+pandas==3.0.3
+numpy==2.4.4
+scikit-learn==1.9.0
+joblib==1.5.3

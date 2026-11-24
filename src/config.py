@@ -19,6 +19,12 @@ FIGURES_DIR = ROOT_DIR / "reports" / "figures"
 MODELS_DIR = ROOT_DIR / "models"
 MODEL_PATH = MODELS_DIR / "car_price_model.joblib"
 
+METRICS_PATH = ROOT_DIR / "reports" / "metrics.json"
+
+# Model inputs
+CATEGORICAL_FEATURES = ["make", "model", "fuel", "transmission", "city"]
+NUMERIC_FEATURES = ["year", "mileage", "engine_cc"]
+
 # Training settings
 TARGET = "price"  # column we predict; confirmed after inspecting the data
 TEST_SIZE = 0.2  # 20% of rows held back to test the model
