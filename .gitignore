@@ -1,0 +1,18 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets (API keys, passwords)
+.env
+
+# Setup output
+setup_log.txt
+
+# Editor
+.vscode/
