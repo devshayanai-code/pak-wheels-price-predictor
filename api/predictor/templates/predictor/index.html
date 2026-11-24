@@ -344,6 +344,7 @@
 <script>
 const $ = (id) => document.getElementById(id);
 let options = null;
+let latestRequest = 0;  // only the newest estimate is shown if several are sent quickly
 
 // Never put raw text into the page as HTML (protects against script injection)
 function escapeHtml(text) {
@@ -458,6 +459,7 @@ async function onSubmit(event) {
   delete car.asking;
   for (const field of ["year", "mileage", "engine_cc"]) car[field] = Number(car[field]);
 
+  const requestId = ++latestRequest;
   const button = $("submit");
   button.disabled = true;
   button.textContent = "Estimating...";
@@ -470,12 +472,15 @@ async function onSubmit(event) {
       body: JSON.stringify(car),
     });
     const data = await response.json();
+    if (requestId !== latestRequest) return;  // a newer request has replaced this one
     response.ok ? renderResult(data, car, asking) : renderError(data);
     if (window.innerWidth < 960) $("result").scrollIntoView({ behavior: "smooth" });
   } catch {
+    if (requestId !== latestRequest) return;
     renderError({ connection: "The server could not be reached. Check your internet and try again." });
   } finally {
     clearTimeout(slowNotice);
+    if (requestId !== latestRequest) return;
     button.disabled = false;
     button.textContent = "Estimate price";
   }
