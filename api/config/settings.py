@@ -14,7 +14,8 @@ ROOT_DIR = API_DIR.parent
 sys.path.insert(0, str(ROOT_DIR))
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-only-insecure-key-change-me")
-DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+# Safe by default: debug pages only when DJANGO_DEBUG=True is set on purpose
+DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
 INSTALLED_APPS = [
@@ -38,9 +39,11 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],  # public demo API, no login
     "DEFAULT_PERMISSION_CLASSES": [],
     "UNAUTHENTICATED_USER": None,
-    # Limit abuse of the free server: at most 60 predictions per minute per visitor
-    "DEFAULT_THROTTLE_CLASSES": ["rest_framework.throttling.AnonRateThrottle"],
-    "DEFAULT_THROTTLE_RATES": {"anon": "60/min"},
+    # Limit abuse of the free server: only views that set a throttle_scope are limited
+    "DEFAULT_THROTTLE_CLASSES": ["rest_framework.throttling.ScopedRateThrottle"],
+    "DEFAULT_THROTTLE_RATES": {"predict": "60/min"},
+    # Render sits in front of the app as 1 proxy; trust only its visitor IP header
+    "NUM_PROXIES": 1,
 }
 
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}

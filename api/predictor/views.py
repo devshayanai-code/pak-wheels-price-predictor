@@ -23,6 +23,8 @@ class OptionsView(APIView):
 class PredictView(APIView):
     """POST /api/predict/ - send a car as JSON, get back its estimated price."""
 
+    throttle_scope = "predict"  # at most 60 predictions per minute per visitor
+
     def post(self, request):
         serializer = CarInputSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)  # bad input -> 400 with clear messages

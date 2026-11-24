@@ -1,11 +1,11 @@
 # Needed to run the model in production (Render installs these)
-# ML versions are pinned so the saved model loads exactly as it was trained
+# Versions are pinned so the saved model loads exactly as it was trained
 pandas==3.0.3
 numpy==2.4.4
 scikit-learn==1.9.0
 joblib==1.5.3
 
 # Web API
-Django>=5.2,<7
-djangorestframework>=3.15
+Django==5.2.5
+djangorestframework==3.16.1
 gunicorn>=23  # production web server on Render (Linux only; not used on Windows)

@@ -1,0 +1,19 @@
+# Render "Blueprint": tells Render how to build and run the API, including safe settings.
+services:
+  - type: web
+    name: pakwheels-price-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # 1 worker keeps memory inside the free plan's limit
+    startCommand: cd api && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 1
+    healthCheckPath: /api/health/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DJANGO_SECRET_KEY
+        generateValue: true  # Render creates a random secret; it never appears in the code
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: .onrender.com  # the leading dot allows any *.onrender.com address
