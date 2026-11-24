@@ -15,6 +15,12 @@ CIVIC = {
 }
 
 
+def test_home_page_shows_the_form():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b"Estimate price" in response.content
+
+
 def test_health_returns_ok():
     response = client.get("/api/health/")
     assert response.status_code == 200

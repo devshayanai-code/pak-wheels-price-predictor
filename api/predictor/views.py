@@ -1,9 +1,26 @@
 """HTTP endpoints. Each view only checks input and returns JSON; services.py does the ML work."""
+from django.views.generic import TemplateView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from . import services
 from .serializers import CarInputSerializer
+
+
+class HomePageView(TemplateView):
+    """GET / - the website visitors use; it calls the API endpoints below."""
+
+    template_name = "predictor/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        metrics = services.get_metrics()
+        context.update(
+            n_listings=f"{len(services.get_listings()):,}",
+            error_percent=round(metrics["test"]["test_mape_%"]),
+            model_name=metrics["best_model"].replace("_", " ").title(),
+        )
+        return context
 
 
 class HealthView(APIView):

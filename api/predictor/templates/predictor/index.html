@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Used Car Price Estimator · Pakistan</title>
+<meta name="description" content="Estimate the fair market price of a used car in Pakistan with a machine learning model trained on {{ n_listings }} real listings.">
+<style>
+  :root {
+    --ink: #14213d; --muted: #5c6b85; --line: #dfe4ee; --bg: #f5f7fb; --card: #fff;
+    --brand: #0b6e4f; --brand-soft: #e3f4ec; --warn: #b4540a; --warn-soft: #fdf0e2;
+    --bad: #b3261e; --bad-soft: #fbe7e5; --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         color: var(--ink); background: var(--bg); line-height: 1.5; }
+  header { background: var(--ink); color: #fff; padding: 36px 20px 64px; }
+  header .wrap, main { max-width: 980px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  header p { margin: 0; color: #c9d3e6; }
+  main { padding: 0 20px 40px; margin-top: -40px; display: grid; gap: 20px;
+         grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) { main { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+          padding: 24px; box-shadow: 0 4px 18px rgba(20, 33, 61, .06); }
+  h2 { margin: 0 0 16px; font-size: 1.15rem; }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .full { grid-column: 1 / -1; }
+  label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: 4px; }
+  input, select { width: 100%; padding: 10px 12px; font: inherit; color: var(--ink);
+                  border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  input:focus, select:focus { outline: 2px solid var(--brand); border-color: transparent; }
+  .hint { font-size: .78rem; color: var(--muted); margin-top: 3px; }
+  button { grid-column: 1 / -1; padding: 13px; font: inherit; font-weight: 700; color: #fff;
+           background: var(--brand); border: 0; border-radius: 10px; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .placeholder { color: var(--muted); text-align: center; padding: 40px 10px; }
+  .price { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin: 4px 0; }
+  .range { color: var(--muted); margin: 0 0 18px; }
+  .verdict { padding: 12px 14px; border-radius: 10px; font-weight: 600; margin-bottom: 18px; }
+  .good { background: var(--brand-soft); color: var(--brand); }
+  .fair { background: var(--warn-soft); color: var(--warn); }
+  .high { background: var(--bad-soft); color: var(--bad); }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: .8rem; }
+  .error { background: var(--bad-soft); color: var(--bad); padding: 12px 14px; border-radius: 10px; }
+  .about { grid-column: 1 / -1; font-size: .92rem; color: var(--muted); }
+  .about strong, .about h2 { color: var(--ink); }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 20px 30px; }
+  footer a { color: var(--brand); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Used Car Price Estimator · Pakistan</h1>
+    <p>Machine learning model trained on {{ n_listings }} real used-car listings. Typical error: ±{{ error_percent }}%.</p>
+  </div>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="form-title">
+    <h2 id="form-title">Describe the car</h2>
+    <form id="car-form" novalidate>
+      <div>
+        <label for="make">Make</label>
+        <select id="make" name="make" required></select>
+      </div>
+      <div>
+        <label for="model">Model</label>
+        <select id="model" name="model" required></select>
+      </div>
+      <div>
+        <label for="year">Year</label>
+        <input id="year" name="year" type="number" value="2018" required>
+      </div>
+      <div>
+        <label for="mileage">Mileage (km)</label>
+        <input id="mileage" name="mileage" type="number" min="0" value="60000" required>
+      </div>
+      <div>
+        <label for="engine_cc">Engine (cc)</label>
+        <input id="engine_cc" name="engine_cc" type="number" min="0" value="1800" required>
+        <div class="hint">Use 0 for electric cars</div>
+      </div>
+      <div>
+        <label for="fuel">Fuel</label>
+        <select id="fuel" name="fuel" required></select>
+      </div>
+      <div>
+        <label for="transmission">Transmission</label>
+        <select id="transmission" name="transmission" required></select>
+      </div>
+      <div>
+        <label for="city">City</label>
+        <select id="city" name="city"></select>
+      </div>
+      <div class="full">
+        <label for="asking">Asking price (PKR, optional)</label>
+        <input id="asking" name="asking" type="number" min="0" placeholder="e.g. 5200000">
+        <div class="hint">Add the seller's price to see if it is a good deal</div>
+      </div>
+      <button id="submit" type="submit">Estimate price</button>
+    </form>
+  </section>
+
+  <section class="card" aria-live="polite" id="result">
+    <h2>Estimated price</h2>
+    <p class="placeholder">Fill in the car details and press <strong>Estimate price</strong>.</p>
+  </section>
+
+  <section class="card about">
+    <h2>How it works</h2>
+    <p>The listings were cleaned (duplicates, typos and impossible values removed), then
+      <strong>Ridge regression, Random Forest and Gradient Boosting</strong> were compared with
+      5-fold cross-validation. The best model ({{ model_name }}) is served by a
+      <strong>Django REST API</strong>: <code>POST /api/predict/</code>. The price range reflects
+      the model's average error on cars it never saw during training.</p>
+  </section>
+</main>
+
+<footer>
+  Built by Shayan Ali Shah · Data: public PakWheels listings · Estimates are guidance, not valuations.
+</footer>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let options = null;
+
+// Never put raw text into the page as HTML (protects against script injection)
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = String(text);
+  return div.innerHTML;
+}
+
+function formatPKR(value) {
+  if (value >= 10_000_000) return `PKR ${(value / 10_000_000).toFixed(2)} crore`;
+  return `PKR ${(value / 100_000).toFixed(1)} lakh`;
+}
+
+function fillSelect(select, values, selected) {
+  select.innerHTML = values.map((v) => `<option>${escapeHtml(v)}</option>`).join("");
+  if (selected && values.includes(selected)) select.value = selected;
+}
+
+function showModels(selected) {
+  fillSelect($("model"), options.makes[$("make").value], selected);
+}
+
+async function loadOptions() {
+  const response = await fetch("/api/options/");
+  options = await response.json();
+  fillSelect($("make"), Object.keys(options.makes), "Honda");
+  showModels("Civic");
+  fillSelect($("fuel"), options.fuels, "Petrol");
+  fillSelect($("transmission"), options.transmissions, "Automatic");
+  fillSelect($("city"), options.cities, "Lahore");
+  const [minYear, maxYear] = options.year_range;
+  $("year").min = minYear;
+  $("year").max = maxYear + 1;
+}
+
+function dealVerdict(asking, range) {
+  if (!asking) return "";
+  if (asking < range.low) return `<div class="verdict good">Good deal: the asking price is below the usual range.</div>`;
+  if (asking > range.high) return `<div class="verdict high">Overpriced: the asking price is above the usual range.</div>`;
+  return `<div class="verdict fair">Fair price: the asking price is within the usual range.</div>`;
+}
+
+function renderResult(data, asking) {
+  const rows = data.similar_listings.map((car) =>
+    `<tr><td>${car.year}</td><td>${car.mileage.toLocaleString()} km</td><td>${escapeHtml(car.city)}</td><td>${formatPKR(car.price)}</td></tr>`
+  ).join("");
+  const similar = rows
+    ? `<h2>Similar real listings</h2><table><thead><tr><th>Year</th><th>Mileage</th><th>City</th><th>Price</th></tr></thead><tbody>${rows}</tbody></table>`
+    : `<p class="hint">No similar listings of this model in the data.</p>`;
+  $("result").innerHTML = `
+    <h2>Estimated price</h2>
+    <div class="price">${formatPKR(data.predicted_price)}</div>
+    <p class="range">Likely range: ${formatPKR(data.price_range.low)} – ${formatPKR(data.price_range.high)}
+       (±${data.typical_error_percent}%)</p>
+    ${dealVerdict(asking, data.price_range)}
+    ${similar}`;
+}
+
+function renderError(errors) {
+  const messages = Object.entries(errors).map(([field, msg]) => `<li><strong>${escapeHtml(field)}</strong>: ${escapeHtml([].concat(msg).join(" "))}</li>`);
+  $("result").innerHTML = `<h2>Estimated price</h2><div class="error"><ul>${messages.join("")}</ul></div>`;
+}
+
+async function onSubmit(event) {
+  event.preventDefault();
+  const form = new FormData($("car-form"));
+  const car = Object.fromEntries(form);
+  const asking = Number(car.asking) || 0;
+  delete car.asking;
+  for (const field of ["year", "mileage", "engine_cc"]) car[field] = Number(car[field]);
+
+  const button = $("submit");
+  button.disabled = true;
+  button.textContent = "Estimating...";
+  // Free hosting sleeps when idle; tell the user if the first request is slow
+  const slowNotice = setTimeout(() => { button.textContent = "Waking up the server (up to a minute)..."; }, 4000);
+  try {
+    const response = await fetch("/api/predict/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(car),
+    });
+    const data = await response.json();
+    response.ok ? renderResult(data, asking) : renderError(data);
+  } catch {
+    renderError({ network: "Could not reach the server. Please try again." });
+  } finally {
+    clearTimeout(slowNotice);
+    button.disabled = false;
+    button.textContent = "Estimate price";
+  }
+}
+
+$("make").addEventListener("change", () => showModels());
+$("car-form").addEventListener("submit", onSubmit);
+loadOptions().catch(() => renderError({ network: "Could not load car options. Please refresh." }));
+</script>
+</body>
+</html>

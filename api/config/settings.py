@@ -13,7 +13,11 @@ ROOT_DIR = API_DIR.parent
 # Let the API import the ML code in src/ (e.g. src.config)
 sys.path.insert(0, str(ROOT_DIR))
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-only-insecure-key-change-me")
+from django.core.management.utils import get_random_secret_key
+
+# Render provides the key; if it is missing, a random one is made at startup.
+# That is safe here because the API stores no sessions, logins or signed data.
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY") or get_random_secret_key()
 # Safe by default: debug pages only when DJANGO_DEBUG=True is set on purpose
 DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
@@ -21,6 +25,14 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").sp
 INSTALLED_APPS = [
     "rest_framework",
     "predictor",
+]
+
+# The website (one HTML page) is served by Django from predictor/templates/
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "APP_DIRS": True,
+    }
 ]
 
 MIDDLEWARE = [
