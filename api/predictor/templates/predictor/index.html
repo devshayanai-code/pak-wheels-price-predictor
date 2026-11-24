@@ -464,7 +464,9 @@ async function onSubmit(event) {
   button.disabled = true;
   button.textContent = "Estimating...";
   // Free hosting sleeps when idle; tell the user if the first request is slow
-  const slowNotice = setTimeout(() => { button.textContent = "Waking up the server (up to a minute)..."; }, 4000);
+  const slowNotice = setTimeout(() => {
+    if (requestId === latestRequest && button.disabled) button.textContent = "Waking up the server (up to a minute)...";
+  }, 4000);
   try {
     const response = await fetch("/api/predict/", {
       method: "POST",
