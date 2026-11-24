@@ -201,7 +201,7 @@
     <p class="reveal">Enter a car's make, year and mileage. A machine learning model trained on real Pakistani listings estimates its market value and shows comparable cars.</p>
     <a class="cta reveal" href="#estimate">Estimate a car's price</a>
     <ul class="facts reveal">
-      <li><strong>{{ n_listings }}</strong><span>real listings learned from</span></li>
+      <li><strong>{{ n_listings }}</strong><span>cleaned real listings</span></li>
       <li><strong>{{ n_cities }}</strong><span>major cities covered</span></li>
       <li><strong>±{{ error_percent }}%</strong><span>average error on unseen cars</span></li>
     </ul>
@@ -307,7 +307,7 @@
 <section id="how" style="padding-top: 0">
   <div class="wrap">
     <h2>How the estimate is made</h2>
-    <p class="lede">The model learned how price changes with age, mileage, engine and brand from {{ n_listings }} cleaned listings.</p>
+    <p class="lede">The model learned how price changes with age, mileage, engine and brand from {{ n_train }} listings, and was tested on {{ n_test }} it never saw.</p>
     <ol class="steps">
       <li>
         <h3>You describe the car</h3>

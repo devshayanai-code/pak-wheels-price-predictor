@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from src.config import TEST_SIZE
+
 from . import services
 from .serializers import CarInputSerializer
 
@@ -18,6 +20,8 @@ class HomePageView(TemplateView):
         listings = services.get_listings()
         context.update(
             n_listings=f"{len(listings):,}",
+            n_train=f"{round(len(listings) * (1 - TEST_SIZE)):,}",
+            n_test=f"{len(listings) - round(len(listings) * (1 - TEST_SIZE)):,}",
             n_cities=listings.loc[listings["city"] != "Other", "city"].nunique(),
             error_percent=round(metrics["test"]["test_mape_%"]),
             model_name=metrics["best_model"].replace("_", " ").title(),

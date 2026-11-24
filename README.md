@@ -4,7 +4,7 @@
 
 **Live demo:** https://pakwheels-price-api.onrender.com *(free hosting: the first visit can take up to a minute to wake the server)*
 
-Qeemat ("price" in Urdu) estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model trained on 7,005 real PakWheels.com used-car listings returns:
+Qeemat ("price" in Urdu) estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model built from 7,005 cleaned PakWheels.com used-car listings (5,604 to train, 1,401 held back to test) returns:
 
 - an **estimated price** in lakh or crore,
 - a **likely price range** based on the model's measured error,
@@ -18,10 +18,10 @@ Three regression models were compared with 5-fold cross-validation on the traini
 | Model | CV average % error | CV average error (PKR) | CV R² |
 | --- | --- | --- | --- |
 | **Random Forest** (chosen) | **15.95%** | 914,793 | 0.845 |
-| Gradient Boosting | 16.19% | 934,645 | 0.859 |
-| Ridge regression (baseline) | 17.85% | 1,100,160 | 0.792 |
+| Gradient Boosting | 16.19% | 934,644 | 0.859 |
+| Ridge regression (baseline) | 17.85% | 1,100,280 | 0.792 |
 
-**Held-out test set:** 15.3% average error (MAPE), PKR 821,847 mean absolute error, R² 0.715. R² is lower on the test set because a few cars priced in crores dominate it, so average percentage error is the headline metric.
+**Held-out test set:** 15.3% average error (MAPE), PKR 821,847 mean absolute error, R² 0.715. R² is lower on the test set because of one car: a PKR 20 crore Range Rover Vogue accounts for 86% of the squared error, and R² is 0.941 without it. That sensitivity to a single expensive car is why average percentage error is the headline metric.
 
 ## How it works
 
@@ -64,7 +64,11 @@ curl -X POST https://pakwheels-price-api.onrender.com/api/predict/ \
   "predicted_price": 3460000,
   "price_range": {"low": 2930000, "high": 3990000},
   "average_error_percent": 15.3,
-  "similar_listings": [{"year": 2016, "mileage": 95000, "city": "Karachi", "price": 3050000}]
+  "similar_listings": [
+    {"year": 2016, "mileage": 95000, "city": "Karachi", "price": 3050000},
+    {"year": 2016, "mileage": 104000, "city": "Islamabad", "price": 4125000},
+    {"year": 2016, "mileage": 109478, "city": "Lahore", "price": 4190000}
+  ]
 }
 ```
 
@@ -109,7 +113,7 @@ Render builds the app from `render.yaml`: it installs the requirements, cleans t
 
 ## Data and credits
 
-- Data: **PakWheels Used Car Listings**, a scraped dataset of used-car ads from [PakWheels.com](https://www.pakwheels.com), Pakistan's largest car marketplace. 19,174 rows (7,314 unique ads, because each ad appeared under several site categories), model years 1960 to 2025, 193 cities. Columns: category, title, price, city, year, mileage, fuel, engine, transmission, url (every url is the original PakWheels listing).
+- Data: **PakWheels Used Car Listings**, a scraped dataset of used-car ads from [PakWheels.com](https://www.pakwheels.com), Pakistan's largest car marketplace. 19,174 rows (7,314 unique ads, because each ad appeared under several site categories), model years 1960 to 2025, 193 cities. Columns: category, title, price, city, year, mileage, fuel, engine, transmission, url (every url is the original PakWheels listing). The page it was downloaded from and its licence were not recorded; it is included here for educational, non-commercial use, and listings belong to their original posters.
 - Photos on the website: [Unsplash](https://unsplash.com).
 
 ## Author
