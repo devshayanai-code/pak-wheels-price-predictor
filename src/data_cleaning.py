@@ -1,4 +1,4 @@
-"""Clean the raw PakWheels listings into a model-ready dataset.
+"""Clean the raw PakWheels.com used-car listings into a model-ready dataset.
 
 Run from the project root:  python -m src.data_cleaning
 """
