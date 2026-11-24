@@ -1,15 +1,39 @@
-# Qeemat: Used Car Price Estimator for Pakistan
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="AI Car Price Prediction logo" width="96">
+</p>
 
-[![tests](https://github.com/devshayanai-code/pak-wheels-price-predictor/actions/workflows/tests.yml/badge.svg)](https://github.com/devshayanai-code/pak-wheels-price-predictor/actions/workflows/tests.yml)
+<h1 align="center">AI Car Price Prediction</h1>
 
-**Live demo:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ *(the model runs in your browser, so answers are instant)*
+<p align="center"><strong>Intelligent Car Valuation Powered by Machine Learning</strong></p>
 
-Qeemat ("price" in Urdu) estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model built from 7,005 cleaned PakWheels.com used-car listings (5,604 to train, 1,401 held back to test) returns:
+<p align="center">
+  <a href="https://github.com/devshayanai-code/pak-wheels-price-predictor/actions/workflows/tests.yml"><img src="https://github.com/devshayanai-code/pak-wheels-price-predictor/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
+</p>
 
-- an **estimated price** in lakh or crore,
-- a **likely price range** based on the model's measured error,
-- a **deal verdict** if you enter the seller's asking price,
-- **real listings of the same car** to compare against.
+<p align="center"><strong>Live demo:</strong> <a href="https://devshayanai-code.github.io/pak-wheels-price-predictor/">devshayanai-code.github.io/pak-wheels-price-predictor</a><br>
+<em>The model runs in your browser, so answers are instant.</em></p>
+
+![Home page](docs/assets/screenshot-home.jpg)
+
+## Overview
+
+AI Car Price Prediction estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model built from 7,005 cleaned PakWheels.com used-car listings (5,604 to train, 1,401 held back to test) returns a price estimate with the context needed to judge a deal.
+
+## Problem statement
+
+Used-car prices in Pakistan vary widely for the same make and model, and buyers and sellers usually rely on guesswork or a handful of listings. This project turns thousands of real listings into a model that gives an objective, data-based estimate, shows how uncertain it is, and compares it with real cars of the same type.
+
+## Features
+
+- **Estimated price** in lakh or crore.
+- **Likely price range** based on the model's measured error on unseen cars.
+- **Deal verdict** (good deal, fair price, or overpriced) if you enter the seller's asking price.
+- **Real listings of the same car** to compare against.
+- **One-click examples** for an SUV, a sedan, a hatchback and a sports car.
+- **Input validation:** the model must belong to the make, and engine size is required for non-electric cars.
+- **Two ways to use it:** a static website that runs the model in the browser, and a Django REST API.
+
+![Price estimate](docs/assets/screenshot-estimate.jpg)
 
 ## Results
 
@@ -33,17 +57,24 @@ flowchart LR
     D --> E[Compare 3 models<br/>5-fold cross-validation]
     E --> F[Random Forest<br/>predicts log price]
     F --> G[Django REST API]
-    G --> H[Web page]
+    E --> I[Gradient Boosting<br/>exported to JSON]
+    I --> J[Website on GitHub Pages<br/>predicts in JavaScript]
 ```
 
 1. **Cleaning** (`src/data_cleaning.py`): one row per listing (the raw data repeated each car under several categories), prices like `PKR 3,650,000` and mileages like `138,000 km` converted to numbers, make and model extracted from each listing's URL, rare cities grouped as "Other", and typos or impossible values removed with documented rules (price under PKR 1 lakh, mileage over 500,000 km, engines over 7,000 cc, cars older than 1980).
 2. **Exploration** (`src/eda.py`): price is heavily right-skewed, so the model learns `log(price)` and answers in rupees. Year (+0.55), engine size (+0.45) and mileage (−0.26) correlate with log price as expected. Charts are in `reports/figures/`.
 3. **Training** (`src/train.py`): one scikit-learn pipeline holds the preprocessing and the model, so the API can never skip a step. Unseen car models at prediction time are handled instead of crashing.
-4. **Serving** (`api/`): Django REST Framework validates every input (case-insensitive makes, the model must belong to the make, engine size required for non-electric cars), loads the model once, and returns the estimate with its range and comparable listings.
+4. **Browser model** (`src/export_web.py`, `docs/predictor.js`): the gradient boosting pipeline is exported to `docs/model.json`, and JavaScript repeats its steps (one-hot encoding, scaling, adding up 500 trees, undoing the log). A test checks it gives exactly the same prices as Python.
+5. **Serving** (`api/`): Django REST Framework validates every input (case-insensitive makes, the model must belong to the make, engine size required for non-electric cars), loads the model once, and returns the estimate with its range and comparable listings.
 
-## Tech stack
+## Technologies used
 
-Python 3.12 · pandas · NumPy · scikit-learn · Django 5.2 · Django REST Framework · pytest · GitHub Actions · Render
+- **Machine learning:** Python 3.12, scikit-learn, pandas, NumPy, joblib
+- **Charts:** Matplotlib, Seaborn (exploration only)
+- **Backend:** Django 5.2, Django REST Framework, gunicorn
+- **Frontend:** HTML, CSS, JavaScript
+- **Testing and CI:** pytest, GitHub Actions
+- **Hosting:** GitHub Pages (website), Render blueprint (API)
 
 ## API
 
@@ -54,7 +85,7 @@ Python 3.12 · pandas · NumPy · scikit-learn · Django 5.2 · Django REST Fram
 | `/api/predict/` | POST | Estimate, likely range, average error, similar listings |
 
 ```bash
-curl -X POST https://pakwheels-price-api.onrender.com/api/predict/ \
+curl -X POST http://127.0.0.1:8000/api/predict/ \
   -H "Content-Type: application/json" \
   -d '{"make":"Toyota","model":"Corolla","year":2016,"mileage":95000,"engine_cc":1300,"fuel":"Petrol","transmission":"Manual","city":"Karachi"}'
 ```
@@ -80,6 +111,7 @@ Predictions are limited to 60 per minute per visitor.
 src/             data cleaning, EDA and training code
 api/             Django project: REST API + the web page
 docs/            static website for GitHub Pages (model runs in JavaScript)
+docs/assets/     logo and screenshots
 tests/           pytest tests (cleaning steps, API, and JS matches Python)
 data/raw/        original dataset (never edited)
 data/processed/  cleaned dataset
@@ -88,7 +120,7 @@ models/          trained model (rebuilt, not stored in git)
 render.yaml      Render deployment blueprint
 ```
 
-## Run it locally
+## Installation
 
 ```bash
 python -m venv venv
@@ -105,9 +137,9 @@ Then open http://127.0.0.1:8000/.
 
 ## Deployment
 
-**Live site (GitHub Pages, free):** GitHub Pages only serves files, so `python -m src.export_web` trains the gradient boosting model (15.3% average error, the same as the random forest's 15.3%, at a fraction of the size) and writes it to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 500 trees, then undoing the log. A test checks that it gives exactly the same prices as Python. After retraining, run the export again and push.
+**Live site:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ (GitHub Pages, free). GitHub Pages only serves files, so `python -m src.export_web` trains the gradient boosting model (15.3% average error, close to the random forest's, at a fraction of the size) and writes it to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 500 trees, then undoing the log. A test checks that it gives exactly the same prices as Python. After retraining, run the export again and push.
 
-**API (optional):** `render.yaml` still deploys the Django REST API to Render: it installs the requirements, cleans the data and trains the model during the build, then serves it with gunicorn. GitHub Actions runs the build, the export and all tests on every push.
+**API (optional):** `render.yaml` deploys the Django REST API to Render: it installs the requirements, cleans the data and trains the model during the build, then serves it with gunicorn. GitHub Actions runs the build, the export and all tests on every push.
 
 ## Limitations
 
@@ -118,7 +150,7 @@ Then open http://127.0.0.1:8000/.
 ## Data and credits
 
 - Data: **PakWheels Used Car Listings**, a scraped dataset of used-car ads from [PakWheels.com](https://www.pakwheels.com), Pakistan's largest car marketplace. 19,174 rows (7,314 unique ads, because each ad appeared under several site categories), model years 1960 to 2025, 193 cities. Columns: category, title, price, city, year, mileage, fuel, engine, transmission, url (every url is the original PakWheels listing). The page it was downloaded from and its licence were not recorded; it is included here for educational, non-commercial use, and listings belong to their original posters.
-- Photos on the website: [Unsplash](https://unsplash.com).
+- Photos on the website: [Unsplash](https://unsplash.com). Logo: original artwork made for this project (`docs/assets/logo.svg`).
 
 ## Author
 

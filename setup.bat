@@ -6,7 +6,7 @@ echo Setting up the project. This can take a few minutes, please wait...
 call :main > setup_log.txt 2>&1
 type setup_log.txt
 echo.
-echo Finished. Go back to Claude and type "done".
+echo Setup finished. The full log is in setup_log.txt.
 pause
 exit /b
 

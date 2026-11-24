@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Car Price Prediction logo">
+  <rect width="64" height="64" rx="14" fill="#1c232b"/>
+  <!-- car body -->
+  <path d="M10 39v-6.5c0-1.6 1-3 2.5-3.5l5-1.7 5.2-7.1c.9-1.3 2.4-2 4-2h11.6c1.6 0 3.1.8 4 2.1l4.6 6.9 4.4 1.3c1.6.5 2.7 2 2.7 3.6V39c0 1.1-.9 2-2 2h-3.3a6 6 0 0 0-11.4 0H26.7a6 6 0 0 0-11.4 0H12c-1.1 0-2-.9-2-2z" fill="#f2b233"/>
+  <!-- windows -->
+  <path d="M24.6 27.3l3.6-4.9c.3-.4.8-.7 1.3-.7H33v5.6zM36 27.3v-5.6h3.1c.5 0 1 .3 1.3.7l3.3 4.9z" fill="#1c232b"/>
+  <!-- wheels -->
+  <circle cx="21" cy="42" r="4.6" fill="#1c232b"/><circle cx="21" cy="42" r="2" fill="#f2b233"/>
+  <circle cx="43" cy="42" r="4.6" fill="#1c232b"/><circle cx="43" cy="42" r="2" fill="#f2b233"/>
+  <!-- rising price line -->
+  <path d="M12 54l10-5 8 3 12-7 10 2" fill="none" stroke="#eef0ec" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="47" r="2.6" fill="#eef0ec"/>
+</svg>
