@@ -94,6 +94,6 @@ def predict_price(car: dict) -> dict:
             "low": round_price(price * (1 - error_rate)),
             "high": round_price(price * (1 + error_rate)),
         },
-        "typical_error_percent": round(error_rate * 100, 1),
+        "average_error_percent": round(error_rate * 100, 1),
         "similar_listings": find_similar_listings(car),
     }

@@ -55,3 +55,15 @@ def test_predict_rejects_model_from_another_make():
 def test_predict_rejects_impossible_year():
     response = client.post("/api/predict/", {**CIVIC, "year": 1850}, format="json")
     assert response.status_code == 400
+
+
+def test_predict_rejects_zero_engine_for_petrol_car():
+    response = client.post("/api/predict/", {**CIVIC, "engine_cc": 0}, format="json")
+    assert response.status_code == 400
+    assert "engine_cc" in response.json()
+
+
+def test_predict_accepts_zero_engine_for_electric_car():
+    car = {**CIVIC, "make": "Tesla", "model": "Model 3", "year": 2021,
+           "engine_cc": 0, "fuel": "Electric"}
+    assert client.post("/api/predict/", car, format="json").status_code == 200

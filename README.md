@@ -12,8 +12,8 @@ data/processed/  cleaned dataset
 notebooks/       exploration only
 src/             production ML code
 models/          saved trained model
-api/             Django REST API
-frontend/        Streamlit app
+reports/         charts and model scores
+api/             Django REST API + website (one HTML page)
 tests/           automated tests
 ```
 

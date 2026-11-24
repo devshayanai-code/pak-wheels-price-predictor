@@ -33,6 +33,10 @@ class CarInputSerializer(serializers.Serializer):
         data["make"] = _match(data["make"], list(options["makes"]), "make")
         data["model"] = _match(data["model"], options["makes"][data["make"]], "model")
         data["fuel"] = _match(data["fuel"], options["fuels"], "fuel")
+        if data["fuel"] != "Electric" and data["engine_cc"] == 0:
+            raise serializers.ValidationError(
+                {"engine_cc": "Engine size is required for non-electric cars."}
+            )
         data["transmission"] = _match(
             data["transmission"], options["transmissions"], "transmission"
         )
