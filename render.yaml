@@ -4,7 +4,8 @@ services:
     name: pakwheels-price-api
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    # Install, clean the data and train the model on Render's server (model is not stored in git)
+    buildCommand: pip install -r requirements.txt && python -m src.data_cleaning && python -m src.train
     # 1 worker keeps memory inside the free plan's limit
     startCommand: cd api && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 1
     healthCheckPath: /api/health/

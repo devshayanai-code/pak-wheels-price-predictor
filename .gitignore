@@ -5,6 +5,9 @@ venv/
 __pycache__/
 *.pyc
 
+# Trained model: rebuilt by "python -m src.train" (locally, in CI and on Render)
+models/*.joblib
+
 # Test cache
 .pytest_cache/
 
