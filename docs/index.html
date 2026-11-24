@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qeemat · Used car price estimator for Pakistan</title>
+<meta name="description" content="Estimate the market value of a used car in Pakistan with a machine learning model trained on 7,000+ real listings.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --asphalt: #1c232b;
+    --asphalt-2: #262f39;
+    --bone: #eef0ec;
+    --paper: #fbfbf8;
+    --steel: #6d7884;
+    --line: #d9ddd8;
+    --amber: #f2b233;
+    --amber-ink: #8a5a00;
+    --green: #1f6b4f;
+    --green-soft: #e2f0e9;
+    --red: #b5392a;
+    --red-soft: #f8e5e1;
+    --wide: 125%;
+    --radius-s: 6px;
+    --radius-l: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Archivo", system-ui, sans-serif; color: var(--asphalt);
+         background: var(--bone); line-height: 1.55; font-size: 1rem; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, .wordmark, .price { font-stretch: var(--wide); letter-spacing: -0.01em; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; margin: 0 0 12px; }
+  .lede { color: var(--steel); max-width: 60ch; margin: 0 0 36px; }
+
+  /* Navigation */
+  .nav { position: fixed; inset: 0 0 auto; z-index: 10; transition: background .25s; }
+  .nav.solid { background: rgba(28, 35, 43, .96); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .wordmark { color: #fff; font-weight: 800; font-size: 1.3rem; text-decoration: none; }
+  .wordmark span { color: var(--amber); }
+  .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { color: #dfe3e8; text-decoration: none; font-weight: 500; }
+  .nav-links a:hover { color: var(--amber); }
+  .menu-btn { display: none; background: none; border: 1px solid #5b6672; color: #fff;
+              border-radius: var(--radius-s); padding: 8px 12px; font: inherit; cursor: pointer; }
+  @media (max-width: 720px) {
+    .menu-btn { display: block; }
+    .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column;
+                 gap: 0; background: var(--asphalt); padding: 8px 24px 16px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--asphalt-2); }
+  }
+
+  /* Hero */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: flex-end; color: #fff;
+          background: var(--asphalt) url("https://images.unsplash.com/photo-1645400379459-f6fd3d963fd4?w=2000&q=75&auto=format&fit=crop") center 40% / cover no-repeat; }
+  .hero::before { content: ""; position: absolute; inset: 0;
+                  background: linear-gradient(90deg, rgba(20,26,33,.92) 0%, rgba(20,26,33,.55) 55%, rgba(20,26,33,.15) 100%),
+                              linear-gradient(0deg, rgba(20,26,33,.9) 0%, transparent 45%); }
+  .hero .wrap { position: relative; padding-bottom: 72px; padding-top: 120px; width: 100%; }
+  .hero h1 { font-size: clamp(2.4rem, 6.2vw, 4.6rem); line-height: 1.02; margin: 0 0 20px; max-width: 13ch; font-weight: 800; }
+  .hero p { max-width: 48ch; color: #cfd6dd; font-size: 1.1rem; margin: 0 0 32px; }
+  .cta { display: inline-block; background: var(--amber); color: var(--asphalt);
+         padding: 15px 28px; border-radius: var(--radius-s); text-decoration: none; border: 0; font: inherit;
+         font-weight: 700; cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(242, 178, 51, .3); }
+  .facts { display: flex; flex-wrap: wrap; gap: 40px; margin: 56px 0 0; padding: 24px 0 0;
+           border-top: 1px solid rgba(255,255,255,.18); list-style: none; }
+  .facts strong { display: block; font-size: 1.6rem; font-stretch: var(--wide); color: #fff; }
+  .facts span { color: #aab4be; font-size: .92rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .reveal { opacity: 0; transform: translateY(18px); animation: rise .8s ease forwards; }
+    .hero .reveal:nth-child(2) { animation-delay: .12s; }
+    .hero .reveal:nth-child(3) { animation-delay: .24s; }
+    .hero .reveal:nth-child(4) { animation-delay: .36s; }
+  }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  section { padding: 96px 0; scroll-margin-top: 68px; }  /* stop headings hiding under the fixed nav */
+
+  /* Body types */
+  .types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .types { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .types { grid-template-columns: 1fr; } .type { aspect-ratio: 16 / 10; } }
+  .type { position: relative; border: 0; padding: 0; text-align: left; font: inherit; color: #fff; cursor: pointer;
+          border-radius: var(--radius-l); overflow: hidden; aspect-ratio: 4 / 5; background: var(--asphalt); }
+  .type img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .type:hover img, .type:focus-visible img { transform: scale(1.05); }
+  .type::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,26,33,.9), transparent 60%); }
+  .type .label { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; }
+  .type strong { display: block; font-size: 1.35rem; font-stretch: var(--wide); }
+  .type .label span { color: #d3d9df; font-size: .92rem; }
+
+  /* Estimator */
+  .estimator { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .estimator-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
+  @media (max-width: 960px) { .estimator-grid { grid-template-columns: 1fr; } }
+  fieldset { border: 0; margin: 0 0 28px; padding: 0; min-width: 0; }
+  legend { font-weight: 700; font-size: 1.05rem; margin-bottom: 14px; font-stretch: var(--wide); padding: 0; }
+  .fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 520px) { .fields { grid-template-columns: 1fr; } }
+  label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; }
+  input, select { width: 100%; padding: 13px 14px; font: inherit; color: var(--asphalt); background: #fff;
+                  border: 1px solid var(--line); border-radius: var(--radius-s); transition: border-color .15s, box-shadow .15s; }
+  select { appearance: none; padding-right: 40px; cursor: pointer;
+           background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231c232b' stroke-width='2' fill='none'/%3E%3C/svg%3E") right 15px center no-repeat; }
+  input:hover, select:hover { border-color: #b9c0c7; }
+  input:focus, select:focus { outline: none; border-color: var(--asphalt); box-shadow: 0 0 0 3px rgba(242,178,51,.45); }
+  .hint { color: var(--steel); font-size: .82rem; margin-top: 5px; }
+  .submit { width: 100%; padding: 17px; font-size: 1.05rem; }
+  .submit:disabled { opacity: .65; cursor: wait; transform: none; box-shadow: none; }
+
+  /* Result: the windscreen price sticker */
+  .sticker { background: #fff; border-radius: var(--radius-l); border: 1px solid var(--line); overflow: hidden;
+             box-shadow: 0 24px 48px -28px rgba(28,35,43,.45); position: sticky; top: 92px; }
+  .sticker-head { position: relative; height: 128px; background: var(--asphalt) url("https://images.unsplash.com/photo-1606590526453-9b8ee4569a70?w=900&q=70&auto=format&fit=crop") center 55% / cover; }
+  .sticker-head::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,26,33,.85), rgba(20,26,33,.2)); }
+  .sticker-head p { position: absolute; z-index: 1; left: 24px; bottom: 18px; margin: 0; color: #fff; font-weight: 700;
+                    font-stretch: var(--wide); font-size: 1.1rem; }
+  .sticker-body { padding: 26px 24px 28px; }
+  .car-name { color: var(--steel); margin: 0 0 4px; }
+  .price { font-size: clamp(2.3rem, 5vw, 3.1rem); font-weight: 800; line-height: 1.05; margin: 0 0 6px; }
+  .empty { color: var(--steel); margin: 0; }
+  .note { color: var(--steel); font-size: .88rem; margin: 18px 0 0; }
+
+  .gauge { margin: 26px 0 8px; }
+  .gauge-track { position: relative; height: 10px; border-radius: 99px; background: var(--bone); }
+  .gauge-band { position: absolute; top: 0; bottom: 0; border-radius: 99px; background: var(--amber); }
+  .gauge-pin { position: absolute; top: -7px; width: 4px; height: 24px; margin-left: -2px; border-radius: 2px; background: var(--asphalt); }
+  .gauge-pin.asking { background: var(--red); }
+  .gauge-pin.asking.good { background: var(--green); }
+  .gauge-labels { display: flex; justify-content: space-between; font-size: .85rem; color: var(--steel); margin-top: 10px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: .82rem; color: var(--steel); margin-top: 8px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+  .verdict { margin: 20px 0 0; padding: 12px 14px; border-radius: var(--radius-s); font-weight: 600; }
+  .verdict.good { background: var(--green-soft); color: var(--green); }
+  .verdict.fair { background: #fbf1dc; color: var(--amber-ink); }
+  .verdict.high { background: var(--red-soft); color: var(--red); }
+
+  .similar { margin-top: 26px; }
+  .similar h3 { font-size: 1rem; margin: 0 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 9px 4px; border-bottom: 1px solid var(--line); }
+  th { color: var(--steel); font-weight: 600; font-size: .82rem; }
+  .again { margin-top: 24px; width: 100%; background: var(--asphalt); color: #fff; }
+  .again:hover { box-shadow: 0 10px 24px rgba(28,35,43,.25); }
+  .error { background: var(--red-soft); color: var(--red); padding: 14px 16px; border-radius: var(--radius-s); }
+  .error ul { margin: 0; padding-left: 18px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sticker.updated { animation: settle .45s ease; }
+  }
+  @keyframes settle { from { transform: translateY(10px); opacity: .4; } to { transform: none; opacity: 1; } }
+
+  /* How it works */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; list-style: none; padding: 0; margin: 0;
+           counter-reset: step; }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; gap: 28px; } }
+  .steps li { counter-increment: step; border-top: 3px solid var(--asphalt); padding-top: 18px; }
+  .steps li::before { content: counter(step); display: block; font-stretch: var(--wide); font-weight: 800;
+                      font-size: 2.4rem; color: var(--amber); line-height: 1; margin-bottom: 12px; }
+  .steps h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .steps p { margin: 0; color: var(--steel); }
+  .stack { margin-top: 48px; color: var(--steel); }
+  .stack code { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; color: var(--asphalt); }
+
+  footer { background: var(--asphalt); color: #aab4be; padding: 48px 0; font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; }
+  footer .wordmark { font-size: 1.1rem; }
+  footer p { margin: 8px 0 0; max-width: 46ch; }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  footer a { color: #dfe3e8; }
+  footer a:hover { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Qeemat<span>.</span></a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#estimate">Estimate</a></li>
+      <li><a href="#body-types">Body types</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="https://github.com/devshayanai-code/pak-wheels-price-predictor" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1 class="reveal">Know what a used car is worth before you deal.</h1>
+    <p class="reveal">Enter a car's make, year and mileage. A machine learning model trained on real Pakistani listings estimates its market value and shows comparable cars.</p>
+    <a class="cta reveal" href="#estimate">Estimate a car's price</a>
+    <ul class="facts reveal">
+      <li><strong id="n-listings">…</strong><span>cleaned real listings</span></li>
+      <li><strong id="n-cities">…</strong><span>major cities covered</span></li>
+      <li><strong>±<span class="error-percent">…</span>%</strong><span>average error on unseen cars</span></li>
+    </ul>
+  </div>
+</header>
+
+<section class="estimator" id="estimate">
+  <div class="wrap estimator-grid">
+    <div>
+      <h2>Estimate a car's price</h2>
+      <p class="lede">Fill in what you know about the car. Add the seller's asking price to see whether it is a good deal.</p>
+
+      <form id="car-form">
+        <fieldset>
+          <legend>The car</legend>
+          <div class="fields">
+            <div>
+              <label for="make">Make</label>
+              <select id="make" name="make" required></select>
+            </div>
+            <div>
+              <label for="model">Model</label>
+              <select id="model" name="model" required></select>
+            </div>
+            <div>
+              <label for="year">Year</label>
+              <input id="year" name="year" type="number" value="2018" required>
+            </div>
+            <div>
+              <label for="engine_cc">Engine (cc)</label>
+              <input id="engine_cc" name="engine_cc" type="number" min="0" max="7000" value="1800" required>
+              <div class="hint">Use 0 for electric cars</div>
+            </div>
+            <div>
+              <label for="fuel">Fuel</label>
+              <select id="fuel" name="fuel" required></select>
+            </div>
+            <div>
+              <label for="transmission">Transmission</label>
+              <select id="transmission" name="transmission" required></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Its history</legend>
+          <div class="fields">
+            <div>
+              <label for="mileage">Mileage (km)</label>
+              <input id="mileage" name="mileage" type="number" min="0" max="500000" value="60000" required>
+            </div>
+            <div>
+              <label for="city">City</label>
+              <select id="city" name="city"></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>The deal (optional)</legend>
+          <label for="asking">Seller's asking price (PKR)</label>
+          <input id="asking" name="asking" type="number" min="0" placeholder="e.g. 5200000">
+        </fieldset>
+
+        <button class="cta submit" id="submit" type="submit">Estimate price</button>
+      </form>
+    </div>
+
+    <aside class="sticker" id="result" aria-live="polite">
+      <div class="sticker-head"><p>Estimated market value</p></div>
+      <div class="sticker-body">
+        <p class="empty">Your estimate appears here, with a likely price range and real listings of the same car.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="body-types">
+  <div class="wrap">
+    <h2>Try a popular car</h2>
+    <p class="lede">Pick a body type to fill in a common example from the data, then change any detail.</p>
+    <div class="types">
+      <button class="type" type="button" data-car='{"make":"Toyota","model":"Fortuner","year":2020,"mileage":57000,"engine_cc":2800,"fuel":"Diesel","transmission":"Automatic","city":"Lahore"}'>
+        <img src="https://images.unsplash.com/photo-1757922589576-129377dadac9?w=700&q=70&auto=format&fit=crop" alt="Dark SUV on a forest road" loading="lazy">
+        <span class="label"><strong>SUVs</strong><span>Toyota Fortuner 2020</span></span>
+      </button>
+      <button class="type" type="button" data-car='{"make":"Honda","model":"Civic","year":2018,"mileage":60000,"engine_cc":1800,"fuel":"Petrol","transmission":"Automatic","city":"Lahore"}'>
+        <img src="https://images.unsplash.com/photo-1782632568261-bf80311415b7?w=700&q=70&auto=format&fit=crop" alt="Dark sedan parked outside a white building" loading="lazy">
+        <span class="label"><strong>Sedans</strong><span>Honda Civic 2018</span></span>
+      </button>
+      <button class="type" type="button" data-car='{"make":"Suzuki","model":"Alto","year":2021,"mileage":48000,"engine_cc":660,"fuel":"Petrol","transmission":"Manual","city":"Karachi"}'>
+        <img src="https://images.unsplash.com/photo-1471444928139-48c5bf5173f8?w=700&q=70&auto=format&fit=crop" alt="Black hatchback parked by the sea" loading="lazy">
+        <span class="label"><strong>Hatchbacks</strong><span>Suzuki Alto 2021</span></span>
+      </button>
+      <button class="type" type="button" data-car='{"make":"Mazda","model":"Rx8","year":2008,"mileage":70000,"engine_cc":1300,"fuel":"Petrol","transmission":"Manual","city":"Lahore"}'>
+        <img src="https://images.unsplash.com/photo-1606590526453-9b8ee4569a70?w=700&q=70&auto=format&fit=crop" alt="Sports car with a yellow stripe in a dark studio" loading="lazy">
+        <span class="label"><strong>Sports cars</strong><span>Mazda RX-8 2008</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top: 0">
+  <div class="wrap">
+    <h2>How the estimate is made</h2>
+    <p class="lede">The model learned how price changes with age, mileage, engine and brand from <span id="n-train">…</span> listings, and was tested on <span id="n-test">…</span> it never saw.</p>
+    <ol class="steps">
+      <li>
+        <h3>You describe the car</h3>
+        <p>Make, model, year, engine, fuel, transmission, mileage and city. Inputs are checked before anything reaches the model.</p>
+      </li>
+      <li>
+        <h3>The model predicts</h3>
+        <p>A Gradient Boosting model, one of three algorithms compared with 5-fold cross-validation, predicts the price. It runs right here in your browser, so the answer is instant.</p>
+      </li>
+      <li>
+        <h3>You see the context</h3>
+        <p>A likely range based on the model's ±<span class="error-percent">…</span>% average error, plus real listings of the same car to compare.</p>
+      </li>
+    </ol>
+    <p class="stack">Trained with scikit-learn in Python, then exported to <code>model.json</code> and run in JavaScript: no server needed. The repo also contains a Django REST API with <code>POST /api/predict/</code>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="wordmark" href="#top">Qeemat<span>.</span></a>
+      <p>Built by Shayan Ali Shah. Estimates come from a machine learning model and are guidance, not a professional valuation.</p>
+    </div>
+    <ul>
+      <li><a href="https://github.com/devshayanai-code/pak-wheels-price-predictor" target="_blank" rel="noopener">Source code on GitHub</a></li>
+            <li>Data: PakWheels.com used-car listings</li>
+      <li>Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="predictor.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+let options = null, model = null, listings = null;
+
+// Never put raw text into the page as HTML (protects against script injection)
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = String(text);
+  return div.innerHTML;
+}
+
+function formatPKR(value) {
+  if (value >= 10_000_000) return `PKR ${(value / 10_000_000).toFixed(2)} crore`;
+  return `PKR ${(value / 100_000).toFixed(1)} lakh`;
+}
+
+function fillSelect(select, values, selected) {
+  select.innerHTML = values.map((v) => `<option>${escapeHtml(v)}</option>`).join("");
+  if (selected && values.includes(selected)) select.value = selected;
+}
+
+function showModels(selected) {
+  fillSelect($("model"), options.makes[$("make").value], selected);
+}
+
+async function loadOptions() {
+  const get = (file) => fetch(file).then((r) => { if (!r.ok) throw new Error(file); return r.json(); });
+  [options, model, listings] = await Promise.all([get("options.json"), get("model.json"), get("listings.json")]);
+  fillSelect($("make"), Object.keys(options.makes), "Honda");
+  showModels("Civic");
+  fillSelect($("fuel"), options.fuels, "Petrol");
+  fillSelect($("transmission"), options.transmissions, "Automatic");
+  fillSelect($("city"), options.cities, "Lahore");
+  const [minYear, maxYear] = options.year_range;
+  $("year").min = minYear;
+  $("year").max = maxYear + 1;
+  // Headline numbers come from the exported files, so they stay true after retraining
+  $("n-listings").textContent = options.n_listings.toLocaleString();
+  $("n-cities").textContent = options.n_cities;
+  $("n-train").textContent = model.metrics.n_train.toLocaleString();
+  $("n-test").textContent = model.metrics.n_test.toLocaleString();
+  document.querySelectorAll(".error-percent").forEach((el) => el.textContent = Math.round(model.metrics["test_mape_%"]));
+}
+
+/* Result card ------------------------------------------------------------ */
+
+function setResult(bodyHtml) {
+  const card = $("result");
+  card.querySelector(".sticker-body").innerHTML = bodyHtml;
+  card.classList.remove("updated");
+  void card.offsetWidth;  // restart the animation
+  card.classList.add("updated");
+}
+
+function gaugeHtml(price, range, asking) {
+  // Scale runs 25% beyond the range on both sides so an asking price outside it stays visible
+  const min = range.low * 0.75, max = range.high * 1.25;
+  const pos = (v) => Math.min(100, Math.max(0, ((v - min) / (max - min)) * 100));
+  const askingOk = asking <= range.high;
+  const askingPin = asking
+    ? `<div class="gauge-pin asking ${askingOk ? "good" : ""}" style="left:${pos(asking)}%" title="Asking price"></div>`
+    : "";
+  const askingLegend = asking
+    ? `<span><i style="background:var(--${askingOk ? "green" : "red"})"></i>Asking price</span>`
+    : "";
+  return `
+    <div class="gauge" role="img" aria-label="Likely range ${formatPKR(range.low)} to ${formatPKR(range.high)}">
+      <div class="gauge-track">
+        <div class="gauge-band" style="left:${pos(range.low)}%; width:${pos(range.high) - pos(range.low)}%"></div>
+        <div class="gauge-pin" style="left:${pos(price)}%" title="Estimate"></div>
+        ${askingPin}
+      </div>
+      <div class="gauge-labels"><span>${formatPKR(range.low)}</span><span>${formatPKR(range.high)}</span></div>
+      <div class="legend"><span><i style="background:var(--amber)"></i>Likely range</span><span><i style="background:var(--asphalt)"></i>Estimate</span>${askingLegend}</div>
+    </div>`;
+}
+
+function verdictHtml(asking, range) {
+  if (!asking) return "";
+  if (asking < range.low) return `<p class="verdict good">Good deal: the asking price is below the likely range.</p>`;
+  if (asking > range.high) return `<p class="verdict high">Overpriced: the asking price is above the likely range.</p>`;
+  return `<p class="verdict fair">Fair price: the asking price is within the likely range.</p>`;
+}
+
+function similarHtml(listings) {
+  if (!listings.length) return `<p class="note">No listings of this exact model and age in the data to compare with.</p>`;
+  const rows = listings.map((car) =>
+    `<tr><td>${car.year}</td><td>${car.mileage.toLocaleString()} km</td><td>${escapeHtml(car.city)}</td><td>${formatPKR(car.price)}</td></tr>`
+  ).join("");
+  return `<div class="similar"><h3>Real listings of the same car</h3>
+    <table><thead><tr><th>Year</th><th>Mileage</th><th>City</th><th>Price</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function renderResult(data, car, asking) {
+  setResult(`
+    <p class="car-name">${escapeHtml(`${car.year} ${car.make} ${car.model}, ${car.mileage.toLocaleString()} km`)}</p>
+    <p class="price">${formatPKR(data.predicted_price)}</p>
+    ${gaugeHtml(data.predicted_price, data.price_range, asking)}
+    ${verdictHtml(asking, data.price_range)}
+    ${similarHtml(data.similar_listings)}
+    <p class="note">This is a machine learning estimate. On cars it never saw, the model is off by ±${data.average_error_percent}% on average.</p>
+    <button class="cta again" type="button" id="again">Estimate another car</button>`);
+  $("again").addEventListener("click", () => {
+    $("make").focus({ preventScroll: true });
+    $("estimate").scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+function renderError(errors) {
+  const items = Object.entries(errors).map(([field, msg]) =>
+    `<li><strong>${escapeHtml(field)}</strong>: ${escapeHtml([].concat(msg).join(" "))}</li>`);
+  setResult(`<div class="error"><ul>${items.join("")}</ul></div>`);
+}
+
+/* Actions ---------------------------------------------------------------- */
+
+async function onSubmit(event) {
+  event.preventDefault();
+  await optionsReady;
+  if (!model) return;
+  const car = Object.fromEntries(new FormData($("car-form")));
+  const asking = Number(car.asking) || 0;
+  delete car.asking;
+  for (const field of ["year", "mileage", "engine_cc"]) car[field] = Number(car[field]);
+
+  const errors = Predictor.validate(options, car);  // same rules as the Django API
+  if (Object.keys(errors).length) renderError(errors);
+  else renderResult(Predictor.predictPrice(model, listings, car), car, asking);
+  if (window.innerWidth < 960) $("result").scrollIntoView({ behavior: "smooth" });
+}
+
+async function fillExample(car) {
+  await optionsReady;  // on slow internet a tile can be clicked before the dropdowns are filled
+  if (!options) return;
+  $("make").value = car.make;
+  showModels(car.model);
+  for (const field of ["year", "mileage", "engine_cc", "fuel", "transmission", "city"]) $(field).value = car[field];
+  $("asking").value = "";
+  $("estimate").scrollIntoView({ behavior: "smooth" });
+  $("car-form").requestSubmit();
+}
+
+document.querySelectorAll(".type").forEach((tile) =>
+  tile.addEventListener("click", () => fillExample(JSON.parse(tile.dataset.car))));
+
+$("make").addEventListener("change", () => showModels());
+$("car-form").addEventListener("submit", onSubmit);
+
+$("menu-btn").addEventListener("click", () => {
+  const open = $("nav-links").classList.toggle("open");
+  $("menu-btn").setAttribute("aria-expanded", open);
+});
+$("nav-links").addEventListener("click", (e) => {
+  if (e.target.tagName === "A") $("nav-links").classList.remove("open");
+});
+window.addEventListener("scroll", () => $("nav").classList.toggle("solid", window.scrollY > 40), { passive: true });
+
+const optionsReady = loadOptions().catch(() =>
+  renderError({ connection: "The model could not be loaded. Refresh the page to try again." }));
+</script>
+</body>
+</html>

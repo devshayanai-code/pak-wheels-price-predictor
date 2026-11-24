@@ -14,6 +14,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt pytest
       - name: Build data and model
-        run: python -m src.data_cleaning && python -m src.train
+        run: python -m src.data_cleaning && python -m src.train && python -m src.export_web
       - name: Run tests
         run: python -m pytest -q
