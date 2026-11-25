@@ -86,14 +86,17 @@ def predict_price(car: dict) -> dict:
     row = pd.DataFrame([car])[CATEGORICAL_FEATURES + NUMERIC_FEATURES]
     price = float(get_model().predict(row)[0])
 
-    # The range uses the model's average error on unseen cars (e.g. +/- 15%)
-    error_rate = get_metrics()["test"]["test_mape_%"] / 100
+    # The range comes from how far real prices fell from predictions on unseen
+    # cars: 80% of them sold between low_ratio and high_ratio times the estimate.
+    metrics = get_metrics()
+    interval = metrics["price_interval"]
     return {
         "predicted_price": round_price(price),
         "price_range": {
-            "low": round_price(price * (1 - error_rate)),
-            "high": round_price(price * (1 + error_rate)),
+            "low": round_price(price * interval["low_ratio"]),
+            "high": round_price(price * interval["high_ratio"]),
         },
-        "average_error_percent": round(error_rate * 100, 1),
+        "range_coverage_percent": interval["coverage_%"],
+        "average_error_percent": round(metrics["test"]["test_mape_%"], 1),
         "similar_listings": find_similar_listings(car),
     }

@@ -26,7 +26,7 @@ Used-car prices in Pakistan vary widely for the same make and model, and buyers 
 ## Features
 
 - **Estimated price** in lakh or crore.
-- **Likely price range** based on the model's measured error on unseen cars.
+- **Likely price range** that held the real price for 8 in 10 cars the model never saw.
 - **Deal verdict** (good deal, fair price, or overpriced) if you enter the seller's asking price.
 - **Real listings of the same car** to compare against.
 - **One-click examples** for an SUV, a sedan, a hatchback and a sports car.
@@ -37,15 +37,17 @@ Used-car prices in Pakistan vary widely for the same make and model, and buyers 
 
 ## Results
 
-Three regression models were compared with 5-fold cross-validation on the training set; the winner was then scored once on a held-out test set of cars it never saw.
+Three regression models were compared with 5-fold cross-validation on the training set. The deployed model was then scored once on a held-out test set of cars it never saw.
 
 | Model | CV average % error | CV average error (PKR) | CV R² |
 | --- | --- | --- | --- |
-| **Random Forest** (chosen) | **15.95%** | 914,793 | 0.845 |
-| Gradient Boosting | 16.19% | 934,644 | 0.859 |
+| Random Forest | **15.95%** | 914,793 | 0.845 |
+| **Gradient Boosting** (deployed) | 16.19% | 934,644 | 0.859 |
 | Ridge regression (baseline) | 17.85% | 1,100,280 | 0.792 |
 
-**Held-out test set:** 15.3% average error (MAPE), PKR 821,847 mean absolute error, R² 0.715. R² is lower on the test set because of one car: a PKR 20 crore Range Rover Vogue accounts for 86% of the squared error, and R² is 0.941 without it. That sensitivity to a single expensive car is why average percentage error is the headline metric.
+**Why Gradient Boosting is deployed:** Random Forest was 0.2 points more accurate in cross-validation, but its 200 deep trees are too large to run in a web browser. Gradient Boosting is close in accuracy and small enough (about 1 MB), so the website and the API share one model and always give the same price (`DEPLOY_MODEL` in `src/config.py`).
+
+**Held-out test set:** 15.3% average error (MAPE), PKR 868,389 mean absolute error, R² 0.705. R² is lower on the test set because of one car: a PKR 20 crore Range Rover Vogue accounts for 86% of the squared error, and R² is 0.939 without it. That sensitivity to a single expensive car is why average percentage error is the headline metric.
 
 ## How it works
 
@@ -55,16 +57,16 @@ flowchart LR
     B --> C[7,005 clean cars]
     C --> D[Features<br/>make and model from URL,<br/>one-hot encoding, scaling]
     D --> E[Compare 3 models<br/>5-fold cross-validation]
-    E --> F[Random Forest<br/>predicts log price]
+    E --> F[Gradient Boosting<br/>predicts log price]
     F --> G[Django REST API]
-    E --> I[Gradient Boosting<br/>exported to JSON]
+    F --> I[Exported to JSON]
     I --> J[Website on GitHub Pages<br/>predicts in JavaScript]
 ```
 
 1. **Cleaning** (`src/data_cleaning.py`): one row per listing (the raw data repeated each car under several categories), prices like `PKR 3,650,000` and mileages like `138,000 km` converted to numbers, make and model extracted from each listing's URL, rare cities grouped as "Other", and typos or impossible values removed with documented rules (price under PKR 1 lakh, mileage over 500,000 km, engines over 7,000 cc, cars older than 1980).
 2. **Exploration** (`src/eda.py`): price is heavily right-skewed, so the model learns `log(price)` and answers in rupees. Year (+0.55), engine size (+0.45) and mileage (−0.26) correlate with log price as expected. Charts are in `reports/figures/`.
-3. **Training** (`src/train.py`): one scikit-learn pipeline holds the preprocessing and the model, so the API can never skip a step. Unseen car models at prediction time are handled instead of crashing.
-4. **Browser model** (`src/export_web.py`, `docs/predictor.js`): the gradient boosting pipeline is exported to `docs/model.json`, and JavaScript repeats its steps (one-hot encoding, scaling, adding up 500 trees, undoing the log). A test checks it gives exactly the same prices as Python.
+3. **Training** (`src/train.py`): one scikit-learn pipeline holds the preprocessing and the model, so the API can never skip a step. Unseen car models at prediction time are handled instead of crashing. The likely price range is measured, not assumed: on the test cars, 80% sold between 0.82 and 1.24 times the estimate, so every new estimate gets that range.
+4. **Browser model** (`src/export_web.py`, `docs/predictor.js`): the same saved model is exported to `docs/model.json`, and JavaScript repeats its steps (one-hot encoding, scaling, adding up 500 trees, undoing the log). A test checks it gives exactly the same prices as Python.
 5. **Serving** (`api/`): Django REST Framework validates every input (case-insensitive makes, the model must belong to the make, engine size required for non-electric cars), loads the model once, and returns the estimate with its range and comparable listings.
 
 ## Technologies used
@@ -82,7 +84,7 @@ flowchart LR
 | --- | --- | --- |
 | `/api/health/` | GET | Service status and model name |
 | `/api/options/` | GET | Valid makes with their models, fuels, transmissions, cities, year range |
-| `/api/predict/` | POST | Estimate, likely range, average error, similar listings |
+| `/api/predict/` | POST | Estimate, 80% likely range, average error, similar listings |
 
 ```bash
 curl -X POST http://127.0.0.1:8000/api/predict/ \
@@ -92,8 +94,9 @@ curl -X POST http://127.0.0.1:8000/api/predict/ \
 
 ```json
 {
-  "predicted_price": 3460000,
-  "price_range": {"low": 2930000, "high": 3990000},
+  "predicted_price": 3640000,
+  "price_range": {"low": 2980000, "high": 4500000},
+  "range_coverage_percent": 80,
   "average_error_percent": 15.3,
   "similar_listings": [
     {"year": 2016, "mileage": 95000, "city": "Karachi", "price": 3050000},
@@ -137,7 +140,7 @@ Then open http://127.0.0.1:8000/.
 
 ## Deployment
 
-**Live site:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ (GitHub Pages, free). GitHub Pages only serves files, so `python -m src.export_web` trains the gradient boosting model (15.3% average error, close to the random forest's, at a fraction of the size) and writes it to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 500 trees, then undoing the log. A test checks that it gives exactly the same prices as Python. After retraining, run the export again and push.
+**Live site:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ (GitHub Pages, free). GitHub Pages only serves files, so after training, `python -m src.export_web` writes the saved model to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 500 trees, then undoing the log. Tests check that it gives exactly the same prices as Python and that the website and API use the same model. After retraining, run the export again and push.
 
 **API (optional):** `render.yaml` deploys the Django REST API to Render: it installs the requirements, cleans the data and trains the model during the build, then serves it with gunicorn. GitHub Actions runs the build, the export and all tests on every push.
 

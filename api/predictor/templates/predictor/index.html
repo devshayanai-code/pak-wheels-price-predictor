@@ -327,7 +327,7 @@
       </li>
       <li>
         <h3>You see the context</h3>
-        <p>A likely range based on the model's ±{{ error_percent }}% average error, plus real listings of the same car to compare.</p>
+        <p>A likely range that contained the real price for 8 in 10 cars the model never saw, plus real listings of the same car to compare.</p>
       </li>
     </ol>
     <p class="stack">Built with scikit-learn and Django REST Framework. Developers can call <code>POST /api/predict/</code> directly.</p>
@@ -444,7 +444,7 @@ function renderResult(data, car, asking) {
     ${gaugeHtml(data.predicted_price, data.price_range, asking)}
     ${verdictHtml(asking, data.price_range)}
     ${similarHtml(data.similar_listings)}
-    <p class="note">This is a machine learning estimate. On cars it never saw, the model is off by ±${data.average_error_percent}% on average.</p>
+    <p class="note">This is a machine learning estimate. On cars it never saw, ${data.range_coverage_percent / 10} in 10 sold inside the likely range shown, and the estimate was off by ±${data.average_error_percent}% on average.</p>
     <button class="cta again" type="button" id="again">Estimate another car</button>`);
   $("again").addEventListener("click", () => {
     $("make").focus({ preventScroll: true });

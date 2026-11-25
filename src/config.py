@@ -29,3 +29,10 @@ NUMERIC_FEATURES = ["year", "mileage", "engine_cc"]
 TARGET = "price"  # column we predict; confirmed after inspecting the data
 TEST_SIZE = 0.2  # 20% of rows held back to test the model
 RANDOM_STATE = 42  # fixed seed so results are repeatable
+
+# Model that gets saved and served. Random forest scores slightly better in
+# cross-validation (15.95% vs 16.19% error), but 200 deep trees are too big to
+# run in a web browser. Gradient boosting is close in accuracy and small enough,
+# so the API and the website use the same model and give the same prices.
+DEPLOY_MODEL = "gradient_boosting"
+RANGE_COVERAGE = 0.80  # the "likely range" should contain 80% of real prices

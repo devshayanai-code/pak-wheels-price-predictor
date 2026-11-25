@@ -21,11 +21,13 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from src.config import (
     CATEGORICAL_FEATURES,
+    DEPLOY_MODEL,
     METRICS_PATH,
     MODEL_PATH,
     NUMERIC_FEATURES,
     PROCESSED_DATA_PATH,
     RANDOM_STATE,
+    RANGE_COVERAGE,
     TARGET,
     TEST_SIZE,
 )
@@ -120,6 +122,22 @@ def evaluate(model, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
     }
 
 
+def price_interval(model, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+    """How far real prices fall from predictions, as multipliers.
+
+    Example: low_ratio 0.85 and high_ratio 1.17 mean that 80% of unseen cars sold
+    for between 85% and 117% of the predicted price. Multiplying a new prediction
+    by these gives a range that is right about 8 times in 10.
+    """
+    ratios = y_test.to_numpy() / model.predict(X_test)
+    tail = (1 - RANGE_COVERAGE) / 2
+    return {
+        "coverage_%": round(RANGE_COVERAGE * 100),
+        "low_ratio": round(float(np.quantile(ratios, tail)), 4),
+        "high_ratio": round(float(np.quantile(ratios, 1 - tail)), 4),
+    }
+
+
 def main() -> None:
     X, y = load_data()
     X_train, X_test, y_train, y_test = train_test_split(
@@ -131,11 +149,14 @@ def main() -> None:
     leaderboard = compare_models(models, X_train, y_train)
     print("\n" + leaderboard.round(3).to_string(index=False))
 
-    best_name = leaderboard.loc[0, "model"]
+    cv_winner = leaderboard.loc[0, "model"]
+    best_name = DEPLOY_MODEL  # see config.py for why this can differ from cv_winner
     best_model = build_pipeline(models[best_name]).fit(X_train, y_train)
     test_scores = evaluate(best_model, X_test, y_test)
-    print(f"\nBest model: {best_name}")
+    interval = price_interval(best_model, X_test, y_test)
+    print(f"\nBest in cross-validation: {cv_winner}. Deployed: {best_name}")
     print(f"Test set (unseen cars): {test_scores}")
+    print(f"Likely range: {interval}")
 
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(best_model, MODEL_PATH, compress=3)  # compress: smaller file to deploy
@@ -143,7 +164,9 @@ def main() -> None:
     METRICS_PATH.parent.mkdir(parents=True, exist_ok=True)
     METRICS_PATH.write_text(json.dumps({
         "best_model": best_name,
+        "cv_winner": cv_winner,
         "test": test_scores,
+        "price_interval": interval,
         "leaderboard": leaderboard.round(4).to_dict(orient="records"),
     }, indent=2))
     print(f"\nSaved model to {MODEL_PATH}")

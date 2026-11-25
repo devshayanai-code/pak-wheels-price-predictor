@@ -1,17 +1,18 @@
 """Export a browser-ready model and data for the static website in docs/.
 
-GitHub Pages can only serve files, not run Python. So we train the gradient
-boosting pipeline (small enough to ship), then write everything the browser
-needs to repeat its maths in JavaScript:
+GitHub Pages can only serve files, not run Python. So we take the model that
+src/train.py saved (the same one the API serves) and write everything the
+browser needs to repeat its maths in JavaScript:
 
     docs/model.json     encoder columns, scaler numbers and every tree
     docs/options.json   dropdown values (makes -> models, fuels, cities...)
     docs/listings.json  compact real listings, for "similar cars"
 
-Run from the project root:  python -m src.export_web
+Run from the project root, after training:  python -m src.export_web
 """
 import json
 
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import HistGradientBoostingRegressor
@@ -19,6 +20,8 @@ from sklearn.model_selection import train_test_split
 
 from src.config import (
     CATEGORICAL_FEATURES,
+    METRICS_PATH,
+    MODEL_PATH,
     NUMERIC_FEATURES,
     PROCESSED_DATA_PATH,
     RANDOM_STATE,
@@ -26,12 +29,8 @@ from src.config import (
     TARGET,
     TEST_SIZE,
 )
-from src.train import build_pipeline, evaluate
 
 DOCS_DIR = ROOT_DIR / "docs"
-WEB_MODEL = HistGradientBoostingRegressor(
-    max_iter=500, learning_rate=0.05, random_state=RANDOM_STATE
-)  # same settings as "gradient_boosting" in src/train.py
 
 
 def export_trees(booster: HistGradientBoostingRegressor) -> list[list[list]]:
@@ -55,7 +54,7 @@ def export_trees(booster: HistGradientBoostingRegressor) -> list[list[list]]:
     return trees
 
 
-def export_model(pipeline, test_scores: dict) -> dict:
+def export_model(pipeline, metrics: dict) -> dict:
     preprocess = pipeline.regressor_.named_steps["preprocess"]
     booster = pipeline.regressor_.named_steps["model"]
     scaler = preprocess.named_transformers_["numeric"]
@@ -68,7 +67,8 @@ def export_model(pipeline, test_scores: dict) -> dict:
         "baseline": float(np.ravel(booster._baseline_prediction)[0]),
         "trees": export_trees(booster),
         "target_transform": "log1p",  # the model predicts log(1 + price)
-        "metrics": test_scores,
+        "metrics": metrics["test"],
+        "price_interval": metrics["price_interval"],
     }
 
 
@@ -98,18 +98,20 @@ def write_json(name: str, data) -> None:
 
 
 def main() -> None:
+    pipeline = joblib.load(MODEL_PATH)
+    booster = pipeline.regressor_.named_steps["model"]
+    if not isinstance(booster, HistGradientBoostingRegressor):
+        raise SystemExit("The saved model is not gradient boosting: set DEPLOY_MODEL in "
+                         "src/config.py and run python -m src.train first.")
+    metrics = json.loads(METRICS_PATH.read_text())
+
     df = pd.read_csv(PROCESSED_DATA_PATH)
-    X, y = df[CATEGORICAL_FEATURES + NUMERIC_FEATURES], df[TARGET]
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE
-    )
-    pipeline = build_pipeline(WEB_MODEL).fit(X_train, y_train)
-    test_scores = evaluate(pipeline, X_test, y_test)
-    test_scores["n_train"], test_scores["n_test"] = len(X_train), len(X_test)
-    print(f"Web model (gradient boosting) on unseen cars: {test_scores}")
+    X = df[CATEGORICAL_FEATURES + NUMERIC_FEATURES]
+    X_train, X_test = train_test_split(X, test_size=TEST_SIZE, random_state=RANDOM_STATE)
+    metrics["test"]["n_train"], metrics["test"]["n_test"] = len(X_train), len(X_test)
 
     DOCS_DIR.mkdir(exist_ok=True)
-    write_json("model.json", export_model(pipeline, test_scores))
+    write_json("model.json", export_model(pipeline, metrics))
     write_json("options.json", export_options(df))
     write_json("listings.json", export_listings(df))
 

@@ -59,11 +59,12 @@
 
   function predictPrice(model, listings, car) {
     const price = predictRaw(model, car);
-    const errorRate = model.metrics["test_mape_%"] / 100;
+    const interval = model.price_interval;  // 80% of unseen cars sold inside this range
     return {
       predicted_price: roundPrice(price),
-      price_range: { low: roundPrice(price * (1 - errorRate)), high: roundPrice(price * (1 + errorRate)) },
-      average_error_percent: Math.round(errorRate * 1000) / 10,
+      price_range: { low: roundPrice(price * interval.low_ratio), high: roundPrice(price * interval.high_ratio) },
+      range_coverage_percent: interval["coverage_%"],
+      average_error_percent: Math.round(model.metrics["test_mape_%"] * 10) / 10,
       similar_listings: similarListings(listings, car),
     };
   }

@@ -30,3 +30,21 @@ def test_javascript_matches_python():
 def test_site_files_exist():
     for name in ["index.html", "predictor.js", "model.json", "options.json", "listings.json"]:
         assert (DOCS / name).exists(), f"docs/{name} is missing: run python -m src.export_web"
+
+
+def test_website_and_api_use_the_same_model():
+    from src.config import DEPLOY_MODEL, METRICS_PATH
+
+    metrics = json.loads(METRICS_PATH.read_text())
+    site = json.loads((DOCS / "model.json").read_text())
+    assert metrics["best_model"] == DEPLOY_MODEL
+    assert site["metrics"]["test_mape_%"] == metrics["test"]["test_mape_%"]
+    assert site["price_interval"] == metrics["price_interval"]
+
+
+def test_likely_range_surrounds_the_estimate():
+    from src.config import METRICS_PATH
+
+    interval = json.loads(METRICS_PATH.read_text())["price_interval"]
+    assert interval["coverage_%"] == 80
+    assert interval["low_ratio"] < 1 < interval["high_ratio"]
