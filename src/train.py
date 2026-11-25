@@ -15,7 +15,7 @@ from sklearn.metrics import (
     mean_absolute_percentage_error,
     r2_score,
 )
-from sklearn.model_selection import cross_validate, train_test_split
+from sklearn.model_selection import GroupKFold, GroupShuffleSplit, cross_val_predict, cross_validate
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
@@ -42,6 +42,29 @@ def load_data() -> tuple[pd.DataFrame, pd.Series]:
     return df[CATEGORICAL_FEATURES + NUMERIC_FEATURES], df[TARGET]
 
 
+def car_groups(X: pd.DataFrame) -> pd.Series:
+    """Label each listing with its car, so reposts of one car share a label.
+
+    The same car is often listed again at a different price. If one copy lands in
+    training and another in testing, the model is tested on a car it already saw.
+    Rows with identical inputs (make, model, year, mileage, ...) count as one car.
+    """
+    return X.astype(str).agg("|".join, axis=1)
+
+
+def split_data(X: pd.DataFrame, y: pd.Series):
+    """Hold back 20% of cars for testing, keeping every repost on the same side."""
+    groups = car_groups(X)
+    splitter = GroupShuffleSplit(n_splits=1, test_size=TEST_SIZE, random_state=RANDOM_STATE)
+    train_idx, test_idx = next(splitter.split(X, y, groups))
+    return (X.iloc[train_idx], X.iloc[test_idx], y.iloc[train_idx], y.iloc[test_idx],
+            groups.iloc[train_idx])
+
+
+def group_folds() -> GroupKFold:
+    return GroupKFold(n_splits=CV_FOLDS, shuffle=True, random_state=RANDOM_STATE)
+
+
 def build_preprocessor() -> ColumnTransformer:
     """Turn text columns into numbers and put numeric columns on one scale."""
     categorical = OneHotEncoder(
@@ -63,8 +86,10 @@ def candidate_models() -> dict:
         "random_forest": RandomForestRegressor(
             n_estimators=200, min_samples_leaf=3, n_jobs=-1, random_state=RANDOM_STATE
         ),
+        # min_samples_leaf=5 (default 20) lets trees learn car models with few
+        # listings; chosen with grouped cross-validation on the training set only
         "gradient_boosting": HistGradientBoostingRegressor(
-            max_iter=500, learning_rate=0.05, random_state=RANDOM_STATE
+            max_iter=700, learning_rate=0.05, min_samples_leaf=5, random_state=RANDOM_STATE
         ),
     }
     try:  # xgboost is optional: skip it if it is not installed yet
@@ -90,12 +115,13 @@ def build_pipeline(model) -> TransformedTargetRegressor:
     )
 
 
-def compare_models(models: dict, X_train: pd.DataFrame, y_train: pd.Series) -> pd.DataFrame:
+def compare_models(models: dict, X_train: pd.DataFrame, y_train: pd.Series,
+                   groups: pd.Series) -> pd.DataFrame:
     """Cross-validate every candidate on the training set and rank them."""
     rows = []
     for name, model in models.items():
         scores = cross_validate(
-            build_pipeline(model), X_train, y_train, cv=CV_FOLDS,
+            build_pipeline(model), X_train, y_train, groups=groups, cv=group_folds(),
             scoring={
                 "mae": "neg_mean_absolute_error",
                 "mape": "neg_mean_absolute_percentage_error",
@@ -122,40 +148,52 @@ def evaluate(model, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
     }
 
 
-def price_interval(model, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+def price_interval(model, X_train: pd.DataFrame, y_train: pd.Series, groups: pd.Series,
+                   X_test: pd.DataFrame, y_test: pd.Series) -> dict:
     """How far real prices fall from predictions, as multipliers.
 
-    Example: low_ratio 0.85 and high_ratio 1.17 mean that 80% of unseen cars sold
-    for between 85% and 117% of the predicted price. Multiplying a new prediction
-    by these gives a range that is right about 8 times in 10.
+    Example: low_ratio 0.85 and high_ratio 1.17 mean that 80% of cars sold for
+    between 85% and 117% of the predicted price. The multipliers are measured on
+    the training cars, each predicted by a model that never saw it (cross-validation),
+    and then checked on the untouched test cars ("test_coverage_%").
     """
-    ratios = y_test.to_numpy() / model.predict(X_test)
+    oof = cross_val_predict(model, X_train, y_train, groups=groups, cv=group_folds())
+    ratios = y_train.to_numpy() / oof
     tail = (1 - RANGE_COVERAGE) / 2
+    low, high = np.quantile(ratios, tail), np.quantile(ratios, 1 - tail)
+    test_ratios = y_test.to_numpy() / model.fit(X_train, y_train).predict(X_test)
     return {
         "coverage_%": round(RANGE_COVERAGE * 100),
-        "low_ratio": round(float(np.quantile(ratios, tail)), 4),
-        "high_ratio": round(float(np.quantile(ratios, 1 - tail)), 4),
+        "low_ratio": round(float(low), 4),
+        "high_ratio": round(float(high), 4),
+        "test_coverage_%": round(float(np.mean((test_ratios >= low) & (test_ratios <= high))) * 100, 1),
     }
 
 
 def main() -> None:
     X, y = load_data()
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE
-    )
+    X_train, X_test, y_train, y_test, groups = split_data(X, y)
+    print(f"{len(X_train):,} training and {len(X_test):,} test listings "
+          "(reposts of one car never appear on both sides)")
 
-    print(f"Comparing models with {CV_FOLDS}-fold cross-validation...")
+    print(f"Comparing models with {CV_FOLDS}-fold grouped cross-validation...")
     models = candidate_models()
-    leaderboard = compare_models(models, X_train, y_train)
+    leaderboard = compare_models(models, X_train, y_train, groups)
     print("\n" + leaderboard.round(3).to_string(index=False))
 
     cv_winner = leaderboard.loc[0, "model"]
     best_name = DEPLOY_MODEL  # see config.py for why this can differ from cv_winner
-    best_model = build_pipeline(models[best_name]).fit(X_train, y_train)
-    test_scores = evaluate(best_model, X_test, y_test)
-    interval = price_interval(best_model, X_test, y_test)
+    best_model = build_pipeline(models[best_name])
+    interval = price_interval(best_model, X_train, y_train, groups, X_test, y_test)
+    test_scores = evaluate(best_model, X_test, y_test)  # price_interval fitted it
     print(f"\nBest in cross-validation: {cv_winner}. Deployed: {best_name}")
     print(f"Test set (unseen cars): {test_scores}")
+
+    # The previous release's settings, scored on the same test cars for a fair comparison
+    previous = build_pipeline(HistGradientBoostingRegressor(
+        max_iter=500, learning_rate=0.05, random_state=RANDOM_STATE)).fit(X_train, y_train)
+    previous_scores = evaluate(previous, X_test, y_test)
+    print(f"Previous settings on the same test cars: {previous_scores}")
     print(f"Likely range: {interval}")
 
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -166,6 +204,7 @@ def main() -> None:
         "best_model": best_name,
         "cv_winner": cv_winner,
         "test": test_scores,
+        "previous_settings_test": previous_scores,
         "price_interval": interval,
         "leaderboard": leaderboard.round(4).to_dict(orient="records"),
     }, indent=2))

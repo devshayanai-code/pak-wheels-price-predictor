@@ -30,9 +30,10 @@ TARGET = "price"  # column we predict; confirmed after inspecting the data
 TEST_SIZE = 0.2  # 20% of rows held back to test the model
 RANDOM_STATE = 42  # fixed seed so results are repeatable
 
-# Model that gets saved and served. Random forest scores slightly better in
-# cross-validation (15.95% vs 16.19% error), but 200 deep trees are too big to
-# run in a web browser. Gradient boosting is close in accuracy and small enough,
-# so the API and the website use the same model and give the same prices.
+# Model that gets saved and served by both the API and the website. It must be
+# gradient boosting: the website runs it in the browser (src/export_web.py), and
+# a 200-tree random forest would be far too large to download. Gradient boosting
+# also has the lowest error in grouped cross-validation (see reports/metrics.json).
 DEPLOY_MODEL = "gradient_boosting"
 RANGE_COVERAGE = 0.80  # the "likely range" should contain 80% of real prices
+LOW_DATA_LISTINGS = 30  # fewer listings of a car model than this: estimate is less reliable

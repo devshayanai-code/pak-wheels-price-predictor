@@ -66,7 +66,6 @@ Toyota,Vitz,2015,120000,1000.0,Petrol,Automatic,Islamabad,3050000.0
 Daihatsu,Cuore,2007,150000,800.0,Petrol,Automatic,Multan,990000.0
 Toyota,Land Cruiser,2023,21076,3500.0,Petrol,Automatic,Karachi,72000000.0
 Toyota,Prius,2007,100000,1500.0,Hybrid,Automatic,Peshawar,3100000.0
-Toyota,Aqua,2016,92,1500.0,Hybrid,Automatic,Karachi,4250000.0
 Suzuki,Alto,2022,42000,660.0,Petrol,Manual,Multan,2425000.0
 Mazda,Scrum Van,2018,30000,660.0,Petrol,Automatic,Rawalpindi,3800000.0
 Honda,City,2006,128000,1300.0,Petrol,Manual,Lahore,2400000.0
@@ -175,14 +174,12 @@ Toyota,Hilux,2015,91000,2500.0,Diesel,Automatic,Karachi,6575000.0
 Daihatsu,Tanto,2021,9000,660.0,Petrol,Automatic,Peshawar,3320000.0
 Toyota,Premio,2009,98000,1500.0,Petrol,Automatic,Karachi,3900000.0
 Byd,Seal,2025,100,0.0,Electric,Automatic,Karachi,17000000.0
-Honda,City,2018,1,1300.0,Petrol,Manual,Lahore,3450000.0
 Byd,Atto 3,2025,99,0.0,Electric,Automatic,Karachi,9550000.0
 Toyota,Yaris Sedan,2022,6221,1300.0,Petrol,Automatic,Faisalabad,5200000.0
 Toyota,Land Cruiser,2017,46000,4600.0,Petrol,Automatic,Lahore,27500000.0
 Toyota,Aqua,2012,94000,1500.0,Hybrid,Automatic,Lahore,3300000.0
 Honda,Vezel,2014,123292,1500.0,Hybrid,Automatic,Multan,4500000.0
 Suzuki,Wagon R,2017,80000,1000.0,Petrol,Manual,Lahore,2120000.0
-Suzuki,Ravi,2008,4,800.0,Petrol,Manual,Other,820000.0
 Suzuki,Bolan,2024,1,800.0,Petrol,Manual,Islamabad,2170000.0
 Toyota,Corolla,2008,109000,2000.0,Diesel,Manual,Islamabad,4000000.0
 Hyundai,Shehzore,2007,213005,2600.0,Diesel,Manual,Other,2900000.0
@@ -209,7 +206,6 @@ Honda,City,2018,71000,1300.0,Petrol,Manual,Lahore,3450000.0
 Suzuki,Swift,2013,130000,1300.0,Petrol,Manual,Lahore,2000000.0
 Toyota,Prius,2017,150000,1800.0,Hybrid,Automatic,Peshawar,8350000.0
 Toyota,Raize,2020,20000,1000.0,Petrol,Automatic,Lahore,6550000.0
-Suzuki,Mehran,1999,1,800.0,Petrol,Manual,Lahore,400000.0
 Toyota,Prado,2022,6000,2700.0,Petrol,Automatic,Rawalpindi,38450000.0
 Toyota,Hilux,2023,400,2800.0,Diesel,Automatic,Karachi,16600000.0
 Toyota,Land Cruiser,2015,108000,4600.0,Petrol,Automatic,Lahore,34500000.0
@@ -237,7 +233,6 @@ Suzuki,Mehran,2017,62252,796.0,Petrol,Manual,Karachi,1550000.0
 Toyota,Corolla,2014,110000,1300.0,Petrol,Manual,Faisalabad,3250000.0
 Suzuki,Cultus,2008,174000,1000.0,Petrol,Manual,Islamabad,1380000.0
 Toyota,Prado,2000,120000,3400.0,Petrol,Automatic,Islamabad,5500000.0
-Suzuki,Ravi,2013,1,800.0,Petrol,Manual,Other,975000.0
 Suzuki,Cultus,2022,43697,1000.0,Petrol,Automatic,Lahore,3500000.0
 Hyundai,Ioniq 5,2022,51000,0.0,Electric,Automatic,Islamabad,11800000.0
 Toyota,Corolla,2022,25000,1800.0,Petrol,Automatic,Islamabad,6900000.0
@@ -251,7 +246,6 @@ Honda,N Box,2021,50000,660.0,Petrol,Automatic,Peshawar,3275000.0
 Suzuki,Alto,2014,98000,660.0,Petrol,Automatic,Lahore,2625000.0
 Daewoo,Racer,1993,200000,1500.0,Petrol,Manual,Islamabad,750000.0
 Honda,Civic,2008,173000,1800.0,Petrol,Manual,Rawalpindi,2350000.0
-Toyota,Yaris Sedan,2020,36000,1300.0,Petrol,Automatic,Lahore,395000.0
 Suzuki,Cultus,2004,40438,1000.0,Petrol,Manual,Lahore,1000000.0
 Dfsk,Glory 580,2021,59279,1500.0,Petrol,Automatic,Karachi,4950000.0
 Toyota,Iq,2012,80000,1000.0,Petrol,Automatic,Karachi,2530000.0
@@ -268,7 +262,6 @@ Toyota,Corolla Fielder,2018,220000,1500.0,Hybrid,Automatic,Other,6050000.0
 Suzuki,Alto,2024,22000,660.0,Petrol,Manual,Other,2800000.0
 Toyota,Corolla,2014,194155,1300.0,Petrol,Automatic,Multan,3500000.0
 Toyota,Corolla,2020,150000,1300.0,Petrol,Automatic,Lahore,4895000.0
-Toyota,Corolla,2005,1,2000.0,Diesel,Manual,Islamabad,2200000.0
 Suzuki,Cultus,2007,80000,1000.0,CNG,Manual,Peshawar,1050000.0
 Toyota,86,1998,100000,1300.0,Petrol,Manual,Rawalpindi,590000.0
 Honda,Grace Hybrid,2015,115638,1500.0,Hybrid,Automatic,Karachi,3600000.0
@@ -332,7 +325,6 @@ Toyota,Corolla,2023,16000,1598.0,Petrol,Automatic,Islamabad,6850000.0
 Toyota,Platz,2005,100000,1000.0,Petrol,Automatic,Karachi,1650000.0
 Toyota,Corolla,2011,122000,1300.0,Petrol,Manual,Other,2850000.0
 Honda,Civic,2017,190000,1800.0,Petrol,Automatic,Faisalabad,4350000.0
-Honda,Civic,2015,89,1800.0,Petrol,Automatic,Karachi,3395000.0
 Mercedes-Benz,Slk Class,2007,90000,1800.0,Petrol,Automatic,Karachi,7500000.0
 Toyota,Hilux,2015,85000,2500.0,Diesel,Automatic,Rawalpindi,7475000.0
 Honda,City,2017,96775,1300.0,Petrol,Automatic,Sialkot,3600000.0
@@ -355,7 +347,6 @@ Toyota,Prius,2015,234000,1800.0,Hybrid,Automatic,Lahore,5150000.0
 Nissan,Serena,2019,69688,1200.0,Hybrid,Automatic,Lahore,6495000.0
 Isuzu,Trooper,1994,126000,3400.0,Petrol,Automatic,Other,1800000.0
 Honda,Vezel,2021,47000,1500.0,Hybrid,Automatic,Other,11200000.0
-Kia,Sportage,2021,51,2000.0,Petrol,Automatic,Lahore,7300000.0
 Toyota,Prado,2002,198146,2700.0,Petrol,Automatic,Other,7500000.0
 Honda,Civic,2017,145000,1800.0,Petrol,Automatic,Gujranwala,4800000.0
 Honda,City,2018,53000,1300.0,Petrol,Manual,Faisalabad,3650000.0
@@ -363,7 +354,6 @@ Changan,Alsvin,2022,30100,1300.0,Petrol,Manual,Karachi,3330000.0
 Mitsubishi,Rvr,2012,129739,1800.0,Petrol,Automatic,Karachi,3900000.0
 Daihatsu,Copen,2003,12000,660.0,Petrol,Automatic,Rawalpindi,2000000.0
 Jac,T9,2025,1350,2000.0,Diesel,Automatic,Other,11500000.0
-Suzuki,Cultus,2006,1,1000.0,Petrol,Manual,Other,1225000.0
 Suzuki,Wagon R,2020,60000,660.0,Hybrid,Automatic,Islamabad,3550000.0
 Mercedes-Benz,C Class,2018,43000,1600.0,Petrol,Automatic,Lahore,21500000.0
 Haval,H6,2024,3310,1500.0,Hybrid,Automatic,Islamabad,12500000.0
@@ -425,7 +415,6 @@ Daihatsu,Copen,2017,49000,660.0,Petrol,Automatic,Islamabad,3300000.0
 Nissan,Note,2020,30000,1200.0,Hybrid,Automatic,Lahore,6350000.0
 Toyota,Corolla,1987,200000,1300.0,Petrol,Manual,Faisalabad,860000.0
 Suzuki,Ravi,2017,80000,800.0,Petrol,Manual,Karachi,1200000.0
-Honda,Accord,2008,1,2000.0,Petrol,Automatic,Lahore,3525000.0
 Honda,Br V,2021,93660,1500.0,Petrol,Automatic,Lahore,4700000.0
 Toyota,Prado,2019,34000,2700.0,Petrol,Automatic,Lahore,26300000.0
 Toyota,Prado,1997,120000,3400.0,Petrol,Automatic,Other,4975000.0
@@ -508,7 +497,6 @@ Suzuki,Alto,2007,93000,1000.0,Petrol,Manual,Lahore,975000.0
 Suzuki,Every,2007,214000,660.0,Petrol,Manual,Lahore,1295000.0
 Mercedes-Benz,C Class,2012,105000,1800.0,Petrol,Automatic,Islamabad,7960000.0
 Toyota,Prado,2019,49000,2700.0,Petrol,Automatic,Lahore,24200000.0
-Toyota,Corolla,1994,100000,1500.0,CNG,Automatic,Peshawar,190000.0
 Suzuki,Ravi,2018,54000,800.0,Petrol,Manual,Other,1410000.0
 Suzuki,Wagon R,2017,122000,660.0,Petrol,Automatic,Lahore,2250000.0
 Suzuki,Cultus,2007,85000,1000.0,Petrol,Manual,Rawalpindi,950000.0
@@ -531,7 +519,6 @@ Honda,Vezel,2015,89000,1500.0,Hybrid,Automatic,Lahore,4700000.0
 Suzuki,Every,2020,53000,660.0,Petrol,Automatic,Karachi,3300000.0
 Suzuki,Alto,2010,100000,1000.0,Petrol,Manual,Karachi,1080000.0
 Daihatsu,Move,2021,19000,660.0,Petrol,Automatic,Lahore,3900000.0
-Mazda,Flair,2014,54,660.0,Petrol,Automatic,Karachi,2470000.0
 Toyota,Land Cruiser,2011,133000,4600.0,Petrol,Automatic,Gujranwala,23000000.0
 Toyota,Prado,2020,65000,2754.0,Diesel,Automatic,Karachi,35500000.0
 Toyota,Roomy,2022,7000,996.0,Petrol,Automatic,Lahore,4800000.0
@@ -589,7 +576,6 @@ Suzuki,Cultus,2009,70000,1000.0,Petrol,Manual,Rawalpindi,1450000.0
 Toyota,Land Cruiser,2021,24854,3500.0,Petrol,Automatic,Lahore,76500000.0
 Kia,Sportage L,2025,50,1600.0,Hybrid,Automatic,Lahore,12700000.0
 Toyota,C Hr,2017,63932,1800.0,Hybrid,Automatic,Rawalpindi,7000000.0
-Suzuki,Hustler,2017,69,660.0,Petrol,Automatic,Karachi,2725000.0
 Suzuki,Alto,2022,36000,660.0,Petrol,Automatic,Karachi,2850000.0
 Toyota,Hilux,2007,135000,2500.0,Petrol,Automatic,Lahore,4550000.0
 Suzuki,Bolan,1985,68580,800.0,Petrol,Manual,Islamabad,500000.0
@@ -604,7 +590,6 @@ Toyota,Raize,2021,84000,1000.0,Petrol,Automatic,Karachi,4800000.0
 Honda,City,2013,88000,1300.0,Petrol,Manual,Other,2875000.0
 Changan,Alsvin,2021,37746,1500.0,Petrol,Automatic,Multan,3875000.0
 Honda,City,2013,137266,1500.0,Petrol,Manual,Karachi,2890000.0
-Suzuki,Bolan,2019,1,800.0,Petrol,Manual,Other,1800000.0
 Honda,City,2012,107744,1300.0,Petrol,Manual,Karachi,2550000.0
 Toyota,Prius,2015,120000,1800.0,Hybrid,Automatic,Faisalabad,5250000.0
 Suzuki,Hustler,2016,69000,660.0,Petrol,Automatic,Islamabad,2830000.0
@@ -631,7 +616,6 @@ Mazda,Scrum Van,2019,64000,660.0,Petrol,Automatic,Karachi,3399000.0
 Honda,City,2008,123250,1300.0,Petrol,Manual,Hyderabad,1835000.0
 Audi,E Tron,2021,45371,0.0,Electric,Automatic,Lahore,20500000.0
 Toyota,Yaris Sedan,2021,63867,1300.0,Petrol,Automatic,Karachi,4100000.0
-Suzuki,Cultus,2017,1,1000.0,Petrol,Manual,Islamabad,1850000.0
 Toyota,Passo,2014,116173,1000.0,Petrol,Automatic,Islamabad,3340000.0
 Suzuki,Ravi,2013,17500,800.0,Petrol,Manual,Rawalpindi,1500000.0
 Suzuki,Ravi,2022,38500,800.0,Petrol,Manual,Lahore,1625000.0
@@ -658,7 +642,6 @@ Toyota,Prius,2006,197637,1500.0,Hybrid,Automatic,Islamabad,3400000.0
 Suzuki,Bolan,2020,80000,800.0,Petrol,Manual,Other,1600000.0
 Toyota,Raize,2020,54000,1000.0,Petrol,Automatic,Karachi,5450000.0
 Hyundai,Excel,1993,123456,1500.0,Petrol,Manual,Islamabad,520000.0
-Daihatsu,Cuore,2006,1,800.0,Petrol,Manual,Other,1070000.0
 Suzuki,Mehran,2007,122,800.0,Petrol,Manual,Karachi,500000.0
 Faw,X Pv,2016,16000,1000.0,Petrol,Manual,Other,860000.0
 Toyota,Corolla,2016,104000,1800.0,Petrol,Automatic,Islamabad,4125000.0
@@ -683,7 +666,6 @@ Toyota,Corolla,2009,166000,1300.0,Petrol,Manual,Other,2100000.0
 Honda,City,2009,165000,1300.0,Petrol,Manual,Islamabad,2600000.0
 Toyota,Prado,1994,240000,3000.0,Diesel,Automatic,Other,3600000.0
 Toyota,Premio,2003,100000,1800.0,Petrol,Automatic,Quetta,3100000.0
-Suzuki,Cultus,2017,81,1000.0,Petrol,Manual,Faisalabad,2350000.0
 Toyota,Prado,2007,150000,3000.0,Diesel,Automatic,Islamabad,9500000.0
 Toyota,Aqua,2014,170733,1500.0,Hybrid,Automatic,Lahore,3900000.0
 Toyota,Raize,2020,143000,1000.0,Petrol,Automatic,Lahore,5250000.0
@@ -696,7 +678,6 @@ Suzuki,Alto,2021,79000,660.0,Petrol,Manual,Lahore,2315000.0
 Daihatsu,Boon,2023,15000,1000.0,Petrol,Automatic,Islamabad,4250000.0
 Suzuki,Mehran,2009,96309,800.0,Petrol,Manual,Karachi,750000.0
 Honda,S660,2016,83200,660.0,Petrol,Manual,Lahore,3900000.0
-Suzuki,Fx,1987,18,800.0,CNG,Manual,Other,270000.0
 Daihatsu,Move,2022,46200,658.0,Petrol,Automatic,Lahore,3620000.0
 Toyota,Sienta,2017,92214,1500.0,Petrol,Automatic,Karachi,5700000.0
 Mercedes-Benz,Eqc,2020,34000,0.0,Electric,Automatic,Lahore,22000000.0
@@ -706,7 +687,6 @@ Daihatsu,Taft,2022,29000,660.0,Petrol,Automatic,Lahore,3695000.0
 Toyota,Yaris Sedan,2023,60782,1300.0,Petrol,Automatic,Lahore,4500000.0
 Prince,Pearl,2025,1639,800.0,Petrol,Manual,Karachi,1799999.0
 Honda,Vezel,2014,100000,1500.0,Hybrid,Automatic,Islamabad,5000000.0
-Suzuki,Alto,2012,87,1000.0,Petrol,Manual,Karachi,1175000.0
 Toyota,Corolla,2009,150000,1300.0,Petrol,Manual,Islamabad,2450000.0
 Toyota,Corolla,2013,177000,1300.0,Petrol,Manual,Lahore,3000000.0
 Suzuki,Alto,2006,100000,660.0,Petrol,Automatic,Peshawar,850000.0
@@ -825,7 +805,6 @@ Daihatsu,Copen,2021,36000,660.0,Petrol,Manual,Islamabad,5000000.0
 Toyota,Hiace,2008,300000,2700.0,Petrol,Automatic,Other,3800000.0
 Suzuki,Xbee,2020,29000,1000.0,Hybrid,Automatic,Karachi,4500000.0
 Toyota,Yaris Hatchback,2021,43194,1000.0,Petrol,Automatic,Karachi,4800000.0
-Suzuki,Ravi,2014,1,800.0,Petrol,Manual,Karachi,987500.0
 Audi,E Tron,2023,10000,0.0,Electric,Automatic,Karachi,25000000.0
 Suzuki,Cultus,2015,114000,1000.0,Petrol,Manual,Karachi,1475000.0
 Proton,Saga,2023,1,1299.0,Petrol,Automatic,Karachi,3900000.0
@@ -837,7 +816,6 @@ Honda,Cr V,2008,159855,2400.0,Petrol,Automatic,Rawalpindi,3350000.0
 Honda,Freed,2019,55000,1500.0,Hybrid,Automatic,Karachi,5990000.0
 Suzuki,Wagon R,2011,132000,660.0,Petrol,Automatic,Islamabad,2175000.0
 Suzuki,Wagon R,2016,76000,1000.0,Petrol,Manual,Lahore,2175000.0
-Suzuki,Alto,2006,1,660.0,Petrol,Automatic,Rawalpindi,1200000.0
 Toyota,Hilux,2017,110000,3000.0,Diesel,Automatic,Islamabad,8750000.0
 Toyota,Aqua,2018,74450,1500.0,Hybrid,Automatic,Karachi,5200000.0
 Suzuki,Alto,2022,17000,660.0,Petrol,Automatic,Islamabad,2920000.0
@@ -879,7 +857,6 @@ Suzuki,Alto,2024,19350,660.0,Petrol,Automatic,Faisalabad,3025000.0
 Daihatsu,Mira,2021,10000,660.0,Petrol,Automatic,Karachi,3325000.0
 Suzuki,Cultus,2011,90703,1000.0,Petrol,Manual,Karachi,1150000.0
 Lexus,Lx Series,2018,9000,5700.0,Petrol,Automatic,Lahore,64500000.0
-Daihatsu,Mira,2011,1,660.0,Petrol,Automatic,Karachi,1850000.0
 Honda,Civic,2017,79161,1500.0,Petrol,Automatic,Islamabad,5225000.0
 Lexus,Rx Series,2009,147000,3500.0,Petrol,Automatic,Lahore,9475000.0
 Toyota,Passo,2019,22056,1000.0,Petrol,Automatic,Karachi,3800000.0
@@ -894,14 +871,12 @@ Toyota,Yaris Hatchback,2021,9000,1000.0,Petrol,Automatic,Sargodha,4335000.0
 Suzuki,Bolan,2012,80000,800.0,Petrol,Manual,Other,535000.0
 Honda,N One,2015,89000,660.0,Petrol,Automatic,Lahore,2575000.0
 Honda,Fit,2014,92000,1500.0,Hybrid,Automatic,Islamabad,3325000.0
-Suzuki,Bolan,2012,1,1000.0,Petrol,Manual,Karachi,820000.0
 Toyota,Raize,2020,40000,1000.0,Petrol,Automatic,Karachi,5550000.0
 Honda,Civic,2009,238000,1800.0,Petrol,Manual,Faisalabad,2300000.0
 Toyota,Passo,2018,69655,1000.0,Petrol,Automatic,Karachi,3400000.0
 Suzuki,Every,2013,104000,660.0,Petrol,Automatic,Gujranwala,1950000.0
 Suzuki,Ravi,2013,50000,800.0,Petrol,Manual,Other,1400000.0
 Daihatsu,Move,2021,95000,658.0,Petrol,Automatic,Peshawar,3700000.0
-Toyota,Corolla,2004,1,2000.0,Diesel,Manual,Multan,1500000.0
 Suzuki,Bolan,2024,1,800.0,Petrol,Manual,Rawalpindi,2350000.0
 Toyota,Land Cruiser,2004,202106,4700.0,Petrol,Automatic,Lahore,12500000.0
 Suzuki,Mehran,2003,10000,800.0,Petrol,Manual,Other,600000.0
@@ -940,7 +915,6 @@ Toyota,Yaris Hatchback,2022,90000,1000.0,Petrol,Automatic,Lahore,4525000.0
 Subaru,Stella,2018,74000,660.0,Petrol,Automatic,Lahore,2845000.0
 Suzuki,Cultus,2019,64000,1000.0,Petrol,Automatic,Karachi,2790000.0
 Toyota,Corolla,2017,82500,1300.0,Petrol,Manual,Other,3800000.0
-Hyundai,Santro,2000,15,1000.0,Petrol,Manual,Karachi,600000.0
 Toyota,Sienta,2016,98000,1500.0,Hybrid,Automatic,Karachi,4300000.0
 Toyota,Corolla,2016,237000,1300.0,Petrol,Automatic,Other,3700000.0
 Suzuki,Jimny,2019,38660,660.0,Petrol,Automatic,Karachi,5300000.0
@@ -958,7 +932,6 @@ Toyota,Corolla Cross,2023,22172,1800.0,Hybrid,Automatic,Rawalpindi,9200000.0
 Honda,Civic,2011,199999,1800.0,Petrol,Automatic,Lahore,3200000.0
 Changan,Alsvin,2025,3500,1500.0,Petrol,Automatic,Lahore,4950000.0
 Toyota,Passo,2012,112644,1000.0,Petrol,Automatic,Rawalpindi,2750000.0
-Suzuki,Fx,1985,1,800.0,Petrol,Manual,Karachi,465000.0
 Suzuki,Ravi,2016,45000,800.0,Petrol,Manual,Islamabad,1220000.0
 Byd,Atto 3,2025,437,0.0,Electric,Automatic,Islamabad,9850000.0
 Honda,Accord,1989,250000,1500.0,Petrol,Manual,Lahore,649000.0
@@ -1011,7 +984,6 @@ Toyota,Corolla,2009,100000,1300.0,Petrol,Manual,Karachi,2550000.0
 Toyota,Yaris Hatchback,2020,27160,1000.0,Petrol,Automatic,Islamabad,4710000.0
 Suzuki,Cultus,2006,85320,1000.0,Petrol,Manual,Karachi,900000.0
 Suzuki,Alto,2007,9400,1000.0,Petrol,Manual,Karachi,750000.0
-Honda,Accord,1994,1,1800.0,Petrol,Manual,Rawalpindi,1000000.0
 Suzuki,Mehran,2014,70000,800.0,Petrol,Manual,Rawalpindi,1270000.0
 Toyota,Hilux,2012,110000,2500.0,Diesel,Automatic,Karachi,5450000.0
 Hyundai,Excel,1993,10000,1500.0,Petrol,Automatic,Lahore,700000.0
@@ -1065,7 +1037,6 @@ Suzuki,Wagon R,2015,85000,660.0,Petrol,Automatic,Karachi,2150000.0
 Byd,Atto 3,2025,10,0.0,Electric,Automatic,Lahore,9800000.0
 Honda,City,2015,88000,1300.0,Petrol,Automatic,Lahore,3350000.0
 Daihatsu,Mira,2022,5500,660.0,Petrol,Automatic,Islamabad,3145000.0
-Honda,Civic,2020,93,1500.0,Petrol,Automatic,Peshawar,6550000.0
 Mazda,Scrum Van,2017,172000,660.0,Petrol,Manual,Gujranwala,1700000.0
 Suzuki,Ravi,2015,100000,800.0,Petrol,Manual,Other,1000000.0
 Toyota,Hilux,2025,30,2800.0,Diesel,Automatic,Karachi,17050000.0
@@ -1105,7 +1076,6 @@ Daewoo,Racer,1995,10000,1500.0,Petrol,Manual,Islamabad,380000.0
 Toyota,Prius,2009,223794,1800.0,Hybrid,Automatic,Peshawar,4700000.0
 Daihatsu,Charade,1984,125000,1000.0,Diesel,Manual,Lahore,250000.0
 Honda,City,2020,31000,1300.0,Petrol,Automatic,Karachi,3970000.0
-Suzuki,Mehran,2016,1,600.0,Petrol,Manual,Other,820000.0
 Toyota,Prado,2004,90000,2700.0,Petrol,Automatic,Lahore,6700000.0
 Suzuki,Alto,2021,123,660.0,Petrol,Manual,Rawalpindi,2395000.0
 Hyundai,Tucson,2023,7000,2000.0,Petrol,Automatic,Sialkot,8440000.0
@@ -1134,11 +1104,9 @@ Toyota,Vitz,2018,116000,996.0,Petrol,Automatic,Islamabad,3825000.0
 Suzuki,Xbee,2021,20779,1000.0,Hybrid,Automatic,Lahore,4600000.0
 Suzuki,Alto,2023,13281,660.0,Petrol,Automatic,Lahore,3695000.0
 Bmw,Ix,2022,9000,0.0,Electric,Automatic,Karachi,33000000.0
-Suzuki,Ravi,2008,2,800.0,Petrol,Manual,Rawalpindi,830000.0
 Nissan,Sakura,2022,25000,0.0,Electric,Automatic,Karachi,5100000.0
 Jeep,Cj 5,1981,50000,5000.0,Petrol,Manual,Karachi,1100000.0
 Toyota,Land Cruiser,2012,93000,4600.0,Petrol,Automatic,Lahore,25250000.0
-Honda,Vezel,2015,91,1500.0,Hybrid,Automatic,Karachi,4090000.0
 Changan,Karvaan,2025,5000,1200.0,Petrol,Manual,Rawalpindi,3350000.0
 Toyota,Prius,2010,230000,1800.0,Hybrid,Automatic,Sialkot,4000000.0
 Porsche,Taycan,2021,11700,0.0,Electric,Automatic,Lahore,34500000.0
@@ -1166,11 +1134,9 @@ Toyota,Vitz,2014,109746,1000.0,Petrol,Automatic,Karachi,3100000.0
 Honri,Ve,2024,817,0.0,Electric,Automatic,Islamabad,3940000.0
 Prince,Pearl,2020,49359,800.0,Petrol,Manual,Islamabad,950000.0
 Nissan,Leaf,2021,37000,0.0,Electric,Automatic,Lahore,6800000.0
-Jeep,M 151,1982,1,2400.0,Diesel,Manual,Islamabad,2000000.0
 Honda,Freed,2019,38254,1500.0,Hybrid,Automatic,Karachi,7000000.0
 Haval,Jolion,2025,8,1500.0,Petrol,Automatic,Lahore,8338470.0
 Suzuki,Cultus,2006,95000,1000.0,Petrol,Manual,Karachi,780000.0
-Honda,Civic,1998,17,1500.0,Petrol,Manual,Other,970000.0
 Daihatsu,Mira,2022,10000,660.0,Petrol,Automatic,Karachi,3450000.0
 Toyota,Corolla,2019,98400,1800.0,Petrol,Automatic,Islamabad,5740000.0
 Toyota,Passo,2014,159855,1000.0,Petrol,Automatic,Islamabad,3075000.0
@@ -1209,13 +1175,11 @@ Kia,Sportage,2020,17000,2000.0,Petrol,Automatic,Karachi,6950000.0
 Honda,Br V,2021,23000,1500.0,Petrol,Automatic,Karachi,5100000.0
 Suzuki,Bolan,2022,72000,800.0,Petrol,Manual,Other,1900000.0
 Toyota,Wish,2006,137000,1800.0,Petrol,Automatic,Multan,3300000.0
-Suzuki,Bolan,2017,15,800.0,Petrol,Manual,Other,1240000.0
 Suzuki,Alto,2020,74000,660.0,Petrol,Manual,Lahore,2300000.0
 Toyota,Prius,2010,199633,1800.0,Hybrid,Automatic,Faisalabad,3900000.0
 Seres,3,2025,1,0.0,Electric,Automatic,Karachi,8400000.0
 Suzuki,Liana,2006,100000,1300.0,Petrol,Manual,Islamabad,1500000.0
 Audi,A5,2019,36697,1400.0,Petrol,Automatic,Lahore,17500000.0
-Daihatsu,Cuore,2007,9,800.0,Petrol,Manual,Karachi,900000.0
 Daihatsu,Rocky,2021,60754,1000.0,Petrol,Automatic,Lahore,5400000.0
 Audi,E Tron,2020,13000,0.0,Electric,Automatic,Lahore,23200000.0
 Toyota,Raize,2020,68000,1000.0,Petrol,Automatic,Gujranwala,5750000.0
@@ -1247,7 +1211,6 @@ Honda,Vezel,2016,72000,1500.0,Hybrid,Automatic,Peshawar,5675000.0
 Daihatsu,Mira,2022,29000,660.0,Petrol,Automatic,Karachi,3425000.0
 Honda,City,2015,97300,1300.0,Petrol,Manual,Lahore,3220000.0
 Nissan,350Z,2007,72000,3498.0,Petrol,Manual,Islamabad,11500000.0
-Toyota,Raize,2021,44500,1000.0,Petrol,Automatic,Karachi,62750000.0
 Toyota,Prado,2021,6731,2700.0,Petrol,Automatic,Lahore,34900000.0
 Changan,Oshan X7,2022,49000,1500.0,Petrol,Automatic,Lahore,7495000.0
 Toyota,Prius,2008,110000,1500.0,Hybrid,Automatic,Lahore,2950000.0
@@ -1279,7 +1242,6 @@ Changan,Karvaan,2023,19000,1000.0,Petrol,Manual,Other,2750000.0
 Nissan,Sakura,2022,17000,0.0,Electric,Automatic,Lahore,4850000.0
 Hyundai,Sonata,2022,53831,2500.0,Petrol,Automatic,Lahore,8500000.0
 Nissan,Note,2021,46000,1200.0,Hybrid,Automatic,Lahore,6900000.0
-Nissan,350Z,2002,99,3500.0,Petrol,Automatic,Lahore,11500000.0
 Toyota,Hilux,2019,110000,2800.0,Diesel,Manual,Lahore,8250000.0
 Honda,City,2018,100000,1300.0,Petrol,Manual,Islamabad,3420000.0
 Toyota,Corolla,2000,300818,1600.0,Petrol,Manual,Rawalpindi,1350000.0
@@ -1302,7 +1264,6 @@ Lexus,Ct200H,2011,95000,1800.0,Hybrid,Automatic,Karachi,4350000.0
 Toyota,Land Cruiser,2001,200000,4700.0,Petrol,Automatic,Other,7000000.0
 Honda,City,2001,140000,1300.0,Petrol,Manual,Karachi,1125000.0
 Daihatsu,Mira,2022,19000,660.0,Petrol,Automatic,Karachi,3475000.0
-Suzuki,Every,2015,12,660.0,Petrol,Automatic,Other,1550000.0
 Volkswagen,Eos,2007,102000,2000.0,Petrol,Automatic,Islamabad,4000000.0
 Toyota,Land Cruiser,2016,92500,4600.0,Petrol,Automatic,Lahore,36500000.0
 Suzuki,Cultus,2013,56000,1000.0,Petrol,Manual,Karachi,1300000.0
@@ -1322,8 +1283,6 @@ Toyota,Corolla,2021,45000,1800.0,Petrol,Automatic,Karachi,6650000.0
 Suzuki,Mehran,2018,44000,800.0,Petrol,Manual,Rawalpindi,1460000.0
 Bmw,I4,2022,19000,0.0,Electric,Automatic,Lahore,19300000.0
 Honda,N Wgn,2021,32000,660.0,Petrol,Automatic,Lahore,3575000.0
-Suzuki,Swift,2016,176873,1300.0,Petrol,Manual,Lahore,210000.0
-Suzuki,Bolan,2004,9,800.0,Petrol,Manual,Karachi,690000.0
 Toyota,C Pod,2022,7000,0.0,Electric,Automatic,Lahore,3950000.0
 Lexus,Lx Series,2015,85000,5700.0,Petrol,Automatic,Karachi,50000000.0
 Honda,N Box,2015,36000,660.0,Petrol,Automatic,Karachi,2865000.0
@@ -1370,7 +1329,6 @@ Suzuki,Alto,2020,41000,660.0,Petrol,Automatic,Lahore,2545000.0
 Suzuki,Alto,2024,7000,660.0,Petrol,Automatic,Faisalabad,3150000.0
 Toyota,Prado,1996,100000,3000.0,Diesel,Manual,Islamabad,4395000.0
 Suzuki,Ravi,2013,75000,800.0,Petrol,Manual,Rawalpindi,980000.0
-Honda,City,2005,1,1300.0,Petrol,Manual,Karachi,1595000.0
 Suzuki,Wagon R,2021,44000,1000.0,Petrol,Manual,Sialkot,2750000.0
 Daihatsu,Mira,2021,84000,660.0,Petrol,Automatic,Karachi,3490000.0
 Suzuki,Potohar,1993,180000,660.0,Petrol,Manual,Lahore,1390000.0
@@ -1387,7 +1345,6 @@ Honda,City,2003,120000,1500.0,Petrol,Manual,Faisalabad,1250000.0
 Toyota,Premio,2007,240000,1800.0,Petrol,Automatic,Islamabad,3950000.0
 Changan,Karvaan,2024,22000,1200.0,Petrol,Manual,Faisalabad,3300000.0
 Honda,S660,2016,37500,660.0,Petrol,Automatic,Islamabad,4200000.0
-Toyota,Prado,2001,5,3000.0,Diesel,Automatic,Sargodha,4800000.0
 Honda,N Wgn,2021,9150,660.0,Petrol,Automatic,Karachi,3800000.0
 Toyota,Voxy,2016,114000,1800.0,Hybrid,Automatic,Lahore,6300000.0
 Daihatsu,Move,2013,140000,660.0,Petrol,Automatic,Other,1890000.0
@@ -1435,7 +1392,6 @@ Toyota,Fortuner,2018,85000,2800.0,Diesel,Automatic,Lahore,12950000.0
 Toyota,Prius,2014,170000,1800.0,Hybrid,Automatic,Karachi,4150000.0
 Toyota,Raize,2020,94000,1000.0,Petrol,Automatic,Other,6400000.0
 Toyota,Land Cruiser,2019,40000,4600.0,Petrol,Automatic,Lahore,46000000.0
-Suzuki,Cultus,2015,18,1000.0,Petrol,Manual,Sargodha,2000000.0
 Suzuki,Bolan,2011,31519,800.0,Petrol,Manual,Karachi,800000.0
 Nissan,Note,2022,67048,1198.0,Hybrid,Automatic,Karachi,7000000.0
 Byd,Atto 3,2025,11,0.0,Electric,Automatic,Karachi,9600000.0
@@ -1493,7 +1449,6 @@ Suzuki,Mehran,2016,95000,796.0,Petrol,Manual,Other,1060000.0
 Suzuki,Wagon R,2020,90000,1000.0,Petrol,Manual,Lahore,2750000.0
 Suzuki,Bolan,2022,17000,800.0,Petrol,Manual,Peshawar,2050000.0
 Audi,A3,2018,55000,1200.0,Petrol,Automatic,Karachi,7800000.0
-Suzuki,Cultus,2012,58000,1000.0,Petrol,Manual,Quetta,140000.0
 Honda,City,2022,74000,1500.0,Petrol,Automatic,Other,4900000.0
 Toyota,Vitz,2018,83000,1000.0,Petrol,Automatic,Hyderabad,4200000.0
 Toyota,Probox,2007,9999,1500.0,Petrol,Automatic,Peshawar,3400000.0
@@ -1511,7 +1466,6 @@ Mercedes-Benz,Glb Class,2022,5000,1300.0,Petrol,Automatic,Karachi,30000000.0
 Audi,E Tron Gt,2022,9600,0.0,Electric,Automatic,Lahore,38500000.0
 Suzuki,Wagon R,2013,140000,660.0,Petrol,Automatic,Rawalpindi,2395000.0
 Toyota,Corolla,2018,60000,1800.0,Petrol,Automatic,Karachi,5150000.0
-Suzuki,Potohar,1996,11,1000.0,Petrol,Manual,Other,2500000.0
 Toyota,Prius,2007,132000,1500.0,Hybrid,Automatic,Rawalpindi,2950000.0
 Suzuki,Khyber,1994,100000,1000.0,Petrol,Manual,Karachi,470000.0
 Toyota,Hiace,2019,84000,2500.0,Diesel,Manual,Islamabad,12000000.0
@@ -1545,7 +1499,6 @@ Daihatsu,Charade,1986,100000,1000.0,Petrol,Manual,Karachi,350000.0
 Toyota,Corolla,2020,130,1300.0,Petrol,Automatic,Other,4500000.0
 Daihatsu,Charade,1986,100000,1000.0,Petrol,Manual,Lahore,325000.0
 Suzuki,Mehran,1993,42900,660.0,Petrol,Automatic,Karachi,1200000.0
-Toyota,Corolla,2011,11,1500.0,Diesel,Manual,Islamabad,2200000.0
 Honda,City,2005,135000,1300.0,Petrol,Manual,Karachi,1630000.0
 Daihatsu,Mira,2022,15000,660.0,Petrol,Automatic,Karachi,3828000.0
 Suzuki,Cultus,2020,82700,1000.0,Petrol,Manual,Lahore,2750000.0
@@ -1564,7 +1517,6 @@ Toyota,Town Ace,1988,1212,2000.0,Diesel,Manual,Karachi,1065000.0
 Suzuki,Bolan,2021,41000,800.0,Petrol,Manual,Karachi,1630000.0
 Kia,Ev5,2025,1097,0.0,Electric,Automatic,Faisalabad,23000000.0
 Suzuki,Bolan,2024,1,800.0,Petrol,Manual,Other,2200000.0
-Hyundai,Santro,2005,1,1000.0,Petrol,Manual,Other,1020000.0
 Audi,E Tron,2021,30542,0.0,Electric,Automatic,Lahore,19500000.0
 Mitsubishi,Fto,1997,95000,2000.0,Petrol,Manual,Karachi,2285000.0
 Toyota,Yaris Hatchback,2020,95000,1000.0,Petrol,Automatic,Karachi,3975000.0
@@ -1575,7 +1527,6 @@ Suzuki,Ravi,2020,32000,800.0,Petrol,Manual,Other,1250000.0
 Suzuki,Alto,2024,23194,660.0,Petrol,Manual,Rawalpindi,2900000.0
 Honda,City,2007,140000,1300.0,Petrol,Manual,Rawalpindi,2050000.0
 Toyota,Prado,2005,200000,3400.0,Petrol,Automatic,Islamabad,10400000.0
-Toyota,Pixis Epoch,2016,72,660.0,Petrol,Automatic,Karachi,2390000.0
 Mg,Hs,2025,600,1500.0,Hybrid,Automatic,Karachi,10200000.0
 Nissan,Fairlady Z,2022,10000,3000.0,Petrol,Automatic,Lahore,61500000.0
 Audi,E Tron Gt,2022,5330,0.0,Electric,Automatic,Islamabad,40800000.0
@@ -1619,7 +1570,6 @@ Isuzu,D Max,2025,55,3000.0,Diesel,Automatic,Karachi,14900000.0
 Toyota,Corolla,2014,104000,1300.0,Petrol,Manual,Karachi,2650000.0
 Toyota,Hilux,2021,38000,2800.0,Diesel,Automatic,Rawalpindi,12575000.0
 Suzuki,Cultus,2018,78306,1000.0,Petrol,Manual,Karachi,2250000.0
-Suzuki,Cultus,2005,25,1000.0,LPG,Manual,Karachi,750000.0
 Hyundai,Tucson,2023,36000,2000.0,Petrol,Automatic,Lahore,8275000.0
 Nissan,Dayz,2022,32391,660.0,Hybrid,Automatic,Islamabad,4198000.0
 Kia,Picanto,2020,110000,1000.0,Petrol,Automatic,Gujranwala,2695000.0
@@ -1759,7 +1709,6 @@ Honda,Civic,2006,200000,1500.0,Petrol,Manual,Other,1525000.0
 Nissan,Sakura,2022,2000,0.0,Electric,Automatic,Lahore,4790000.0
 Honda,Civic,2015,143821,1800.0,Petrol,Automatic,Islamabad,3900000.0
 Suzuki,Alto,2022,67000,660.0,Petrol,Automatic,Rawalpindi,3295000.0
-Suzuki,Alto,2021,37,660.0,Petrol,Automatic,Karachi,3275000.0
 Suzuki,Alto,2020,60000,660.0,Petrol,Automatic,Other,2600000.0
 Toyota,Aqua,2021,91000,1500.0,Hybrid,Automatic,Rawalpindi,6500000.0
 Suzuki,Cultus,2018,149274,1000.0,Petrol,Manual,Lahore,2750000.0
@@ -1881,7 +1830,6 @@ Mitsubishi,Ek X,2023,5000,0.0,Electric,Automatic,Lahore,4600000.0
 Toyota,Prius,2024,6483,1800.0,Hybrid,Automatic,Multan,13000000.0
 Honda,Civic,2013,161000,1800.0,Petrol,Automatic,Sialkot,3400000.0
 Honda,Fit,2020,105220,1500.0,Hybrid,Automatic,Faisalabad,5500000.0
-Mazda,Rx8,2007,1,4000.0,Petrol,Manual,Peshawar,2600000.0
 Suzuki,Mehran,2015,78000,800.0,Petrol,Manual,Gujranwala,1030000.0
 Suzuki,Bolan,1997,200000,800.0,Petrol,Manual,Karachi,450000.0
 Mitsubishi,Lancer,2008,183000,1300.0,Petrol,Manual,Islamabad,2050000.0
@@ -1913,7 +1861,6 @@ Audi,E Tron,2020,17000,0.0,Electric,Automatic,Lahore,16850000.0
 Suzuki,Alto,2011,168000,1000.0,Petrol,Manual,Other,1300000.0
 Suzuki,Bolan,2021,31200,800.0,Petrol,Manual,Peshawar,1900000.0
 Nissan,Sunny,1986,100000,1000.0,CNG,Manual,Islamabad,560000.0
-Suzuki,Baleno,2003,1,1300.0,Petrol,Manual,Other,875000.0
 Nissan,Note,2022,16168,1200.0,Hybrid,Automatic,Rawalpindi,9899000.0
 Suzuki,Cultus,2004,10000,1000.0,Petrol,Manual,Lahore,750000.0
 Toyota,Corolla,2004,122000,1600.0,Petrol,Automatic,Karachi,1950000.0
@@ -2048,7 +1995,6 @@ Toyota,Prius Alpha,2014,180000,1800.0,Hybrid,Automatic,Islamabad,4600000.0
 Daihatsu,Move,2022,12000,660.0,Petrol,Automatic,Karachi,3575000.0
 Suzuki,Alto,2024,21500,660.0,Petrol,Automatic,Islamabad,3140000.0
 Toyota,Fortuner,2020,78000,2800.0,Diesel,Automatic,Other,13800000.0
-Suzuki,Bolan,2005,5,800.0,Petrol,Manual,Rawalpindi,625000.0
 Suzuki,Ravi,2021,56000,800.0,Petrol,Manual,Karachi,1315000.0
 Byd,Atto 3,2025,300,0.0,Electric,Automatic,Rawalpindi,10300000.0
 Audi,E Tron,2021,66000,0.0,Electric,Automatic,Lahore,17500000.0
@@ -2093,7 +2039,6 @@ Dfsk,Glory 580,2022,28000,1500.0,Petrol,Automatic,Karachi,5500000.0
 Suzuki,Wagon R,2016,87000,1000.0,Petrol,Manual,Other,1950000.0
 Toyota,Land Cruiser,1998,167000,4200.0,Diesel,Automatic,Lahore,9200000.0
 Mazda,Rx8,2003,65000,1300.0,Petrol,Manual,Lahore,2550000.0
-Honda,Civic,2000,1,1600.0,Petrol,Manual,Karachi,1250000.0
 Suzuki,Cultus,2003,17833,1000.0,Petrol,Manual,Multan,825000.0
 Suzuki,Bolan,2019,38000,800.0,Petrol,Manual,Other,1430000.0
 Suzuki,Jimny,2020,45000,1500.0,Petrol,Manual,Lahore,7500000.0
@@ -2170,7 +2115,6 @@ Toyota,Corolla,2018,68000,1800.0,Petrol,Automatic,Other,5900000.0
 Toyota,Prius,2006,60000,1500.0,Hybrid,Automatic,Islamabad,3200000.0
 Daihatsu,Mira,2018,39000,660.0,Petrol,Automatic,Karachi,3920000.0
 Changan,M9,2019,150000,999.0,Petrol,Manual,Karachi,1390000.0
-Toyota,Vitz,2004,1,1300.0,Petrol,Automatic,Other,2100000.0
 Toyota,Vitz,2018,67000,1000.0,Petrol,Automatic,Karachi,3850000.0
 Nissan,March,2002,155000,1000.0,Petrol,Automatic,Faisalabad,1275000.0
 Suzuki,Alto,2010,99214,660.0,Petrol,Automatic,Karachi,1300000.0
@@ -2217,7 +2161,6 @@ Suzuki,Alto,2021,70000,660.0,Petrol,Manual,Other,2400000.0
 Honda,Civic,2010,124000,1800.0,Petrol,Automatic,Lahore,2490000.0
 Audi,E Tron,2022,10500,0.0,Electric,Automatic,Islamabad,23500000.0
 Suzuki,Khyber,1999,9500,1000.0,Petrol,Manual,Other,885000.0
-Suzuki,Wagon R,2019,88000,1000.0,Petrol,Manual,Lahore,244000.0
 Suzuki,Mehran,2017,30000,796.0,Petrol,Manual,Other,1390000.0
 Honda,City,2005,350000,1300.0,Petrol,Manual,Rawalpindi,1480000.0
 Toyota,Fortuner,2013,73160,2700.0,Petrol,Automatic,Lahore,7700000.0
@@ -2262,7 +2205,6 @@ Daihatsu,Move,2014,162700,660.0,Petrol,Automatic,Lahore,2100000.0
 Honda,Br V,2023,26700,1500.0,Petrol,Automatic,Lahore,5950000.0
 Suzuki,Mehran,2010,100000,800.0,Petrol,Manual,Peshawar,875000.0
 Nissan,Clipper,2015,120000,660.0,Petrol,Automatic,Karachi,2700000.0
-Suzuki,Cultus,2006,2,1000.0,Petrol,Manual,Karachi,750000.0
 Honda,N One,2017,142000,660.0,Petrol,Automatic,Lahore,2450000.0
 Suzuki,Liana,2010,98000,1300.0,Petrol,Manual,Lahore,1785000.0
 Suzuki,Bolan,2008,89000,800.0,Petrol,Manual,Karachi,730000.0
@@ -2363,17 +2305,14 @@ Toyota,Prado,2021,17000,2700.0,Petrol,Automatic,Lahore,34900000.0
 Toyota,Raize,2020,34000,1000.0,Petrol,Automatic,Karachi,5990000.0
 Mg,Hs,2025,10,1500.0,Hybrid,Automatic,Lahore,10000000.0
 Prince,Pearl,2023,25000,800.0,Petrol,Manual,Other,1500000.0
-Nissan,Pickup,1994,1,2800.0,Petrol,Manual,Other,1350000.0
 Suzuki,Wagon R,2022,15000,1000.0,Petrol,Manual,Faisalabad,2970000.0
 Toyota,Hiace,1990,100000,2800.0,LPG,Manual,Lahore,1950000.0
 Toyota,Corolla,2015,112000,1600.0,Petrol,Automatic,Karachi,3515000.0
 Toyota,Corolla,2018,138854,1800.0,Petrol,Automatic,Lahore,4970000.0
 Toyota,Prado,2008,120000,2700.0,Petrol,Automatic,Faisalabad,9400000.0
 Honda,Accord,2003,120000,2400.0,Petrol,Automatic,Karachi,2850000.0
-Kia,Sportage,2002,1,2900.0,Petrol,Manual,Karachi,1350000.0
 Jac,X200,2021,170000,2800.0,Diesel,Manual,Other,3900000.0
 Honda,Civic,2010,123456,1800.0,Petrol,Manual,Other,1790000.0
-Toyota,Hilux,1998,1,3000.0,Diesel,Automatic,Quetta,2400000.0
 Suzuki,Alto,2023,9615,660.0,Petrol,Automatic,Other,3000000.0
 Byd,Atto 3,2025,90,0.0,Electric,Automatic,Karachi,9650000.0
 Suzuki,Alto,2020,76000,660.0,Petrol,Manual,Lahore,2185000.0
@@ -2611,7 +2550,6 @@ Honda,Civic,2009,83000,1800.0,Petrol,Automatic,Other,2350000.0
 Audi,E Tron,2022,1000,0.0,Electric,Automatic,Karachi,25600000.0
 Toyota,Corolla Axio,2011,182,1500.0,Petrol,Automatic,Islamabad,3225000.0
 Mazda,Scrum Van,2025,10000,660.0,Petrol,Manual,Lahore,2450000.0
-Daihatsu,Mira,2021,22,660.0,Petrol,Automatic,Gujranwala,3485000.0
 Daihatsu,Move,2022,55000,658.0,Petrol,Automatic,Lahore,3500000.0
 Suzuki,Alto,2018,134,1000.0,Petrol,Manual,Other,2400000.0
 Ford,Ranger,2011,100000,2400.0,Diesel,Manual,Islamabad,6000000.0
@@ -2661,7 +2599,6 @@ Daihatsu,Move,2022,8400,660.0,Petrol,Automatic,Karachi,3850000.0
 Toyota,Hilux,2013,71000,2500.0,Diesel,Automatic,Karachi,5700000.0
 Seres,3,2025,10504,0.0,Electric,Automatic,Islamabad,8550000.0
 Audi,E Tron,2022,22000,0.0,Electric,Automatic,Islamabad,25000000.0
-Suzuki,Mehran,2008,53,800.0,Petrol,Manual,Islamabad,890000.0
 Mitsubishi,Minica,2008,156000,660.0,Petrol,Automatic,Other,1200000.0
 Kia,Sportage L,2025,35,1600.0,Hybrid,Automatic,Lahore,13300000.0
 Bmw,I4,2022,2000,0.0,Electric,Automatic,Lahore,19100000.0
@@ -2772,7 +2709,6 @@ Suzuki,Alto,2022,31500,660.0,Petrol,Automatic,Islamabad,2970000.0
 Toyota,Prius,2014,228000,1800.0,Hybrid,Automatic,Lahore,4980000.0
 Suzuki,Alto,2021,60476,660.0,Petrol,Manual,Peshawar,2400000.0
 Suzuki,Mehran,2010,50000,800.0,Petrol,Manual,Other,730000.0
-Honda,Cr Z,2016,10,1500.0,Petrol,Automatic,Other,3800000.0
 Toyota,Prado,2003,94000,2700.0,Petrol,Automatic,Quetta,8900000.0
 Changan,Karvaan,2023,19000,1000.0,Petrol,Manual,Lahore,2625000.0
 Suzuki,Alto,2021,15800,660.0,Petrol,Automatic,Faisalabad,2800000.0
@@ -2837,7 +2773,6 @@ Suzuki,Cultus,2003,10000,1000.0,Petrol,Manual,Lahore,770000.0
 Honda,Civic,2012,125000,1800.0,Petrol,Manual,Other,3400000.0
 Toyota,Yaris Sedan,2021,57000,1300.0,Petrol,Automatic,Lahore,4375000.0
 Lexus,Lx Series,2015,46004,5700.0,Petrol,Automatic,Lahore,54900000.0
-Toyota,Probox,2012,80,1500.0,Petrol,Automatic,Other,2600000.0
 Toyota,Camry,2006,107000,2400.0,Petrol,Automatic,Karachi,2900000.0
 Toyota,Prado,2020,24000,2700.0,Petrol,Automatic,Lahore,28700000.0
 Faw,Carrier,2016,150000,1000.0,Petrol,Manual,Other,900000.0
@@ -2953,7 +2888,6 @@ Toyota,Land Cruiser,1990,300000,3000.0,Diesel,Manual,Islamabad,3500000.0
 Toyota,Corolla,2002,222000,2000.0,Diesel,Manual,Other,1650000.0
 Daihatsu,Move,2023,26000,658.0,Petrol,Automatic,Lahore,3900000.0
 Suzuki,Mehran,2008,150000,800.0,Petrol,Manual,Islamabad,820000.0
-Toyota,Corolla,1982,1,2000.0,Petrol,Manual,Islamabad,1150000.0
 Toyota,Corolla,2007,352000,2000.0,Diesel,Manual,Islamabad,2300000.0
 Daihatsu,Copen,2021,28000,660.0,Petrol,Automatic,Karachi,4750000.0
 Suzuki,Alto,2022,45591,660.0,Petrol,Manual,Karachi,2600000.0
@@ -2970,7 +2904,6 @@ Audi,E Tron Gt,2022,14000,0.0,Electric,Automatic,Lahore,35000000.0
 Kia,Sportage,2023,38020,2000.0,Petrol,Automatic,Lahore,8500000.0
 Toyota,Corolla,2012,120000,1300.0,Petrol,Manual,Lahore,2675000.0
 Nissan,Leaf,2020,72000,0.0,Electric,Automatic,Lahore,7000000.0
-Honda,Civic,2014,99246,1800.0,Petrol,Automatic,Karachi,335000.0
 Daihatsu,Mira,2022,14000,660.0,Petrol,Automatic,Karachi,3375000.0
 Land-Rover,Defender,2007,107050,2200.0,Diesel,Manual,Lahore,5000000.0
 Toyota,Corolla,2016,140000,1300.0,Petrol,Automatic,Other,4050000.0
@@ -3013,7 +2946,6 @@ Suzuki,Mehran,2014,35000,796.0,Petrol,Manual,Lahore,990000.0
 Toyota,86,1986,10000,1300.0,Petrol,Automatic,Other,800000.0
 Suzuki,Jimny,2010,95000,660.0,Petrol,Automatic,Islamabad,2500000.0
 Hyundai,Santro,2005,100000,1000.0,Petrol,Manual,Other,800000.0
-Suzuki,Cultus,2015,37000,1000.0,Petrol,Manual,Islamabad,162000.0
 Suzuki,Cultus,2015,76000,1000.0,Petrol,Manual,Lahore,1630000.0
 Honda,Civic,2022,41000,1500.0,Petrol,Automatic,Lahore,8500000.0
 Toyota,Fortuner,2023,29000,2800.0,Diesel,Automatic,Islamabad,20300000.0
@@ -3036,7 +2968,6 @@ Toyota,Land Cruiser,2023,2000,3500.0,Petrol,Automatic,Lahore,75500000.0
 Suzuki,Margalla,1995,90000,1300.0,Petrol,Manual,Karachi,550000.0
 Daihatsu,Esse,2010,98540,660.0,Petrol,Automatic,Other,1725000.0
 Suzuki,Alto,2015,80000,660.0,Petrol,Automatic,Other,2650000.0
-Toyota,Yaris Sedan,2022,80,1500.0,Petrol,Automatic,Multan,5500000.0
 Daihatsu,Move,2021,25000,660.0,Petrol,Automatic,Islamabad,3425000.0
 Toyota,Corolla,2007,200000,1800.0,Petrol,Automatic,Other,2250000.0
 Hyundai,Santro,2004,180000,1000.0,Petrol,Manual,Rawalpindi,750000.0
@@ -3072,7 +3003,6 @@ Audi,E Tron,2021,13192,0.0,Electric,Automatic,Karachi,21000000.0
 Honda,Vezel,2016,125759,1500.0,Hybrid,Automatic,Islamabad,6500000.0
 Toyota,Corolla,2012,10104,1300.0,Petrol,Manual,Islamabad,3200000.0
 Suzuki,Alto,2007,100375,1000.0,Petrol,Manual,Peshawar,1050000.0
-Honda,City,2015,1,1500.0,Petrol,Manual,Gujranwala,3400000.0
 Toyota,Aqua,2015,88000,1500.0,Hybrid,Automatic,Karachi,3650000.0
 Jeep,Wrangler,2000,170000,3400.0,Petrol,Automatic,Islamabad,4900000.0
 Hyundai,Santro,2006,132000,1000.0,Petrol,Manual,Faisalabad,1145000.0
@@ -3132,7 +3062,6 @@ Honda,City,2010,137000,1300.0,Petrol,Automatic,Lahore,2495000.0
 Toyota,Corolla,2012,119252,1300.0,Petrol,Manual,Karachi,2850000.0
 Toyota,Fortuner,2021,70000,2800.0,Diesel,Automatic,Lahore,14550000.0
 Honda,Civic,2014,100000,1800.0,Petrol,Automatic,Peshawar,4300000.0
-Suzuki,Bolan,1991,3,800.0,Petrol,Manual,Gujranwala,325000.0
 Hyundai,Excel,1993,295680,1500.0,Petrol,Manual,Islamabad,385000.0
 Hyundai,Santro,2007,183830,1100.0,Petrol,Manual,Faisalabad,1225000.0
 Daihatsu,Move,2013,189000,660.0,Petrol,Automatic,Lahore,1575000.0
@@ -3157,7 +3086,6 @@ Honda,Acty,2018,105000,660.0,Petrol,Automatic,Sialkot,1285000.0
 Porsche,Taycan,2021,15000,0.0,Electric,Automatic,Lahore,67500000.0
 Suzuki,Wagon R,2019,48000,1000.0,Petrol,Manual,Other,2490000.0
 Mercedes-Benz,C Class Cabriolet,2019,16000,1600.0,Petrol,Automatic,Lahore,27500000.0
-Audi,E Tron,2022,1,0.0,Electric,Automatic,Karachi,28000000.0
 Toyota,Roomy,2022,68450,1000.0,Petrol,Automatic,Karachi,4400000.0
 Suzuki,Mehran,2016,90525,796.0,Petrol,Manual,Rawalpindi,1430000.0
 Suzuki,Swift,1992,69032,1000.0,Petrol,Manual,Rawalpindi,495000.0
@@ -3279,7 +3207,6 @@ Toyota,Passo,2014,123,100.0,Petrol,Automatic,Other,2800000.0
 Toyota,Crown,2007,172200,2500.0,Petrol,Automatic,Karachi,7000000.0
 Honda,City,2020,42317,1500.0,Petrol,Automatic,Karachi,4200000.0
 Toyota,Corolla,2015,122000,1300.0,Petrol,Manual,Other,3600000.0
-Suzuki,Mehran,1993,99,800.0,Petrol,Manual,Islamabad,790000.0
 Hyundai,Santro,2006,75000,1000.0,Petrol,Manual,Other,1025000.0
 Toyota,Land Cruiser,2009,132000,4600.0,Petrol,Automatic,Lahore,21000000.0
 Toyota,Hiace,2014,371500,2700.0,Petrol,Automatic,Other,6100000.0
@@ -3307,7 +3234,6 @@ Toyota,Corolla,1993,1234,1500.0,Petrol,Automatic,Peshawar,1790000.0
 Daihatsu,Cuore,2010,120000,800.0,Petrol,Automatic,Lahore,1290000.0
 Suzuki,Cultus,2007,120000,1000.0,Petrol,Manual,Lahore,1000000.0
 Toyota,Land Cruiser,1997,100000,4200.0,Diesel,Automatic,Lahore,5500000.0
-Toyota,Prado,1998,17,3000.0,Diesel,Manual,Other,5300000.0
 Honda,Inspire,2003,210000,3000.0,Petrol,Automatic,Rawalpindi,2680000.0
 Honda,City,2020,59619,1300.0,Petrol,Manual,Lahore,3885000.0
 Toyota,Land Cruiser,2003,135000,4700.0,Petrol,Automatic,Karachi,9500000.0
@@ -3409,7 +3335,6 @@ Toyota,Porte,2007,115000,1300.0,Petrol,Automatic,Karachi,1850000.0
 Faw,X Pv,2021,53000,1000.0,Petrol,Manual,Faisalabad,2000000.0
 Tesla,Model 3,2021,32000,0.0,Electric,Automatic,Other,15000000.0
 Honda,Civic,2022,20000,1500.0,Petrol,Automatic,Lahore,8775000.0
-Suzuki,Cultus,2008,1,1000.0,Petrol,Manual,Other,1070000.0
 Honda,Br V,2020,89000,1500.0,Petrol,Manual,Rawalpindi,3980000.0
 Suzuki,Jimny,2014,68000,660.0,Petrol,Automatic,Karachi,6600000.0
 Nissan,Dayz,2020,13100,660.0,Hybrid,Automatic,Lahore,3890000.0
@@ -3440,7 +3365,6 @@ Suzuki,Swift,2011,156000,1300.0,Petrol,Manual,Faisalabad,1750000.0
 Chery,Tiggo 8 Pro,2022,47942,1600.0,Petrol,Automatic,Multan,7500000.0
 Suzuki,Swift,2011,150000,1300.0,Petrol,Manual,Karachi,1430000.0
 Dfsk,Glory 580,2023,35000,1500.0,Petrol,Automatic,Other,5650000.0
-Suzuki,Cultus,2016,1,1000.0,Petrol,Manual,Islamabad,1710000.0
 Changan,Karvaan,2024,5988,1200.0,Petrol,Manual,Karachi,2850000.0
 Suzuki,Mehran,2016,499000,796.0,Petrol,Manual,Rawalpindi,1275000.0
 Honda,Civic,2018,77000,1800.0,Petrol,Automatic,Karachi,5250000.0
@@ -3513,7 +3437,6 @@ Changan,Karvaan,2021,123345,1000.0,Petrol,Manual,Karachi,2400000.0
 Bmw,Ix,2022,7000,0.0,Electric,Automatic,Karachi,33000000.0
 Toyota,Hilux,2019,117000,2800.0,Diesel,Automatic,Islamabad,9800000.0
 Toyota,Land Cruiser,2017,52000,4600.0,Petrol,Automatic,Islamabad,41500000.0
-Toyota,Corolla,1997,1,2000.0,Diesel,Manual,Other,1150000.0
 Audi,E Tron,2021,37000,0.0,Electric,Automatic,Islamabad,21000000.0
 Suzuki,Bolan,2018,43000,800.0,Petrol,Manual,Lahore,1550000.0
 Porsche,Cayenne,2016,27000,3000.0,Hybrid,Automatic,Karachi,24500000.0
@@ -3567,7 +3490,6 @@ Mazda,Flair,2022,11000,660.0,Petrol,Automatic,Multan,3875000.0
 Toyota,Hilux,2021,100000,2800.0,Diesel,Automatic,Peshawar,11700000.0
 Suzuki,Bolan,2024,3600,800.0,Petrol,Manual,Other,1200000.0
 Honda,City,2015,151600,1300.0,Petrol,Manual,Faisalabad,2950000.0
-Honda,Civic,1995,14,1600.0,LPG,Automatic,Lahore,1050000.0
 Honda,Vezel,2016,110000,1500.0,Hybrid,Automatic,Lahore,5250000.0
 Suzuki,Mehran,2005,72500,800.0,Petrol,Manual,Sialkot,590000.0
 Suzuki,Alto,2023,19000,660.0,Petrol,Manual,Karachi,2620000.0
@@ -3577,7 +3499,6 @@ Toyota,Vitz,2008,170000,1000.0,Petrol,Automatic,Other,2450000.0
 Toyota,Corolla Cross Hev,2024,5000,1800.0,Petrol,Automatic,Lahore,9100000.0
 Daihatsu,Mira,2023,18000,660.0,Petrol,Automatic,Karachi,3900000.0
 Suzuki,Mehran,2001,100000,800.0,Petrol,Manual,Gujranwala,600000.0
-Suzuki,Bolan,2017,17,800.0,Petrol,Manual,Lahore,1450000.0
 Toyota,Corolla,2011,86949,1300.0,Petrol,Manual,Karachi,2800000.0
 Nissan,Dayz,2021,36505,660.0,Petrol,Automatic,Karachi,3750000.0
 Toyota,Vitz,2015,164000,1000.0,Petrol,Automatic,Multan,2775000.0
@@ -3715,10 +3636,8 @@ Haval,H6,2025,1,1500.0,Hybrid,Automatic,Sialkot,12450000.0
 Suzuki,Mehran,2005,215432,800.0,Petrol,Manual,Lahore,620000.0
 Toyota,Corolla,2010,160000,1800.0,Petrol,Automatic,Lahore,2850000.0
 Toyota,Fortuner,2023,19000,2800.0,Diesel,Automatic,Lahore,18850000.0
-Daihatsu,Cuore,2006,19,800.0,Petrol,Manual,Other,1050000.0
 Toyota,Hilux,2010,150000,3000.0,Diesel,Automatic,Lahore,6300000.0
 Suzuki,Ravi,2024,1,800.0,Petrol,Manual,Quetta,1870000.0
-Daihatsu,Charade,1989,1,1000.0,Petrol,Manual,Lahore,650000.0
 Suzuki,Cultus,2004,100000,1000.0,Petrol,Manual,Islamabad,720000.0
 Toyota,Land Cruiser,2009,134000,4600.0,Petrol,Automatic,Other,21000000.0
 Mitsubishi,Pajero,1995,100000,2800.0,Diesel,Automatic,Lahore,1199999.0
@@ -3796,7 +3715,6 @@ Toyota,Hilux,2012,150000,2500.0,Diesel,Manual,Islamabad,4700000.0
 Toyota,Mark X,2006,120000,3000.0,Petrol,Automatic,Islamabad,6600000.0
 Toyota,Corolla,2008,100000,1300.0,Petrol,Manual,Other,1735000.0
 Daihatsu,Cuore,2004,123456,800.0,Petrol,Manual,Lahore,800000.0
-Toyota,Vitz,2019,9,996.0,Petrol,Automatic,Other,3225000.0
 Toyota,Prado,2021,22000,2700.0,Petrol,Automatic,Gujranwala,33000000.0
 Toyota,Corona,1995,215000,1600.0,Petrol,Manual,Lahore,1685000.0
 Suzuki,Ravi,2021,43000,800.0,Petrol,Manual,Lahore,1790000.0
@@ -3806,7 +3724,6 @@ Toyota,Corolla,2020,37000,1300.0,Petrol,Manual,Islamabad,5100000.0
 Suzuki,Cultus,2006,42363,1000.0,Petrol,Manual,Lahore,695000.0
 Suzuki,Jimny,2006,74000,660.0,Petrol,Manual,Lahore,2200000.0
 Mg,Zs Ev,2021,32000,0.0,Electric,Automatic,Lahore,7600000.0
-Daihatsu,Charade,1988,10,1000.0,Petrol,Manual,Lahore,450000.0
 Toyota,Surf,2005,134000,3400.0,Petrol,Automatic,Rawalpindi,8000000.0
 Faw,X Pv,2014,312318,1000.0,Petrol,Manual,Other,750000.0
 Kia,Sportage,2023,5000,2000.0,Petrol,Automatic,Islamabad,8450000.0
@@ -3882,7 +3799,6 @@ Suzuki,Alto,2012,167000,660.0,Petrol,Automatic,Other,2200000.0
 Daihatsu,Mira,2006,170000,660.0,Petrol,Automatic,Karachi,1260000.0
 Suzuki,Alto,2011,96000,660.0,Petrol,Automatic,Islamabad,2250000.0
 Daihatsu,Mira,2007,155000,660.0,Petrol,Automatic,Rawalpindi,1850000.0
-Prince,Pearl,2021,15,800.0,Petrol,Manual,Karachi,955000.0
 Toyota,Land Cruiser,2012,105000,4600.0,Petrol,Automatic,Lahore,24600000.0
 Suzuki,Mehran,2007,50000,800.0,Petrol,Manual,Islamabad,640000.0
 Suzuki,Swift,2016,86135,1300.0,Petrol,Manual,Karachi,2250000.0
@@ -3912,7 +3828,6 @@ Porsche,Panamera,2011,51000,4800.0,Petrol,Automatic,Islamabad,28000000.0
 Mazda,Rx8,2003,123,3000.0,Petrol,Automatic,Lahore,3190000.0
 Mercedes-Benz,Eqs,2022,4500,0.0,Electric,Automatic,Lahore,47000000.0
 Nissan,Moco,2015,92000,660.0,Petrol,Automatic,Lahore,2350000.0
-Honda,Civic,2012,1,1800.0,Petrol,Automatic,Karachi,3150000.0
 Hyundai,Santro,2002,100000,1000.0,Petrol,Manual,Islamabad,1100000.0
 Toyota,Corolla,2015,150000,1300.0,Petrol,Manual,Islamabad,3350000.0
 Daihatsu,Mira,2012,80000,660.0,Petrol,Automatic,Lahore,1995000.0
@@ -4039,7 +3954,6 @@ Honda,Br V,2017,87054,1500.0,Petrol,Automatic,Karachi,3975000.0
 Daihatsu,Mira,2017,85000,660.0,Petrol,Automatic,Karachi,2895000.0
 Honda,Fit,2014,196916,1600.0,Hybrid,Automatic,Karachi,3200000.0
 Suzuki,Alto,2022,75000,660.0,Petrol,Manual,Other,2300000.0
-Ford,F 150,2016,1,4500.0,Petrol,Automatic,Karachi,22500000.0
 Daihatsu,Charade,1986,100000,1000.0,Petrol,Manual,Lahore,295000.0
 Toyota,Aqua,2014,120000,1500.0,Hybrid,Automatic,Other,3550000.0
 Toyota,Corolla,2017,40000,1300.0,Petrol,Manual,Karachi,3850000.0
@@ -4106,7 +4020,6 @@ Suzuki,Fx,1985,452000,800.0,Petrol,Manual,Islamabad,470000.0
 Suzuki,Alto,2024,10000,660.0,Petrol,Manual,Other,2850000.0
 Toyota,Hiace,2019,91200,2800.0,Diesel,Manual,Karachi,12600000.0
 Suzuki,Alto,2012,159500,660.0,Petrol,Automatic,Islamabad,1760000.0
-Faw,Carrier,2014,7,1000.0,Petrol,Manual,Lahore,478000.0
 Toyota,Aqua,2021,49624,1500.0,Hybrid,Automatic,Peshawar,7150000.0
 Daihatsu,Copen,2022,15000,660.0,Petrol,Automatic,Lahore,4600000.0
 Toyota,Hilux,2019,71368,2800.0,Diesel,Automatic,Karachi,11700000.0
@@ -4223,7 +4136,6 @@ Honda,City,2019,43000,1300.0,Petrol,Automatic,Karachi,3765000.0
 Honda,Br V,2020,37000,1500.0,Petrol,Automatic,Sialkot,4900000.0
 Audi,E Tron,2020,40000,0.0,Electric,Automatic,Islamabad,23500000.0
 Mercedes-Benz,S Class,2006,98000,3500.0,Petrol,Automatic,Lahore,9900000.0
-Daihatsu,Charade,1988,1,1000.0,Petrol,Manual,Peshawar,695000.0
 Deepal,L07,2025,100,0.0,Electric,Automatic,Karachi,13500000.0
 Toyota,Corolla,2012,150000,1300.0,Petrol,Manual,Karachi,2650000.0
 Toyota,Prius,2011,103000,1800.0,Hybrid,Automatic,Karachi,2950000.0
@@ -4250,11 +4162,9 @@ Changan,Karvaan,2020,46300,1000.0,Petrol,Manual,Other,2175000.0
 Toyota,Prius,2007,12345,1500.0,Hybrid,Automatic,Other,2900000.0
 Toyota,Vitz,2003,84206,1000.0,Petrol,Automatic,Karachi,1850000.0
 Honda,Civic,2010,122,1800.0,Petrol,Manual,Rawalpindi,2150000.0
-Suzuki,Bolan,2015,1,800.0,Petrol,Manual,Other,1250000.0
 Changan,Karvaan,2021,23000,1000.0,Petrol,Manual,Karachi,2150000.0
 Toyota,Prius,2012,305575,1800.0,Hybrid,Automatic,Lahore,4175000.0
 Hyundai,Santro,2004,100000,1000.0,Petrol,Manual,Islamabad,900000.0
-Toyota,Corolla Axio,2007,1,1500.0,Petrol,Automatic,Quetta,3150000.0
 Suzuki,Mehran,2012,200000,800.0,Petrol,Manual,Lahore,620000.0
 Bmw,Ix,2022,20131,0.0,Electric,Automatic,Multan,31000000.0
 Porsche,Cayenne,2014,65000,3600.0,Petrol,Automatic,Rawalpindi,15500000.0
@@ -4367,7 +4277,6 @@ Toyota,Corolla,2011,227825,1300.0,Petrol,Manual,Karachi,2650000.0
 Suzuki,Ravi,2015,70000,800.0,Petrol,Manual,Lahore,1080000.0
 Toyota,Hilux,2009,200000,3000.0,Diesel,Manual,Lahore,2950000.0
 Daihatsu,Move,2022,48000,658.0,Petrol,Automatic,Multan,3750000.0
-Suzuki,Bolan,2010,1,800.0,Petrol,Manual,Other,1190000.0
 Suzuki,Ravi,2013,16500,800.0,Petrol,Manual,Other,950000.0
 Honda,Br V,2018,58000,1500.0,Petrol,Automatic,Rawalpindi,4500000.0
 Suzuki,Ravi,2020,53000,800.0,Petrol,Manual,Other,1700000.0
@@ -4395,7 +4304,6 @@ Faw,Carrier,2020,55000,1000.0,Petrol,Manual,Lahore,1200000.0
 Toyota,Passo,2010,89000,1000.0,Petrol,Automatic,Islamabad,2500000.0
 Suzuki,Cultus,2006,57000,1000.0,Petrol,Manual,Islamabad,980000.0
 Suzuki,Alto,2022,55000,660.0,Petrol,Manual,Rawalpindi,2600000.0
-Toyota,Corolla,2011,3,1300.0,Petrol,Manual,Other,2180000.0
 Toyota,Prado,1996,200000,3000.0,Diesel,Automatic,Lahore,4200000.0
 Toyota,Corolla,2004,195000,1600.0,Petrol,Manual,Lahore,2195000.0
 Toyota,Raize,2020,23000,1000.0,Petrol,Automatic,Karachi,6400000.0
@@ -4404,7 +4312,6 @@ Daihatsu,Rocky,2020,31900,1000.0,Petrol,Automatic,Lahore,5200000.0
 Toyota,Fortuner,2021,20732,2800.0,Diesel,Automatic,Lahore,15900000.0
 Suzuki,Alto,2008,5000,660.0,Petrol,Automatic,Karachi,1575000.0
 Suzuki,Potohar,1998,150000,1300.0,Petrol,Manual,Lahore,1050000.0
-Toyota,Corolla,2015,80,1300.0,Petrol,Automatic,Karachi,3450000.0
 Suzuki,Alto,2022,62000,660.0,Petrol,Manual,Lahore,2300000.0
 Changan,Alsvin,2021,16300,1500.0,Petrol,Automatic,Karachi,3900000.0
 Bmw,7 Series,2003,198000,3000.0,Diesel,Automatic,Lahore,3500000.0
@@ -4427,7 +4334,6 @@ Audi,E Tron,2021,76000,0.0,Electric,Automatic,Islamabad,24000000.0
 Daihatsu,Copen,2017,45000,660.0,Petrol,Automatic,Islamabad,3500000.0
 Suzuki,Ravi,2017,170000,800.0,Petrol,Manual,Lahore,1150000.0
 Toyota,Hilux,2011,157900,2500.0,Diesel,Automatic,Karachi,5262000.0
-Suzuki,Ravi,2015,1,800.0,Petrol,Manual,Other,1150000.0
 Suzuki,Swift,2019,125000,1300.0,Petrol,Automatic,Rawalpindi,3080000.0
 Honda,Civic,2018,30100,1800.0,Petrol,Automatic,Karachi,5300000.0
 Suzuki,Cultus,2001,68000,1000.0,Petrol,Manual,Karachi,600000.0
@@ -4457,7 +4363,6 @@ Honda,Vezel,2018,23000,1500.0,Hybrid,Automatic,Karachi,6850000.0
 Suzuki,Alto,2018,90000,660.0,Petrol,Automatic,Islamabad,2720000.0
 Toyota,Raize,2021,39000,1000.0,Petrol,Automatic,Karachi,6450000.0
 Suzuki,Alto,2004,214000,1000.0,Petrol,Manual,Karachi,760000.0
-Suzuki,Potohar,1992,1,1000.0,Petrol,Manual,Karachi,1050000.0
 Audi,Q4 E Tron,2020,67000,0.0,Electric,Automatic,Karachi,16500000.0
 Toyota,Corolla,2015,98000,1300.0,Petrol,Manual,Other,3550000.0
 Suzuki,Bolan,2016,66000,800.0,Petrol,Manual,Peshawar,1300000.0
@@ -4534,14 +4439,12 @@ Toyota,Corolla,2016,181867,1300.0,Petrol,Manual,Faisalabad,3700000.0
 Range-Rover,Vogue,2013,110000,5000.0,Petrol,Automatic,Islamabad,36500000.0
 Toyota,Corona,1984,500000,2000.0,Petrol,Manual,Lahore,1195000.0
 Jeep,Wrangler,1998,80000,4000.0,Petrol,Automatic,Islamabad,6500000.0
-Suzuki,Mehran,2018,20,800.0,Petrol,Manual,Lahore,1545000.0
 Daihatsu,Copen,2006,80000,660.0,Petrol,Automatic,Lahore,2350000.0
 Chevrolet,Optra,2005,86000,1600.0,Petrol,Automatic,Karachi,1375000.0
 Toyota,Prado,2004,150000,3400.0,Petrol,Automatic,Lahore,8850000.0
 Datsun,120 Y,1982,10000,1300.0,CNG,Manual,Other,420000.0
 Suzuki,Mehran,2008,35000,800.0,Petrol,Manual,Karachi,690000.0
 Toyota,Belta,2007,148000,1300.0,Petrol,Automatic,Lahore,2000000.0
-Kia,Sportage,2004,1,2000.0,Petrol,Automatic,Karachi,1175000.0
 Nissan,Sunny,1989,65000,1000.0,Petrol,Manual,Multan,370000.0
 Toyota,Crown,2005,72000,3000.0,Petrol,Automatic,Islamabad,6500000.0
 Daihatsu,Mira,2024,670,660.0,Petrol,Automatic,Rawalpindi,3699000.0
@@ -4693,7 +4596,6 @@ Toyota,Corolla,2000,20000,1300.0,Petrol,Manual,Sargodha,1380000.0
 Toyota,Land Cruiser,2016,101000,4600.0,Petrol,Automatic,Lahore,33500000.0
 Haval,Jolion,2025,5,1500.0,Petrol,Automatic,Lahore,8228470.0
 Hyundai,Santro,2007,206406,1000.0,Petrol,Manual,Lahore,1100000.0
-Daihatsu,Cuore,2006,18,800.0,Petrol,Manual,Other,970000.0
 Daihatsu,Charade,1984,9820,1000.0,Diesel,Manual,Peshawar,420000.0
 Suzuki,Cultus,2006,800,1000.0,Petrol,Manual,Faisalabad,1050000.0
 Toyota,Fortuner,2018,76200,2800.0,Diesel,Automatic,Other,13500000.0
@@ -4713,9 +4615,7 @@ Nissan,Serena,2020,60000,1200.0,Hybrid,Automatic,Islamabad,7900000.0
 Suzuki,Every Wagon,2016,170000,660.0,Petrol,Automatic,Karachi,2690000.0
 Suzuki,Alto,2021,45000,660.0,Petrol,Automatic,Karachi,2675000.0
 Toyota,Prado,2020,36000,2700.0,Petrol,Automatic,Other,28000000.0
-Suzuki,Bolan,2020,1,800.0,Petrol,Manual,Karachi,1700000.0
 Toyota,Land Cruiser,2012,67000,4600.0,Petrol,Automatic,Lahore,28800000.0
-Suzuki,Khyber,1991,1,1000.0,Petrol,Manual,Karachi,170000.0
 Toyota,Prado,2007,200000,3400.0,Petrol,Automatic,Multan,8500000.0
 Honda,City,2024,39000,1200.0,Petrol,Manual,Lahore,4600000.0
 Toyota,Fortuner,2016,34131,2700.0,Petrol,Automatic,Multan,8200000.0
@@ -4738,14 +4638,12 @@ Suzuki,Alto,2022,40000,660.0,Petrol,Manual,Lahore,2650000.0
 Daihatsu,Charade,1986,100000,1000.0,Petrol,Manual,Other,550000.0
 Suzuki,Wagon R,2015,124000,1000.0,Petrol,Manual,Islamabad,2085000.0
 Toyota,Vitz,2005,138463,1000.0,Petrol,Automatic,Karachi,1750000.0
-Suzuki,Mehran,2009,1,800.0,Petrol,Manual,Peshawar,770000.0
 Suzuki,Mehran,2004,101000,800.0,Petrol,Manual,Other,560000.0
 Honda,City,2017,200000,1300.0,Petrol,Automatic,Rawalpindi,3800000.0
 Suzuki,Spacia,2021,28000,660.0,Hybrid,Automatic,Sialkot,3250000.0
 Suzuki,Bolan,2017,60000,800.0,Petrol,Manual,Karachi,1250000.0
 Lexus,Lx Series,2019,12900,5700.0,Petrol,Automatic,Karachi,67800000.0
 Daihatsu,Move,2011,105710,660.0,Petrol,Automatic,Lahore,2200000.0
-Honda,Civic,2000,1,1600.0,Petrol,Automatic,Islamabad,1695000.0
 Daihatsu,Mira,2008,120000,660.0,Petrol,Automatic,Sialkot,2000000.0
 Changan,Karvaan,2021,109000,1000.0,Petrol,Manual,Islamabad,2675000.0
 Kia,Sportage,2024,4200,2000.0,Petrol,Automatic,Sargodha,8250000.0
@@ -4778,7 +4676,6 @@ Hyundai,Santro,2000,95500,1000.0,Petrol,Manual,Karachi,675000.0
 Honda,Civic,2020,35000,1800.0,Petrol,Automatic,Other,6500000.0
 Hyundai,Santro,2005,95000,1000.0,Petrol,Manual,Lahore,1170000.0
 Changan,Karvaan,2024,5787,1000.0,Petrol,Manual,Other,3100000.0
-Suzuki,Cultus,2004,1,1000.0,Petrol,Manual,Islamabad,1050000.0
 Suzuki,Ravi,2021,42000,800.0,Petrol,Manual,Gujranwala,1650000.0
 Suzuki,Swift,2020,61762,1300.0,Petrol,Automatic,Rawalpindi,3200000.0
 Daihatsu,Move,2023,9000,658.0,Petrol,Automatic,Islamabad,3685000.0
@@ -4835,7 +4732,6 @@ Toyota,Cressida,1985,150000,2000.0,Petrol,Manual,Lahore,920000.0
 Suzuki,Fx,1985,100000,800.0,Petrol,Manual,Rawalpindi,450000.0
 Suzuki,Alto,2020,39200,660.0,Petrol,Manual,Other,2390000.0
 Toyota,Hilux,2021,51000,2800.0,Diesel,Automatic,Karachi,11250000.0
-Honda,Cr Z,2016,10,100.0,Petrol,Automatic,Other,3800000.0
 Toyota,Corolla,2025,25,1800.0,Petrol,Automatic,Lahore,8050000.0
 Suzuki,Mehran,1990,20000,800.0,LPG,Manual,Other,220000.0
 Honda,Vezel,2016,74000,1500.0,Hybrid,Automatic,Lahore,5800000.0
@@ -4901,7 +4797,6 @@ Suzuki,Alto,1990,123,1000.0,CNG,Manual,Peshawar,330000.0
 Daihatsu,Mira,2006,10000,660.0,Petrol,Automatic,Karachi,1625000.0
 Suzuki,Apv,2010,300000,1600.0,Petrol,Manual,Faisalabad,2450000.0
 Mg,Zs Ev,2021,33700,0.0,Electric,Automatic,Lahore,7400000.0
-Suzuki,Potohar,1986,22,1000.0,Petrol,Manual,Rawalpindi,1250000.0
 Jac,T9,2025,3461,2000.0,Diesel,Automatic,Karachi,11500000.0
 Toyota,Prado,2002,140000,3400.0,Petrol,Automatic,Rawalpindi,7800000.0
 Suzuki,Bolan,2016,200000,800.0,Petrol,Manual,Other,1200000.0
@@ -4928,7 +4823,6 @@ Suzuki,Mehran,1989,100000,800.0,Petrol,Manual,Sialkot,325000.0
 Mercedes-Benz,Eqc,2020,65000,0.0,Electric,Automatic,Karachi,18500000.0
 Toyota,Land Cruiser,2012,126000,4600.0,Petrol,Automatic,Multan,26000000.0
 Toyota,Passo,2022,10700,1000.0,Petrol,Automatic,Karachi,4390000.0
-Suzuki,Cultus,2006,18,1000.0,Petrol,Manual,Lahore,790000.0
 Honda,City,2016,109000,1300.0,Petrol,Manual,Lahore,3180000.0
 Suzuki,Alto,2007,120000,660.0,Petrol,Automatic,Rawalpindi,1765000.0
 Daewoo,Cielo,1998,105000,1300.0,Petrol,Manual,Other,585000.0
@@ -5330,7 +5224,6 @@ Range-Rover,Evoque,2013,23000,2000.0,Petrol,Automatic,Lahore,16000000.0
 Kia,Classic,2003,15000,1500.0,Petrol,Automatic,Lahore,790000.0
 Changan,Karvaan,2021,2300,1000.0,Petrol,Manual,Lahore,3000000.0
 Suzuki,Alto,2021,50000,660.0,Petrol,Automatic,Islamabad,2700000.0
-Volkswagen,Beetle,1999,11,2000.0,Petrol,Manual,Karachi,3500000.0
 Byd,Atto 3,2025,10,0.0,Electric,Automatic,Lahore,9750000.0
 Suzuki,Mehran,2015,39591,796.0,Petrol,Manual,Karachi,900000.0
 Toyota,Corolla,2023,38000,1800.0,Petrol,Automatic,Peshawar,7600000.0
@@ -5364,7 +5257,6 @@ Toyota,Prado,2012,71000,2700.0,Petrol,Automatic,Sialkot,15800000.0
 Toyota,Corolla,1999,100000,2000.0,Diesel,Manual,Other,1675000.0
 Suzuki,Khyber,1982,10000,1000.0,CNG,Manual,Other,400000.0
 Hyundai,Tucson,2023,18500,2000.0,Petrol,Automatic,Lahore,7749000.0
-Suzuki,Cultus,2021,60,1000.0,Petrol,Manual,Karachi,3300000.0
 Mitsubishi,Ek Wagon,2013,66000,660.0,Petrol,Automatic,Lahore,2439999.0
 Suzuki,Swift,2013,67123,1300.0,Petrol,Manual,Karachi,1915000.0
 Daihatsu,Cuore,2010,89000,800.0,Petrol,Manual,Karachi,1045000.0
@@ -5374,10 +5266,8 @@ Suzuki,Khyber,1986,100000,1000.0,Petrol,Manual,Islamabad,395000.0
 Daihatsu,Charade,1986,50000,1000.0,Petrol,Manual,Rawalpindi,450000.0
 Daihatsu,Charade,1990,160000,1000.0,Petrol,Manual,Lahore,630000.0
 Toyota,Hilux,2013,115000,2500.0,Diesel,Automatic,Lahore,6850000.0
-Suzuki,Bolan,2016,1,800.0,Petrol,Manual,Karachi,1100000.0
 Suzuki,Jimny,2019,83000,658.0,Petrol,Automatic,Karachi,5200000.0
 Suzuki,Cultus,2014,51326,1000.0,Petrol,Manual,Karachi,1000000.0
-Audi,E Tron,2022,56,0.0,Electric,Automatic,Karachi,27500000.0
 Honda,City,2017,152000,1300.0,Petrol,Manual,Islamabad,3355000.0
 Suzuki,Bolan,2015,100000,800.0,Petrol,Manual,Karachi,895000.0
 Toyota,Land Cruiser,2012,90000,4600.0,Petrol,Automatic,Quetta,30000000.0
@@ -5454,7 +5344,6 @@ Suzuki,Wagon R,2009,150000,660.0,Petrol,Automatic,Quetta,2300000.0
 Suzuki,Alto,2005,65000,1000.0,Petrol,Manual,Karachi,685000.0
 Toyota,Aqua,2020,47000,1500.0,Hybrid,Automatic,Karachi,5725000.0
 Suzuki,Bolan,2005,80000,800.0,Petrol,Manual,Other,950000.0
-Mushtaq,Ky10,2019,1,1500.0,Petrol,Manual,Rawalpindi,1800000.0
 Hyundai,Santro,2005,100000,1000.0,Petrol,Manual,Karachi,890000.0
 Changan,Karvaan,2021,103000,1000.0,Petrol,Manual,Gujranwala,2150000.0
 Toyota,Raize,2021,60000,1000.0,Petrol,Automatic,Karachi,6100000.0
@@ -5519,7 +5408,6 @@ Suzuki,Khyber,1995,40000,1000.0,Petrol,Manual,Lahore,490000.0
 Dfsk,Glory 580,2022,45000,1500.0,Petrol,Automatic,Lahore,5250000.0
 Toyota,Prado,2011,115000,2700.0,Petrol,Automatic,Islamabad,13800000.0
 Toyota,Crown,2005,88000,3000.0,Petrol,Automatic,Rawalpindi,7900000.0
-Daihatsu,Hijet,2018,1,660.0,Petrol,Automatic,Sargodha,1450000.0
 Toyota,Prado,2017,94000,2700.0,Petrol,Automatic,Islamabad,23700000.0
 Toyota,Fortuner,2023,22000,2800.0,Diesel,Automatic,Lahore,19600000.0
 Honda,City,2015,140000,1300.0,Petrol,Manual,Other,3300000.0
@@ -5575,13 +5463,11 @@ Suzuki,Cultus,2010,100000,1000.0,Petrol,Manual,Lahore,1300000.0
 Suzuki,Bolan,2016,34000,800.0,Petrol,Manual,Karachi,1090000.0
 Honda,City,2016,145000,1300.0,Petrol,Automatic,Islamabad,3595000.0
 Toyota,Hiace,2008,350000,2000.0,Petrol,Manual,Karachi,3460000.0
-Kia,Classic,2004,1,1323.0,CNG,Manual,Karachi,525000.0
 Toyota,Iq,2009,138922,1000.0,Petrol,Automatic,Karachi,1900000.0
 Suzuki,Mehran,2009,60000,800.0,Petrol,Manual,Lahore,980000.0
 Suzuki,Cultus,2007,120000,1000.0,Petrol,Manual,Karachi,1030000.0
 Toyota,Hilux,2013,140000,2500.0,Diesel,Automatic,Karachi,5700000.0
 Suzuki,Ravi,2024,10,800.0,Petrol,Manual,Karachi,1875000.0
-Suzuki,Bolan,2014,1,800.0,Petrol,Manual,Other,1050000.0
 Toyota,Vitz,2017,73000,1000.0,Petrol,Automatic,Rawalpindi,3650000.0
 Suzuki,Alto,2022,60000,660.0,Petrol,Manual,Other,2600000.0
 Toyota,Fortuner,2019,42000,2800.0,Diesel,Automatic,Lahore,13550000.0
@@ -5629,7 +5515,6 @@ Suzuki,Apv,2015,149000,1600.0,Petrol,Manual,Karachi,3250000.0
 Suzuki,Ravi,2019,100000,800.0,Petrol,Manual,Other,1300000.0
 Suzuki,Ravi,2011,100000,800.0,Petrol,Manual,Rawalpindi,940000.0
 Toyota,Hilux,2012,160000,3000.0,Diesel,Automatic,Islamabad,6290000.0
-Suzuki,Bolan,1996,18,800.0,Petrol,Manual,Gujranwala,600000.0
 Honda,Vezel,2019,30000,1500.0,Hybrid,Automatic,Lahore,7875000.0
 Suzuki,Baleno,2004,265431,1300.0,Petrol,Manual,Rawalpindi,1200000.0
 Toyota,Vitz,2014,98000,1000.0,Petrol,Automatic,Lahore,3290000.0
@@ -5649,7 +5534,6 @@ Suzuki,Cultus,2002,39000,1000.0,Petrol,Manual,Quetta,820000.0
 Suzuki,Bolan,2022,65000,800.0,Petrol,Manual,Other,1750000.0
 Toyota,Prado,2012,130000,2700.0,Petrol,Automatic,Other,15500000.0
 Mg,Zs Ev,2024,212,0.0,Electric,Automatic,Islamabad,12500000.0
-Nissan,Clipper,2009,1,660.0,Petrol,Automatic,Rawalpindi,1200000.0
 Toyota,Hilux,2024,31000,2800.0,Diesel,Automatic,Islamabad,16875000.0
 Toyota,Prado,2011,150000,2700.0,Petrol,Automatic,Islamabad,13500000.0
 Range-Rover,Vogue,2023,800,3000.0,Hybrid,Automatic,Lahore,200000000.0
@@ -5681,7 +5565,6 @@ Suzuki,Bolan,2018,16000,800.0,Petrol,Manual,Karachi,1400000.0
 Toyota,Hilux,2005,180000,3000.0,Diesel,Automatic,Other,4800000.0
 Honda,City,2002,187046,1500.0,Petrol,Manual,Karachi,990000.0
 Toyota,Prado,2003,82000,3400.0,Petrol,Automatic,Islamabad,9500000.0
-Suzuki,Bolan,2018,14,800.0,Petrol,Manual,Other,1490000.0
 Suzuki,Alto,2019,100000,660.0,Petrol,Manual,Faisalabad,2175000.0
 Suzuki,Alto,2022,10000,660.0,Petrol,Manual,Lahore,2325000.0
 Jeep,Wrangler,2010,50000,3000.0,Diesel,Automatic,Other,6000000.0
@@ -5709,7 +5592,6 @@ Honda,Civic,2012,66000,1800.0,Petrol,Automatic,Faisalabad,3150000.0
 Suzuki,Cultus,2005,342626,1000.0,Petrol,Manual,Rawalpindi,786000.0
 Suzuki,Bolan,2007,786,800.0,Petrol,Manual,Karachi,660000.0
 Toyota,Prius,2013,138000,1800.0,Hybrid,Automatic,Islamabad,4250000.0
-Mazda,Scrum Van,2013,1,660.0,Petrol,Automatic,Rawalpindi,1700000.0
 United,Bravo,2021,73990,800.0,Petrol,Manual,Rawalpindi,1200000.0
 Toyota,Aqua,2021,100000,1500.0,Hybrid,Automatic,Karachi,6000000.0
 Toyota,Corolla,2018,103000,1300.0,Petrol,Automatic,Islamabad,4900000.0
@@ -5782,10 +5664,8 @@ Daihatsu,Cuore,2012,105000,800.0,Petrol,Automatic,Lahore,1480000.0
 Suzuki,Cultus,2021,100000,1000.0,Petrol,Automatic,Lahore,2950000.0
 Suzuki,Cultus,2006,96000,1000.0,Petrol,Manual,Lahore,875000.0
 Mitsubishi,Pajero,1993,260000,3000.0,Petrol,Automatic,Rawalpindi,4200000.0
-Suzuki,Bolan,2012,50000,800.0,Petrol,Manual,Peshawar,110000.0
 Suzuki,Cultus,2018,80000,1000.0,Petrol,Manual,Other,2350000.0
 Suzuki,Mehran,2006,150000,800.0,Petrol,Manual,Lahore,540000.0
-Toyota,Corolla,2007,1,1300.0,Petrol,Manual,Other,2450000.0
 Faw,Sirius,2020,60000,1500.0,Petrol,Manual,Karachi,2450000.0
 Toyota,Prado,2004,270000,3000.0,Diesel,Automatic,Karachi,6200000.0
 Hyundai,Tucson,2023,25000,2000.0,Petrol,Automatic,Lahore,7700000.0
@@ -5881,7 +5761,6 @@ Haval,H6,2025,5,1500.0,Hybrid,Automatic,Multan,12100000.0
 Suzuki,Mehran,2011,130000,800.0,Petrol,Manual,Rawalpindi,980000.0
 Suzuki,Fx,1984,200000,800.0,Petrol,Manual,Rawalpindi,290000.0
 Toyota,Prius,2016,150000,1800.0,Hybrid,Automatic,Peshawar,3800000.0
-Toyota,Corolla,2015,15,1300.0,Petrol,Manual,Other,2750000.0
 Suzuki,Swift,2007,80000,1300.0,Petrol,Manual,Islamabad,2025000.0
 Toyota,Prado,2020,12500,2700.0,Petrol,Automatic,Lahore,31000000.0
 Toyota,Aqua,2014,166481,1500.0,Hybrid,Automatic,Peshawar,4300000.0
@@ -5892,7 +5771,6 @@ Honda,Civic,2010,160000,1800.0,Petrol,Manual,Faisalabad,2500000.0
 Honda,Civic,2010,105000,1800.0,Petrol,Automatic,Karachi,2550000.0
 Toyota,Yaris Sedan,2022,18690,1300.0,Petrol,Automatic,Karachi,4500000.0
 Suzuki,Bolan,2017,50000,800.0,Petrol,Manual,Karachi,1300000.0
-Toyota,Corolla,1993,1,1300.0,Petrol,Manual,Other,1500000.0
 Toyota,Roomy,2021,44000,1000.0,Petrol,Automatic,Karachi,4250000.0
 Daihatsu,Move,2022,82000,660.0,Petrol,Automatic,Lahore,3735000.0
 Toyota,Land Cruiser,2011,177000,4600.0,Petrol,Automatic,Karachi,21800000.0
@@ -5907,20 +5785,16 @@ Toyota,Corolla,2015,125000,1300.0,Petrol,Automatic,Karachi,3525000.0
 Toyota,Hiace,2017,100000,2700.0,Petrol,Automatic,Lahore,8100000.0
 Suzuki,Cultus,2015,65000,1000.0,Petrol,Manual,Islamabad,1390000.0
 Lamborghini,Urus,2020,2800,4000.0,Petrol,Automatic,Lahore,220000000.0
-Toyota,Corolla,2005,17,1300.0,Petrol,Manual,Other,1750000.0
 Suzuki,Mehran,2008,150000,800.0,Petrol,Manual,Peshawar,750000.0
 Daihatsu,Hijet,2014,192828,660.0,Petrol,Automatic,Karachi,1520000.0
-Prince,Pearl,2021,10,800.0,Petrol,Manual,Gujranwala,1500000.0
 Honda,Civic,2013,140000,1800.0,Petrol,Automatic,Karachi,3500000.0
 Toyota,Corolla,2012,153000,1300.0,Petrol,Manual,Islamabad,2730000.0
 Honda,Civic,2016,105562,1500.0,Petrol,Automatic,Other,5300000.0
 Daihatsu,Mira,2022,40957,660.0,Petrol,Automatic,Lahore,3950000.0
 Toyota,Passo,2021,39000,1000.0,Petrol,Automatic,Rawalpindi,4750000.0
 Toyota,Hilux,2012,135000,2500.0,Diesel,Automatic,Islamabad,5400000.0
-Suzuki,Bolan,2017,15,800.0,Petrol,Manual,Other,1230000.0
 Suzuki,Mehran,2011,18816,800.0,Petrol,Manual,Multan,800000.0
 Toyota,Prado,2018,43000,2700.0,Petrol,Automatic,Karachi,27200000.0
-Toyota,Corolla,2012,10,0.0,Electric,Automatic,Other,2750000.0
 Kia,Stonic,2025,5,1400.0,Petrol,Automatic,Multan,5700000.0
 Suzuki,Mehran,2010,100000,800.0,Petrol,Manual,Multan,750000.0
 Faw,V2,2018,46399,1300.0,Petrol,Manual,Karachi,1500000.0
@@ -5934,7 +5808,6 @@ Suzuki,Bolan,2008,153180,800.0,Petrol,Manual,Lahore,725000.0
 Suzuki,Cultus,2021,57000,1000.0,Petrol,Automatic,Karachi,3250000.0
 Toyota,Aqua,2013,128000,1500.0,Hybrid,Automatic,Quetta,3350000.0
 Suzuki,Alto,2025,8000,660.0,Petrol,Manual,Other,2880000.0
-Suzuki,Bolan,2016,15,800.0,Petrol,Manual,Peshawar,1330000.0
 Suzuki,Alto,2021,72000,660.0,Petrol,Automatic,Rawalpindi,2675000.0
 Toyota,Prius,2017,129000,1800.0,Hybrid,Automatic,Islamabad,6975000.0
 Suzuki,Wagon R,2015,66000,1000.0,Petrol,Manual,Rawalpindi,2225000.0
@@ -5997,7 +5870,6 @@ Toyota,Corolla,2018,179476,1300.0,Petrol,Manual,Islamabad,4000000.0
 Toyota,86,2014,22000,2000.0,Petrol,Automatic,Islamabad,15000000.0
 Toyota,Corolla,2006,235000,1300.0,Petrol,Automatic,Lahore,2595000.0
 Nissan,March,1997,1234,1000.0,Petrol,Automatic,Karachi,1100000.0
-Daihatsu,Charade,1986,10,1000.0,Petrol,Manual,Karachi,350000.0
 Suzuki,Bolan,2013,70000,800.0,Petrol,Manual,Other,980000.0
 Suzuki,Alto,2018,51400,660.0,Petrol,Automatic,Karachi,2680000.0
 Toyota,86,1986,54000,1300.0,Petrol,Manual,Multan,1750000.0
@@ -6060,7 +5932,6 @@ Toyota,Corolla,2009,200000,1300.0,Petrol,Manual,Other,2340000.0
 Faw,X Pv,2016,112000,1000.0,Petrol,Manual,Lahore,750000.0
 Honda,Civic,2005,281923,1600.0,Petrol,Manual,Peshawar,1700000.0
 Toyota,Hilux,2013,145000,2500.0,Diesel,Manual,Gujranwala,5500000.0
-Toyota,Land Cruiser,1981,10,2000.0,Petrol,Manual,Other,2100000.0
 Daihatsu,Charade,1989,120000,1000.0,Petrol,Manual,Karachi,190000.0
 Mg,4,2023,1127,0.0,Electric,Automatic,Islamabad,9900000.0
 Suzuki,Baleno,2002,200000,1300.0,Petrol,Manual,Lahore,810000.0
@@ -6073,7 +5944,6 @@ Daihatsu,Rocky,2020,52279,1000.0,Petrol,Automatic,Lahore,5650000.0
 Toyota,Mark Ii,2003,180000,2000.0,Petrol,Automatic,Islamabad,3200000.0
 Toyota,Land Cruiser,2013,100000,4600.0,Petrol,Automatic,Lahore,28000000.0
 Faw,X Pv,2014,160000,1000.0,Petrol,Manual,Faisalabad,670000.0
-Faw,X Pv,2021,1,1000.0,Petrol,Manual,Karachi,1400000.0
 Suzuki,Bolan,2022,38000,800.0,Petrol,Manual,Islamabad,2200000.0
 Daihatsu,Mira,2015,78000,660.0,Petrol,Automatic,Karachi,2450000.0
 Changan,Karvaan,2020,35000,1000.0,Petrol,Manual,Karachi,2300000.0
@@ -6165,7 +6035,6 @@ Lexus,Lx Series,1997,250000,4700.0,Petrol,Automatic,Rawalpindi,5500000.0
 Daihatsu,Cuore,2010,79000,800.0,Petrol,Automatic,Lahore,1450000.0
 Honda,Cr Z,2010,120000,1500.0,Petrol,Manual,Rawalpindi,2525000.0
 Honda,Civic,1998,265000,1600.0,Petrol,Manual,Lahore,1225000.0
-Suzuki,Bolan,2005,1,800.0,Petrol,Manual,Other,980000.0
 Mitsubishi,Pajero,1988,105000,2500.0,Diesel,Manual,Lahore,1495000.0
 Toyota,Yaris Sedan,2021,115000,1300.0,Petrol,Manual,Other,3900000.0
 Changan,Karvaan,2021,90000,1000.0,Petrol,Manual,Other,2200000.0
@@ -6190,7 +6059,6 @@ Toyota,Hilux,2023,16500,2800.0,Diesel,Automatic,Karachi,15600000.0
 Suzuki,Cultus,2005,120000,1000.0,Petrol,Manual,Lahore,760000.0
 Toyota,Corolla,2006,200000,1300.0,Petrol,Manual,Other,1810000.0
 Changan,Karvaan,2021,190000,1000.0,Petrol,Manual,Lahore,2100000.0
-Suzuki,Bolan,1992,1,800.0,Petrol,Manual,Other,450000.0
 Honda,Civic,2002,15000,1600.0,Petrol,Manual,Lahore,1380000.0
 Suzuki,Mehran,1990,100000,800.0,Petrol,Manual,Other,380000.0
 Haval,H6,2024,12600,1500.0,Hybrid,Automatic,Karachi,11800000.0
@@ -6271,7 +6139,6 @@ Ora,07,2025,2,0.0,Electric,Automatic,Faisalabad,17500000.0
 Toyota,Hilux,2020,56000,2800.0,Diesel,Automatic,Lahore,11400000.0
 Toyota,86,1986,200000,1300.0,Petrol,Manual,Peshawar,630000.0
 Hyundai,Excel,1992,240000,1500.0,Petrol,Manual,Lahore,225000.0
-Toyota,Hilux,2005,5,2500.0,Diesel,Manual,Other,5500000.0
 Suzuki,Mehran,2007,40250,800.0,Petrol,Manual,Other,880000.0
 Honda,City,2018,90000,1300.0,Petrol,Automatic,Islamabad,3750000.0
 Suzuki,Alto,2023,6200,660.0,Petrol,Automatic,Islamabad,3675000.0
@@ -6311,7 +6178,6 @@ Haval,H6,2024,35000,1500.0,Hybrid,Automatic,Sialkot,11900000.0
 Toyota,Fortuner,2015,125000,2700.0,Petrol,Automatic,Karachi,8500000.0
 Daihatsu,Charade,1984,100000,1000.0,CNG,Manual,Karachi,280000.0
 Dongfeng,Box,2018,22000,3000.0,Diesel,Manual,Karachi,3500000.0
-Daihatsu,Charade,1987,1,1300.0,Petrol,Automatic,Islamabad,550000.0
 Nissan,Sakura,2023,3800,0.0,Electric,Automatic,Lahore,4750000.0
 Suzuki,Mehran,1992,100000,800.0,Petrol,Manual,Multan,450000.0
 Mazda,Scrum Van,2011,100000,660.0,Petrol,Automatic,Karachi,1850000.0
@@ -6325,7 +6191,6 @@ Honda,Stream,2007,145000,1800.0,Petrol,Automatic,Karachi,3000000.0
 Toyota,Raize,2020,36000,1000.0,Petrol,Automatic,Karachi,6165000.0
 Suzuki,Mehran,2012,100000,800.0,Petrol,Manual,Other,900000.0
 Toyota,Surf,1995,100000,2700.0,Diesel,Manual,Other,2400000.0
-Suzuki,Mehran,2018,40,796.0,Petrol,Manual,Hyderabad,1250000.0
 Mazda,Scrum Van,2019,120000,660.0,Petrol,Automatic,Gujranwala,2565000.0
 Daihatsu,Cuore,2008,136000,800.0,Petrol,Automatic,Karachi,950000.0
 Suzuki,Alto,2020,73437,660.0,Petrol,Automatic,Faisalabad,2600000.0
@@ -6350,7 +6215,6 @@ Toyota,Hilux,2022,34800,2800.0,Diesel,Automatic,Lahore,13900000.0
 Audi,E Tron,2020,55000,0.0,Electric,Automatic,Islamabad,24000000.0
 Honda,Civic,2006,156750,1800.0,Petrol,Automatic,Lahore,2250000.0
 Suzuki,Cultus,2005,100000,1000.0,Petrol,Manual,Lahore,725000.0
-Suzuki,Bolan,2017,60,800.0,Petrol,Manual,Karachi,1250000.0
 Toyota,Corolla,2003,180000,2000.0,Diesel,Manual,Peshawar,2375000.0
 Suzuki,Alto,2008,138000,1000.0,Petrol,Manual,Karachi,790000.0
 Honda,Fit,2014,180000,1300.0,Hybrid,Automatic,Quetta,3050000.0
@@ -6417,7 +6281,6 @@ Toyota,Mark X,2011,110000,3500.0,Petrol,Automatic,Islamabad,10000000.0
 Kia,Sorento,2024,9162,2400.0,Petrol,Automatic,Lahore,9000000.0
 Suzuki,Cultus,2004,90000,1000.0,Petrol,Manual,Other,840000.0
 Suzuki,Bolan,2018,53000,800.0,Petrol,Manual,Other,1720000.0
-Toyota,Hiace,1984,1,2400.0,Petrol,Manual,Other,1350000.0
 Suzuki,Cultus,2008,12345,1000.0,Petrol,Manual,Islamabad,1190000.0
 Chery,Tiggo 8 Pro,2023,31511,1600.0,Petrol,Automatic,Karachi,8200000.0
 Kia,Sorento,2022,33000,2400.0,Petrol,Automatic,Islamabad,8200000.0
@@ -6489,7 +6352,6 @@ Daihatsu,Cuore,2008,12300,800.0,Petrol,Manual,Faisalabad,790000.0
 Suzuki,Bolan,2015,100000,660.0,Petrol,Manual,Lahore,1050000.0
 Suzuki,Alto,2025,3800,660.0,Petrol,Manual,Hyderabad,2900000.0
 Toyota,Vitz,2019,113900,996.0,Petrol,Automatic,Islamabad,3920000.0
-Suzuki,Mehran,2019,18,796.0,Petrol,Manual,Other,1450000.0
 Toyota,Passo,2021,168926,1000.0,Petrol,Automatic,Islamabad,4150000.0
 Suzuki,Alto,2022,21880,660.0,Petrol,Manual,Lahore,2550000.0
 Suzuki,Cultus,2006,956,1000.0,Petrol,Manual,Karachi,650000.0
@@ -6500,7 +6362,6 @@ Suzuki,Potohar,1995,15826,1000.0,Petrol,Manual,Other,1050000.0
 Toyota,Prado,1996,100000,3000.0,Diesel,Automatic,Other,5200000.0
 Dfsk,Glory 580,2021,30000,1500.0,Petrol,Automatic,Lahore,5425000.0
 Suzuki,Mehran,2008,75000,800.0,Petrol,Manual,Rawalpindi,680000.0
-Toyota,Corolla,2015,2,1300.0,Petrol,Automatic,Other,3450000.0
 Toyota,Hilux,2019,63000,2800.0,Diesel,Automatic,Lahore,10900000.0
 Daihatsu,Charade,1984,85000,1000.0,Petrol,Manual,Karachi,305000.0
 Toyota,Hilux,2022,29500,2800.0,Diesel,Automatic,Sialkot,13000000.0
@@ -6549,7 +6410,6 @@ Toyota,Hilux,2016,59000,2500.0,Diesel,Automatic,Hyderabad,7500000.0
 Honda,N Wgn,2017,24000,660.0,Petrol,Automatic,Sialkot,3000000.0
 Toyota,Corolla,2004,170000,2000.0,Diesel,Manual,Islamabad,1875000.0
 Daihatsu,Mira,2023,3115,660.0,Petrol,Automatic,Hyderabad,4000000.0
-Toyota,Corolla,2011,2,1300.0,Petrol,Manual,Peshawar,2630000.0
 Mazda,Rx8,2007,53000,4300.0,Petrol,Automatic,Lahore,3995000.0
 Suzuki,Alto,2021,34000,660.0,Petrol,Manual,Karachi,2410000.0
 Suzuki,Wagon R,2018,180000,1000.0,Petrol,Manual,Islamabad,2050000.0
@@ -6731,7 +6591,6 @@ Lexus,Rx Series,2010,125000,3500.0,Petrol,Automatic,Lahore,8300000.0
 Toyota,Corolla Axio,2018,137124,1500.0,Hybrid,Automatic,Karachi,5300000.0
 Suzuki,Wagon R,2018,92000,660.0,Hybrid,Automatic,Karachi,3000000.0
 Nissan,Leaf,2021,17500,0.0,Electric,Automatic,Gujranwala,8850000.0
-Toyota,Corona,1998,1,1500.0,Petrol,Manual,Karachi,1480000.0
 Faw,X Pv,2019,83000,1000.0,Petrol,Manual,Other,1500000.0
 Honda,Cr Z,2010,160000,1500.0,Petrol,Automatic,Lahore,2900000.0
 Daihatsu,Mira,2021,36000,660.0,Petrol,Automatic,Karachi,3850000.0
@@ -6836,7 +6695,6 @@ Nissan,Skyline,2003,92000,3500.0,Petrol,Automatic,Rawalpindi,11000000.0
 Toyota,Hiace,2020,60000,2800.0,Diesel,Manual,Karachi,14250000.0
 Honda,Civic,2019,60000,1800.0,Petrol,Automatic,Other,7350000.0
 Toyota,Corolla Touring,2021,33372,1800.0,Hybrid,Automatic,Karachi,9900000.0
-Suzuki,Bolan,2021,1,800.0,Petrol,Manual,Faisalabad,1680000.0
 Toyota,Platz,2000,105000,1000.0,Petrol,Automatic,Islamabad,1600000.0
 Toyota,Corolla,1981,85000,1300.0,Petrol,Manual,Lahore,850000.0
 Suzuki,Cultus,2006,22000,1000.0,Petrol,Manual,Lahore,785000.0
@@ -6848,7 +6706,6 @@ Hyundai,Santro,2005,84000,1100.0,Petrol,Manual,Faisalabad,1200000.0
 Suzuki,Alto,2004,248338,1000.0,Petrol,Manual,Karachi,750000.0
 Suzuki,Wagon R,2013,87000,660.0,Petrol,Automatic,Lahore,2650000.0
 Toyota,Prado,1997,159000,3000.0,Diesel,Automatic,Other,5350000.0
-Suzuki,Mehran,2015,1,796.0,Petrol,Manual,Islamabad,1220000.0
 Toyota,Surf,1993,171000,3000.0,Diesel,Automatic,Faisalabad,2600000.0
 Suzuki,Bolan,2022,80000,800.0,Petrol,Manual,Other,1790000.0
 Suzuki,Bolan,2016,67000,800.0,Petrol,Manual,Rawalpindi,1460000.0
@@ -6905,7 +6762,6 @@ Suzuki,Cultus,2001,90000,1000.0,Petrol,Manual,Karachi,700000.0
 Daihatsu,Charade,1985,100000,1000.0,Petrol,Manual,Karachi,240000.0
 Daihatsu,Cuore,2005,85855,800.0,Petrol,Automatic,Other,1200000.0
 Daihatsu,Copen,2023,23000,660.0,Petrol,Manual,Lahore,4000000.0
-Honda,Civic,1995,99,1500.0,Petrol,Manual,Karachi,785000.0
 Daihatsu,Taft,2022,38000,660.0,Petrol,Automatic,Islamabad,3650000.0
 Toyota,Land Cruiser,2019,36700,4600.0,Petrol,Automatic,Lahore,47500000.0
 Faw,X Pv,2020,19500,1000.0,Petrol,Manual,Islamabad,1480000.0
@@ -6944,7 +6800,6 @@ Suzuki,Cultus,2006,24000,1000.0,Petrol,Manual,Lahore,765000.0
 Suzuki,Baleno,2005,193000,1300.0,Petrol,Manual,Islamabad,1285000.0
 Toyota,Yaris Hatchback,2020,88000,1000.0,Petrol,Automatic,Peshawar,4500000.0
 Suzuki,Alto,2021,58000,660.0,Petrol,Automatic,Lahore,2760000.0
-Suzuki,Bolan,2017,15,800.0,Petrol,Manual,Other,1250000.0
 Toyota,Prado,1996,247555,3000.0,Diesel,Automatic,Other,6500000.0
 Toyota,Yaris Hatchback,2020,40000,996.0,Petrol,Automatic,Lahore,4850000.0
 Toyota,Aqua,2018,69850,1500.0,Hybrid,Automatic,Karachi,4850000.0

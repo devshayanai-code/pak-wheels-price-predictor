@@ -16,19 +16,18 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import HistGradientBoostingRegressor
-from sklearn.model_selection import train_test_split
 
 from src.config import (
     CATEGORICAL_FEATURES,
+    LOW_DATA_LISTINGS,
     METRICS_PATH,
     MODEL_PATH,
     NUMERIC_FEATURES,
     PROCESSED_DATA_PATH,
-    RANDOM_STATE,
     ROOT_DIR,
     TARGET,
-    TEST_SIZE,
 )
+from src.train import split_data
 
 DOCS_DIR = ROOT_DIR / "docs"
 
@@ -82,6 +81,7 @@ def export_options(df: pd.DataFrame) -> dict:
         "year_range": [int(df["year"].min()), int(df["year"].max())],
         "n_listings": len(df),
         "n_cities": int(df.loc[df["city"] != "Other", "city"].nunique()),
+        "low_data_listings": LOW_DATA_LISTINGS,
     }
 
 
@@ -106,8 +106,7 @@ def main() -> None:
     metrics = json.loads(METRICS_PATH.read_text())
 
     df = pd.read_csv(PROCESSED_DATA_PATH)
-    X = df[CATEGORICAL_FEATURES + NUMERIC_FEATURES]
-    X_train, X_test = train_test_split(X, test_size=TEST_SIZE, random_state=RANDOM_STATE)
+    X_train, X_test, *_ = split_data(df[CATEGORICAL_FEATURES + NUMERIC_FEATURES], df[TARGET])
     metrics["test"]["n_train"], metrics["test"]["n_test"] = len(X_train), len(X_test)
 
     DOCS_DIR.mkdir(exist_ok=True)

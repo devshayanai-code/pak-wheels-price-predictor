@@ -1,34 +1,40 @@
 {
   "best_model": "gradient_boosting",
-  "cv_winner": "random_forest",
+  "cv_winner": "gradient_boosting",
   "test": {
-    "test_mape_%": 15.34,
-    "test_mae_pkr": 868389,
-    "test_r2": 0.705
+    "test_mape_%": 13.75,
+    "test_mae_pkr": 677717,
+    "test_r2": 0.958
+  },
+  "previous_settings_test": {
+    "test_mape_%": 14.78,
+    "test_mae_pkr": 817884,
+    "test_r2": 0.928
   },
   "price_interval": {
     "coverage_%": 80,
-    "low_ratio": 0.8191,
-    "high_ratio": 1.2373
+    "low_ratio": 0.8212,
+    "high_ratio": 1.2106,
+    "test_coverage_%": 80.8
   },
   "leaderboard": [
     {
-      "model": "random_forest",
-      "cv_mape_%": 15.9522,
-      "cv_mae_pkr": 914793.4678,
-      "cv_r2": 0.8449
+      "model": "gradient_boosting",
+      "cv_mape_%": 13.7281,
+      "cv_mae_pkr": 832407.4096,
+      "cv_r2": 0.8459
     },
     {
-      "model": "gradient_boosting",
-      "cv_mape_%": 16.1854,
-      "cv_mae_pkr": 934644.2287,
-      "cv_r2": 0.8587
+      "model": "random_forest",
+      "cv_mape_%": 15.0377,
+      "cv_mae_pkr": 917556.9649,
+      "cv_r2": 0.8324
     },
     {
       "model": "ridge_regression",
-      "cv_mape_%": 17.8493,
-      "cv_mae_pkr": 1100159.872,
-      "cv_r2": 0.7919
+      "cv_mape_%": 16.7575,
+      "cv_mae_pkr": 1106716.6161,
+      "cv_r2": 0.7751
     }
   ]
 }

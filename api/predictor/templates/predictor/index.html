@@ -444,6 +444,7 @@ function renderResult(data, car, asking) {
     ${gaugeHtml(data.predicted_price, data.price_range, asking)}
     ${verdictHtml(asking, data.price_range)}
     ${similarHtml(data.similar_listings)}
+    ${data.low_data ? `<p class="verdict high">Less reliable: the model learned from only ${data.model_listings} listing${data.model_listings === 1 ? "" : "s"} of this car, so treat this estimate with care.</p>` : ""}
     <p class="note">This is a machine learning estimate. On cars it never saw, ${data.range_coverage_percent / 10} in 10 sold inside the likely range shown, and the estimate was off by ±${data.average_error_percent}% on average.</p>
     <button class="cta again" type="button" id="again">Estimate another car</button>`);
   $("again").addEventListener("click", () => {

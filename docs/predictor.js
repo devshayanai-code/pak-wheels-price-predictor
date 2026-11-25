@@ -57,14 +57,17 @@
       .map(({ l }) => ({ year: l[2], mileage: l[3], city: l[4], price: l[5] }));
   }
 
-  function predictPrice(model, listings, car) {
+  function predictPrice(model, listings, car, lowDataListings = 30) {
     const price = predictRaw(model, car);
+    const count = listings.filter(([make, m]) => make === car.make && m === car.model).length;
     const interval = model.price_interval;  // 80% of unseen cars sold inside this range
     return {
       predicted_price: roundPrice(price),
       price_range: { low: roundPrice(price * interval.low_ratio), high: roundPrice(price * interval.high_ratio) },
       range_coverage_percent: interval["coverage_%"],
       average_error_percent: Math.round(model.metrics["test_mape_%"] * 10) / 10,
+      model_listings: count,
+      low_data: count < lowDataListings,  // few examples: estimate is less reliable
       similar_listings: similarListings(listings, car),
     };
   }

@@ -15,6 +15,16 @@ MIN_YEAR = 1980  # vintage cars are priced as collectibles, not by usual rules
 MAX_MILEAGE = 500_000  # values like 999,999 km are placeholders, not real readings
 MAX_ENGINE_CC = 7_000  # larger values (e.g. 15,000 cc) are typing mistakes
 
+# Price typos: compared with the median of the same make, model and year (only
+# when at least MIN_GROUP_FOR_TYPOS such cars exist). A missing zero gives about
+# 0.1x the usual price, so anything below 0.2x or above 5x is treated as a typo.
+MIN_GROUP_FOR_TYPOS = 5
+TYPO_LOW_RATIO, TYPO_HIGH_RATIO = 0.2, 5.0
+
+# Fake mileage: sellers type "1" or "10" km on cars that are years old
+MIN_REAL_MILEAGE = 100  # km
+FAKE_MILEAGE_MIN_AGE = 3  # years older than the newest car in the data
+
 # Car makes whose name is two words in the URL (e.g. "mercedes-benz-c-class")
 MULTI_WORD_MAKES = ("mercedes-benz", "land-rover", "range-rover")
 
@@ -115,6 +125,22 @@ def drop_reposts(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop_duplicates().reset_index(drop=True)
 
 
+def remove_price_typos(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop prices far from what the same make, model and year usually sell for."""
+    group = df.groupby(["make", "model", "year"])[TARGET]
+    ratio = df[TARGET] / group.transform("median")
+    checkable = group.transform("size") >= MIN_GROUP_FOR_TYPOS
+    typo = checkable & ((ratio < TYPO_LOW_RATIO) | (ratio > TYPO_HIGH_RATIO))
+    return df[~typo].reset_index(drop=True)
+
+
+def remove_fake_mileage(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop cars several years old that claim almost no kilometres (e.g. "1 km")."""
+    old = df["year"] <= df["year"].max() - FAKE_MILEAGE_MIN_AGE
+    fake = old & (df["mileage"] < MIN_REAL_MILEAGE)
+    return df[~fake].reset_index(drop=True)
+
+
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Run every cleaning step in order (the order matters: duplicates go first)."""
     return (
@@ -127,6 +153,8 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         .pipe(group_rare_cities)
         .pipe(select_columns)
         .pipe(drop_reposts)
+        .pipe(remove_price_typos)
+        .pipe(remove_fake_mileage)
     )
 
 

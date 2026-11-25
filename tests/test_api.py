@@ -67,3 +67,14 @@ def test_predict_accepts_zero_engine_for_electric_car():
     car = {**CIVIC, "make": "Tesla", "model": "Model 3", "year": 2021,
            "engine_cc": 0, "fuel": "Electric"}
     assert client.post("/api/predict/", car, format="json").status_code == 200
+
+
+def test_common_car_is_not_flagged_as_low_data():
+    body = client.post("/api/predict/", CIVIC, format="json").json()
+    assert body["model_listings"] >= 30 and body["low_data"] is False
+
+
+def test_rare_car_gets_less_reliable_warning():
+    levin = {**CIVIC, "make": "Toyota", "model": "Levin", "engine_cc": 1600}
+    body = client.post("/api/predict/", levin, format="json").json()
+    assert body["low_data"] is True and body["model_listings"] < 30

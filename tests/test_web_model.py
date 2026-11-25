@@ -48,3 +48,16 @@ def test_likely_range_surrounds_the_estimate():
     interval = json.loads(METRICS_PATH.read_text())["price_interval"]
     assert interval["coverage_%"] == 80
     assert interval["low_ratio"] < 1 < interval["high_ratio"]
+    # Measured on training cars, then checked on untouched test cars
+    assert 70 <= interval["test_coverage_%"] <= 90
+
+
+def test_reposts_never_cross_the_train_test_split():
+    import pandas as pd
+
+    from src.config import CATEGORICAL_FEATURES, NUMERIC_FEATURES, PROCESSED_DATA_PATH, TARGET
+    from src.train import car_groups, split_data
+
+    df = pd.read_csv(PROCESSED_DATA_PATH)
+    X_train, X_test, *_ = split_data(df[CATEGORICAL_FEATURES + NUMERIC_FEATURES], df[TARGET])
+    assert not set(car_groups(X_train)) & set(car_groups(X_test))

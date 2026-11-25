@@ -17,7 +17,7 @@
 
 ## Overview
 
-AI Car Price Prediction estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model built from 7,005 cleaned PakWheels.com used-car listings (5,604 to train, 1,401 held back to test) returns a price estimate with the context needed to judge a deal.
+AI Car Price Prediction estimates the fair market value of a used car in Pakistan. Enter the make, model, year, mileage, engine, fuel, transmission and city, and a machine learning model built from 6,860 cleaned PakWheels.com used-car listings (5,487 to train, 1,373 held back to test) returns a price estimate with the context needed to judge a deal.
 
 ## Problem statement
 
@@ -30,6 +30,7 @@ Used-car prices in Pakistan vary widely for the same make and model, and buyers 
 - **Deal verdict** (good deal, fair price, or overpriced) if you enter the seller's asking price.
 - **Real listings of the same car** to compare against.
 - **One-click examples** for an SUV, a sedan, a hatchback and a sports car.
+- **"Less reliable" warning** when the model saw fewer than 30 listings of that car model.
 - **Input validation:** the model must belong to the make, and engine size is required for non-electric cars.
 - **Two ways to use it:** a static website that runs the model in the browser, and a Django REST API.
 
@@ -37,24 +38,28 @@ Used-car prices in Pakistan vary widely for the same make and model, and buyers 
 
 ## Results
 
-Three regression models were compared with 5-fold cross-validation on the training set. The deployed model was then scored once on a held-out test set of cars it never saw.
+Three regression models were compared with 5-fold cross-validation on the training set. The deployed model was then scored once on a held-out test set of cars it never saw. Reposts of the same car (identical details, different price) are always kept on one side of every split, so no car is tested after being learned.
 
 | Model | CV average % error | CV average error (PKR) | CV R² |
 | --- | --- | --- | --- |
-| Random Forest | **15.95%** | 914,793 | 0.845 |
-| **Gradient Boosting** (deployed) | 16.19% | 934,644 | 0.859 |
-| Ridge regression (baseline) | 17.85% | 1,100,280 | 0.792 |
+| **Gradient Boosting** (deployed) | **13.73%** | 832,407 | 0.846 |
+| Random Forest | 15.04% | 917,557 | 0.832 |
+| Ridge regression (baseline) | 16.76% | 1,106,717 | 0.775 |
 
-**Why Gradient Boosting is deployed:** Random Forest was 0.2 points more accurate in cross-validation, but its 200 deep trees are too large to run in a web browser. Gradient Boosting is close in accuracy and small enough (about 1 MB), so the website and the API share one model and always give the same price (`DEPLOY_MODEL` in `src/config.py`).
+**Held-out test set:** 13.75% average error (MAPE), PKR 677,717 mean absolute error, R² 0.958.
 
-**Held-out test set:** 15.3% average error (MAPE), PKR 868,389 mean absolute error, R² 0.705. R² is lower on the test set because of one car: a PKR 20 crore Range Rover Vogue accounts for 86% of the squared error, and R² is 0.939 without it. That sensitivity to a single expensive car is why average percentage error is the headline metric.
+**Likely range, checked on unseen cars:** the range multipliers (0.82× to 1.21× the estimate) are measured on the training cars, each predicted by a model that had not seen it. On the untouched test cars the range contained the real price **80.8%** of the time, matching the 80% target.
+
+**What improved it:** removing 9 price typos (prices about 10 times too low, such as a 2019 Wagon R at PKR 2.44 lakh) and 136 fake mileages (under 100 km on cars 3+ years old), plus smaller tree leaves (`min_samples_leaf=5`, chosen on training folds only) so the model can learn rarer cars. The previous settings score 14.78% on the same test cars.
+
+**Why Gradient Boosting:** it has the lowest error, and it is small enough (about 1.3 MB) to run in a web browser, so the website and the API share one model and always give the same price (`DEPLOY_MODEL` in `src/config.py`).
 
 ## How it works
 
 ```mermaid
 flowchart LR
     A[19,174 scraped listings] --> B[Cleaning<br/>duplicates, text to numbers,<br/>outlier rules]
-    B --> C[7,005 clean cars]
+    B --> C[6,860 clean cars]
     C --> D[Features<br/>make and model from URL,<br/>one-hot encoding, scaling]
     D --> E[Compare 3 models<br/>5-fold cross-validation]
     E --> F[Gradient Boosting<br/>predicts log price]
@@ -63,10 +68,10 @@ flowchart LR
     I --> J[Website on GitHub Pages<br/>predicts in JavaScript]
 ```
 
-1. **Cleaning** (`src/data_cleaning.py`): one row per listing (the raw data repeated each car under several categories), prices like `PKR 3,650,000` and mileages like `138,000 km` converted to numbers, make and model extracted from each listing's URL, rare cities grouped as "Other", and typos or impossible values removed with documented rules (price under PKR 1 lakh, mileage over 500,000 km, engines over 7,000 cc, cars older than 1980).
+1. **Cleaning** (`src/data_cleaning.py`): one row per listing (the raw data repeated each car under several categories), prices like `PKR 3,650,000` and mileages like `138,000 km` converted to numbers, make and model extracted from each listing's URL, rare cities grouped as "Other", and typos or impossible values removed with documented rules (price under PKR 1 lakh, mileage over 500,000 km, engines over 7,000 cc, cars older than 1980, prices under 0.2× or over 5× the median for the same make, model and year, and under 100 km on cars 3+ years old).
 2. **Exploration** (`src/eda.py`): price is heavily right-skewed, so the model learns `log(price)` and answers in rupees. Year (+0.55), engine size (+0.45) and mileage (−0.26) correlate with log price as expected. Charts are in `reports/figures/`.
-3. **Training** (`src/train.py`): one scikit-learn pipeline holds the preprocessing and the model, so the API can never skip a step. Unseen car models at prediction time are handled instead of crashing. The likely price range is measured, not assumed: on the test cars, 80% sold between 0.82 and 1.24 times the estimate, so every new estimate gets that range.
-4. **Browser model** (`src/export_web.py`, `docs/predictor.js`): the same saved model is exported to `docs/model.json`, and JavaScript repeats its steps (one-hot encoding, scaling, adding up 500 trees, undoing the log). A test checks it gives exactly the same prices as Python.
+3. **Training** (`src/train.py`): one scikit-learn pipeline holds the preprocessing and the model, so the API can never skip a step. Unseen car models at prediction time are handled instead of crashing. The likely price range is measured, not assumed: cross-validation predictions on the training cars show 80% sold between 0.82 and 1.21 times the estimate, and the test cars confirm it (80.8%).
+4. **Browser model** (`src/export_web.py`, `docs/predictor.js`): the same saved model is exported to `docs/model.json`, and JavaScript repeats its steps (one-hot encoding, scaling, adding up 700 trees, undoing the log). A test checks it gives exactly the same prices as Python.
 5. **Serving** (`api/`): Django REST Framework validates every input (case-insensitive makes, the model must belong to the make, engine size required for non-electric cars), loads the model once, and returns the estimate with its range and comparable listings.
 
 ## Technologies used
@@ -84,7 +89,7 @@ flowchart LR
 | --- | --- | --- |
 | `/api/health/` | GET | Service status and model name |
 | `/api/options/` | GET | Valid makes with their models, fuels, transmissions, cities, year range |
-| `/api/predict/` | POST | Estimate, 80% likely range, average error, similar listings |
+| `/api/predict/` | POST | Estimate, 80% likely range, average error, low-data warning, similar listings |
 
 ```bash
 curl -X POST http://127.0.0.1:8000/api/predict/ \
@@ -94,10 +99,12 @@ curl -X POST http://127.0.0.1:8000/api/predict/ \
 
 ```json
 {
-  "predicted_price": 3640000,
-  "price_range": {"low": 2980000, "high": 4500000},
+  "predicted_price": 3450000,
+  "price_range": {"low": 2830000, "high": 4170000},
   "range_coverage_percent": 80,
-  "average_error_percent": 15.3,
+  "average_error_percent": 13.8,
+  "model_listings": 459,
+  "low_data": false,
   "similar_listings": [
     {"year": 2016, "mileage": 95000, "city": "Karachi", "price": 3050000},
     {"year": 2016, "mileage": 104000, "city": "Islamabad", "price": 4125000},
@@ -140,7 +147,7 @@ Then open http://127.0.0.1:8000/.
 
 ## Deployment
 
-**Live site:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ (GitHub Pages, free). GitHub Pages only serves files, so after training, `python -m src.export_web` writes the saved model to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 500 trees, then undoing the log. Tests check that it gives exactly the same prices as Python and that the website and API use the same model. After retraining, run the export again and push.
+**Live site:** https://devshayanai-code.github.io/pak-wheels-price-predictor/ (GitHub Pages, free). GitHub Pages only serves files, so after training, `python -m src.export_web` writes the saved model to `docs/model.json` with the dropdown options and listings. `docs/predictor.js` repeats the pipeline's maths in JavaScript: one-hot encoding, scaling, walking all 700 trees, then undoing the log. Tests check that it gives exactly the same prices as Python and that the website and API use the same model. After retraining, run the export again and push.
 
 **API (optional):** `render.yaml` deploys the Django REST API to Render: it installs the requirements, cleans the data and trains the model during the build, then serves it with gunicorn. GitHub Actions runs the build, the export and all tests on every push.
 
@@ -149,6 +156,7 @@ Then open http://127.0.0.1:8000/.
 - Prices are asking prices from listings, not final sale prices.
 - The data is a snapshot; prices drift with inflation and the rupee, so the model needs retraining on fresh data to stay current.
 - Condition, colour, accident history and trim level are not in the data, which explains part of the error.
+- 303 of the 350 car models have fewer than 30 listings; their estimates carry a "less reliable" warning.
 
 ## Data and credits
 

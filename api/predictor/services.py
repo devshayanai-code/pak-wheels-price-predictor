@@ -10,6 +10,7 @@ import pandas as pd
 
 from src.config import (
     CATEGORICAL_FEATURES,
+    LOW_DATA_LISTINGS,
     METRICS_PATH,
     MODEL_PATH,
     NUMERIC_FEATURES,
@@ -61,6 +62,13 @@ def get_options() -> dict:
     }
 
 
+def reliability(car: dict) -> dict:
+    """How many listings of this make and model the model learned from."""
+    df = get_listings()
+    count = int(((df["make"] == car["make"]) & (df["model"] == car["model"])).sum())
+    return {"model_listings": count, "low_data": count < LOW_DATA_LISTINGS}
+
+
 def find_similar_listings(car: dict, limit: int = MAX_SIMILAR_LISTINGS) -> list[dict]:
     """Real listings of the same make and model that are closest in year and mileage."""
     df = get_listings()
@@ -98,5 +106,6 @@ def predict_price(car: dict) -> dict:
         },
         "range_coverage_percent": interval["coverage_%"],
         "average_error_percent": round(metrics["test"]["test_mape_%"], 1),
+        **reliability(car),
         "similar_listings": find_similar_listings(car),
     }

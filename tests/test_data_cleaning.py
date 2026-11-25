@@ -8,6 +8,8 @@ from src.data_cleaning import (
     clean_price,
     group_rare_cities,
     remove_duplicates,
+    remove_fake_mileage,
+    remove_price_typos,
 )
 
 
@@ -43,3 +45,22 @@ def test_group_rare_cities_replaces_small_cities():
     df = pd.DataFrame({"city": ["Lahore"] * 3 + ["Kohat"]})
     result = group_rare_cities(df, min_count=2)
     assert result["city"].tolist() == ["Lahore"] * 3 + ["Other"]
+
+
+def test_remove_price_typos_drops_a_missing_zero():
+    prices = [2_450_000, 2_400_000, 2_500_000, 2_380_000, 2_520_000, 244_000]
+    df = pd.DataFrame({"make": "Suzuki", "model": "Wagon R", "year": 2019, "price": prices})
+    assert remove_price_typos(df)["price"].min() == 2_380_000
+
+
+def test_remove_price_typos_keeps_rare_cars():
+    # Too few cars to judge what is normal, so nothing is dropped
+    df = pd.DataFrame({"make": "Toyota", "model": "Supra", "year": 2020,
+                       "price": [30_000_000, 2_000_000]})
+    assert len(remove_price_typos(df)) == 2
+
+
+def test_remove_fake_mileage_only_on_older_cars():
+    df = pd.DataFrame({"year": [2015, 2023, 2015], "mileage": [1, 5, 80_000]})
+    result = remove_fake_mileage(df)
+    assert result["mileage"].tolist() == [5, 80_000]  # a new car can have 5 km
